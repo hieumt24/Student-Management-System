@@ -11,6 +11,10 @@ namespace StudentManagementSystem.Domain.Entities
 
         public int MaxStudent { get; set; }
 
+        public Guid SemesterId { get; set; }
+
+        public Semester Semester { get; set; }
+
         public ICollection<Enrollment>? Enrollments { get; set; }
     }
 }

@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using StudentManagementSystem.Infrastructure.DbContexts;
+using StudentManagementSystem.Infrastructure.DataAccess;
 
 var builder = WebApplication.CreateBuilder(args);
 
