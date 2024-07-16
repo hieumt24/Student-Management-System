@@ -9,6 +9,8 @@ namespace StudentManagementSystem.Domain.Entities
 
         public int Grade { get; set; }
 
+        public bool? IsPassed { get; set; }
+
         public User Student { get; set; }
         public Course Course { get; set; }
     }

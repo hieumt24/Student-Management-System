@@ -1,11 +1,11 @@
 ﻿using StudentManagementSystem.Domain.Common;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
 using StudentManagementSystem.Domain.Enums;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace StudentManagementSystem.Domain.Entities
+namespace StudentManagementSystem.Application.DTOs.Users.Responses
 {
-    public class User : BaseEntity
+    public class UserDto : BaseEntity
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -31,10 +31,5 @@ namespace StudentManagementSystem.Domain.Entities
         public RoleType Role { get; set; }
 
         public LocationType Location { get; set; }
-
-        public ICollection<StudentSemester>? StudentSemesters { get; set; }
-        public Token? Token { get; set; }
-
-        public ICollection<Enrollment>? Enrollments { get; set; }
     }
 }
