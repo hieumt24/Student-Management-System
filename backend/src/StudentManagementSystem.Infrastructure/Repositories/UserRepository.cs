@@ -14,6 +14,16 @@ namespace StudentManagementSystem.Infrastructure.Repositories
         {
         }
 
+        public Task<bool> CheckStudentCodeExsits(string studentCode)
+        {
+            var student = _dbContext.Users.FirstOrDefaultAsync(x => x.StudentCode == studentCode);
+            if (student is null)
+            {
+                return Task.FromResult(true);
+            }
+            return Task.FromResult(false);
+        }
+
         public async Task<string> GenerateUniqueUserName(string baseUserName)
         {
             var matchingUserNames = await _dbContext.Users

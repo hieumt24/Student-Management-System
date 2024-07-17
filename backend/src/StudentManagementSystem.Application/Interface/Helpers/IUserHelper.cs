@@ -6,6 +6,8 @@
 
         Task<string> GenerateUserEmail(string userName, string studentCode);
 
-        Task<string> GenerateDefaultPassword(string userName, DateTime dateOfBirth);
+        string GenerateDefaultPassword(string userName, DateTime dateOfBirth);
+
+        Task<string> GenerateStudentCode();
     }
 }

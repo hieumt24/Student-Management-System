@@ -25,11 +25,6 @@ namespace StudentManagementSystem.Infrastructure.DataAccess
         {
             base.OnModelCreating(modelBuilder);
 
-            //Config StudentCode
-            modelBuilder.Entity<User>()
-              .Property(s => s.StudentCode)
-              .HasComputedColumnSql("CONCAT('HE', RIGHT('000000' + CAST(StudentCodeId AS VARCHAR(6)), 6)) PERSISTED");
-
             modelBuilder.Entity<User>()
                 .HasIndex(u => u.UserName)
                 .IsUnique();

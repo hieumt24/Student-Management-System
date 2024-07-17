@@ -16,13 +16,7 @@ namespace StudentManagementSystem.Application.DTOs.Users.Responses
 
         public DateTime? JoinedDate { get; set; }
 
-        [Required]
-        [RegularExpression(@"^HE\d{6}$", ErrorMessage = "StudentCode must be in the format HExxxxxx where xxxx are digits.")]
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public string StudentCode { get; set; }
-
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int StudentCodeId { get; set; }
+        public string? StudentCode { get; set; }
 
         public string UserName { get; set; } = string.Empty;
 
