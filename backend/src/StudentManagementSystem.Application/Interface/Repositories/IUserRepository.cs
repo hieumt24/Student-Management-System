@@ -11,5 +11,7 @@ namespace StudentManagementSystem.Application.Interface.Repositories
         Task<string> GenerateUniqueUserName(string baseUserName);
 
         Task<bool> CheckStudentCodeExsits(string studentCode);
+
+        Task<User> FindByUserNameAndEmail(string userName, string email);
     }
 }

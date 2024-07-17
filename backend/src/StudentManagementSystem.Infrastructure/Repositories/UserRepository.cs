@@ -24,6 +24,16 @@ namespace StudentManagementSystem.Infrastructure.Repositories
             return Task.FromResult(false);
         }
 
+        public async Task<User> FindByUserNameAndEmail(string userName, string email)
+        {
+            var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.UserName.ToLower() == userName.ToLower() || x.Email.ToLower() == email.ToLower() && !x.IsDeleted);
+            if (user is null)
+            {
+                return null;
+            }
+            return user;
+        }
+
         public async Task<string> GenerateUniqueUserName(string baseUserName)
         {
             var matchingUserNames = await _dbContext.Users
