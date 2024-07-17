@@ -16,6 +16,7 @@ namespace StudentManagementSystem.Infrastructure.Extensions
         public static void Configure(IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped<ITokenRepository, TokenRepository>();
 
             services.AddScoped<IUserRepository, UserRepository>();
 
