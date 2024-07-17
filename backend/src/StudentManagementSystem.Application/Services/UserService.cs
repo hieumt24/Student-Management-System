@@ -3,13 +3,11 @@ using FluentValidation;
 using Microsoft.AspNetCore.Identity;
 using StudentManagementSystem.Application.DTOs.Users.Requests;
 using StudentManagementSystem.Application.DTOs.Users.Responses;
-using StudentManagementSystem.Application.Helpers;
 using StudentManagementSystem.Application.Interface.Helpers;
 using StudentManagementSystem.Application.Interface.Repositories;
 using StudentManagementSystem.Application.Interface.Services;
 using StudentManagementSystem.Application.Wrappers;
 using StudentManagementSystem.Domain.Entities;
-using System.ComponentModel.Design;
 
 namespace StudentManagementSystem.Application.Services
 {
@@ -26,14 +24,13 @@ namespace StudentManagementSystem.Application.Services
             IMapper mapper,
             IUserRepository userRepository,
             IValidator<AddUserRequestDto> addUserValidator,
-            PasswordHasher<User> passwordHasher,
             IUserHelper userHelper
             )
         {
             _mapper = mapper;
             _userRepository = userRepository;
+            _passwordHasher = new PasswordHasher<User>();
             _addUserValidator = addUserValidator;
-            _passwordHasher = passwordHasher;
             _userHelper = userHelper;
         }
 
@@ -50,7 +47,8 @@ namespace StudentManagementSystem.Application.Services
                 var user = _mapper.Map<User>(request);
 
                 user.UserName = await _userHelper.GenerateUserName(user.FirstName, user.LastName);
-                user.PasswordHash = _passwordHasher.HashPassword(user, await _userHelper.GenerateDefaultPassword(user.UserName, user.DateOfBirth));
+                user.PasswordHash = _passwordHasher.HashPassword(user, _userHelper.GenerateDefaultPassword(user.UserName, user.DateOfBirth));
+                user.StudentCode = await _userHelper.GenerateStudentCode();
                 user.Email = await _userHelper.GenerateUserEmail(user.UserName, user.StudentCode);
                 user.IsDeleted = false;
                 user.CreatedOn = DateTime.Now;

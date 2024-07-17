@@ -12,9 +12,28 @@ namespace StudentManagementSystem.Application.Helpers
             _userRepository = userRepository;
         }
 
-        public Task<string> GenerateDefaultPassword(string userName, DateTime dateOfBirth)
+        public string GenerateDefaultPassword(string userName, DateTime dateOfBirth)
         {
-            return Task.FromResult($"{userName}@{dateOfBirth:ddMMyyyy}");
+            return $"{userName}@{dateOfBirth:ddMMyyyy}";
+        }
+
+        public async Task<string> GenerateStudentCode()
+        {
+            const string prefix = "HE";
+            const int maxNumber = 999999;
+
+            for (int currentNumber = 1; currentNumber <= maxNumber; currentNumber++)
+            {
+                string studentCode = $"{prefix}{currentNumber:D6}";
+                bool existingStudentCode = await _userRepository.CheckStudentCodeExsits(studentCode);
+
+                if (!existingStudentCode)
+                {
+                    return studentCode;
+                }
+            }
+
+            throw new Exception($"{prefix} student code is full");
         }
 
         public Task<string> GenerateUserEmail(string userName, string studentCode)

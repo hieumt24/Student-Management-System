@@ -9,5 +9,7 @@ namespace StudentManagementSystem.Application.Interface.Repositories
         Task<RoleType> GetRoleAsync(Guid userId);
 
         Task<string> GenerateUniqueUserName(string baseUserName);
+
+        Task<bool> CheckStudentCodeExsits(string studentCode);
     }
 }
