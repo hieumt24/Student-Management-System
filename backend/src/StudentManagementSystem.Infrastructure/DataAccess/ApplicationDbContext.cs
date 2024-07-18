@@ -75,6 +75,7 @@ namespace StudentManagementSystem.Infrastructure.DataAccess
                 JoinedDate = new DateTime(2000, 04, 02),
                 UserName = "adminHN",
                 Role = RoleType.Admin,
+                Location = LocationType.HaNoi
             };
 
             adminHN.PasswordHash = _passwordHasher.HashPassword(adminHN, "Admin@123");
@@ -92,6 +93,7 @@ namespace StudentManagementSystem.Infrastructure.DataAccess
                 JoinedDate = new DateTime(2000, 04, 02),
                 UserName = "adminHCM",
                 Role = RoleType.Admin,
+                Location = LocationType.HoChiMinh
             };
 
             adminHCM.PasswordHash = _passwordHasher.HashPassword(adminHCM, "Admin@123");
@@ -109,6 +111,7 @@ namespace StudentManagementSystem.Infrastructure.DataAccess
                 JoinedDate = new DateTime(2000, 04, 02),
                 UserName = "adminDN",
                 Role = RoleType.Admin,
+                Location = LocationType.DaNang
             };
 
             adminDN.PasswordHash = _passwordHasher.HashPassword(adminDN, "Admin@123");
@@ -128,6 +131,7 @@ namespace StudentManagementSystem.Infrastructure.DataAccess
                 JoinedDate = new DateTime(2020, 04, 02),
                 UserName = "hoangtt",
                 Role = RoleType.Student,
+                Location = LocationType.HaNoi
             };
 
             userHoatt.PasswordHash = _passwordHasher.HashPassword(userHoatt, "hoatt@02042002");
@@ -145,6 +149,7 @@ namespace StudentManagementSystem.Infrastructure.DataAccess
                 JoinedDate = new DateTime(2020, 04, 02),
                 UserName = "thanhdt",
                 Role = RoleType.Student,
+                Location = LocationType.HaNoi
             };
 
             userThanhdt.PasswordHash = _passwordHasher.HashPassword(userThanhdt, "thanhdt@02042002");
