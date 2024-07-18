@@ -1,6 +1,9 @@
-﻿namespace StudentManagementSystem.Application.Interface.Repositories
+﻿using StudentManagementSystem.Application.Common;
+using StudentManagementSystem.Domain.Entities;
+
+namespace StudentManagementSystem.Application.Interface.Repositories
 {
-    public interface ICourseRepository
+    public interface ICourseRepository : IGenericRepository<Course>
     {
     }
 }

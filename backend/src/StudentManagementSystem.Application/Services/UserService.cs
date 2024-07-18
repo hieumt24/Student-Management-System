@@ -23,12 +23,12 @@ namespace StudentManagementSystem.Application.Services
         private readonly IUserHelper _userHelper;
 
         public UserService
-            (
+        (
             IMapper mapper,
             IUserRepository userRepository,
             IValidator<AddUserRequestDto> addUserValidator,
             IUserHelper userHelper
-            )
+        )
         {
             _mapper = mapper;
             _userRepository = userRepository;
