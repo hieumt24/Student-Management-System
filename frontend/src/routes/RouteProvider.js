@@ -1,7 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import Login from "../pages/auth/Login";
-import NotFound from "../pages/NotFound";
 import LandingPage from "../pages/LandingPage";
+import Layout from "../pages/Layout";
+import NotFound from "../pages/NotFound";
+import { UsersList } from "../pages/users";
 
 
 export const RouteProvider = () => {
@@ -13,8 +15,15 @@ export const RouteProvider = () => {
             {/* <Route path="/">
 
             </Route> */}
+            <Route path="/" element={<LandingPage />} />
+            <Route 
+                path="/users" 
+                element={<Layout/>}
+            >
+                <Route path="" element={<UsersList/>}></Route>
+            </Route>
             <Route path="/*" element={<NotFound />} />
-            <Route path="/landing-page" element={<LandingPage />} />
+            
         </Routes>
     );
 }
