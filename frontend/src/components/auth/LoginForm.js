@@ -1,32 +1,33 @@
 import React, { useState } from 'react';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
+import { useAuth } from '../../context/AuthContext';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 export default function LoginForm() {
-    const [email, setEmail] = useState('');
+    const navigation = useNavigate();
+    const { login } = useAuth();
+    const [usernameOrEmail, setUsernameOrEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [emailError, setEmailError] = useState('err example');
+
     const [showPassword, setShowPassword] = useState(false);
-
-    // const validateEmail = (email) => {
-    //     const re = /\S+@\S+\.\S+/;
-    //     return re.test(email);
-    // };
-
-    // const handleEmailChange = (e) => {
-    //     setEmail(e.target.value);
-    //     if (!validateEmail(e.target.value)) {
-    //         setEmailError('Not a valid email address.');
-    //     } else {
-    //         setEmailError('');
-    //     }
-    // };
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
 
-    return (
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const result = await login(usernameOrEmail, usernameOrEmail, password);
+        if (result.success) {
+            await toast.success('Successfully logged in!');
+            navigation("/landing-page");
+        } else {
+            toast.error("Login failed. Please check your credentials.");
+        }
+    };
 
+    return (
         <div className="max-w-md w-full space-y-8 p-10 bg-white rounded-xl shadow-lg">
             <div className="text-center">
                 <img
@@ -39,21 +40,19 @@ export default function LoginForm() {
                 </h2>
             </div>
             <div className="max-w-md mx-auto mt-8 p-6 bg-white rounded-lg shadow-md">
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className="mb-4">
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                            Email
+                        <label htmlFor="usernameOrEmail" className="block text-sm font-medium text-gray-700 mb-1">
+                            Username or Email
                         </label>
                         <input
-                            type="email"
-                            id="email"
-                            className={`w-full px-3 py-2 border rounded-md ${emailError ? 'border-red-500' : 'border-gray-300'}`}
-                            value={email}
-                        // onChange={handleEmailChange}
+                            type="text"
+                            id="usernameOrEmail"
+                            className="w-full px-3 py-2 border rounded-md border-gray-300"
+                            value={usernameOrEmail}
+                            onChange={(e) => setUsernameOrEmail(e.target.value)}
+                            required
                         />
-                        {emailError && (
-                            <p className="mt-1 text-sm text-red-500">{emailError}</p>
-                        )}
                     </div>
                     <div className="mb-4 relative">
                         <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
@@ -65,6 +64,7 @@ export default function LoginForm() {
                             className="w-full px-3 py-2 border border-gray-300 rounded-md pr-10"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
+                            required
                         />
                         <button
                             type="button"
