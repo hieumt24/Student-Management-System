@@ -1,11 +1,15 @@
 ﻿using AutoMapper;
 using FluentValidation;
+using StudentManagementSystem.Application.DTOs.Courses.Responses;
 using StudentManagementSystem.Application.DTOs.Semesters.Requests;
 using StudentManagementSystem.Application.DTOs.Semesters.Responses;
+using StudentManagementSystem.Application.Filters;
+using StudentManagementSystem.Application.Helpers;
 using StudentManagementSystem.Application.Interface.Repositories;
 using StudentManagementSystem.Application.Interface.Services;
 using StudentManagementSystem.Application.Wrappers;
 using StudentManagementSystem.Domain.Entities;
+using System.Net.Http.Headers;
 
 namespace StudentManagementSystem.Application.Services
 {
@@ -40,6 +44,12 @@ namespace StudentManagementSystem.Application.Services
             {
                 var semester = _mapper.Map<Semester>(request);
 
+                var isSemesterCodeExisting = await _semesterRepository.CheckSemesterCodeExisiting(semester.SemesterName, semester.AcademicYear);
+                if (isSemesterCodeExisting)
+                {
+                    return new Response<SemesterDto> { Succeeded = false, Message = "Semester code already exists" };
+                }
+
                 semester.CreatedOn = DateTime.Now;
 
                 await _semesterRepository.AddAsync(semester);
@@ -51,6 +61,26 @@ namespace StudentManagementSystem.Application.Services
             catch (Exception ex)
             {
                 return new Response<SemesterDto> { Succeeded = false, Message = ex.Message };
+            }
+        }
+
+        public async Task<PagedResponse<List<SemesterResponseDto>>> GetAllSemesters(PaginationFilter? pagination, string? search, string? orderBy, bool? isDescending)
+        {
+            try
+            {
+                var semesters = await _semesterRepository.GetAllMatchingSemester(pagination, search, orderBy, isDescending);
+                if (semesters.Data == null)
+                {
+                    return new PagedResponse<List<SemesterResponseDto>> { Succeeded = false, Message = "No semesters found" };
+                }
+                var semesterResponseDto = _mapper.Map<List<SemesterResponseDto>>(semesters.Data);
+
+                var pagedResponse = PaginationHelper.CreatePageResponse(semesterResponseDto.ToList(), pagination, semesters.TotalRecords);
+                return pagedResponse;
+            }
+            catch (Exception ex)
+            {
+                return new PagedResponse<List<SemesterResponseDto>> { Succeeded = false, Message = ex.Message };
             }
         }
     }

@@ -60,7 +60,10 @@ namespace StudentManagementSystem.Infrastructure.Migrations
 
                     b.Property<string>("CourseCode")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("CourseState")
+                        .HasColumnType("int");
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
@@ -80,11 +83,11 @@ namespace StudentManagementSystem.Infrastructure.Migrations
                     b.Property<DateTimeOffset?>("LastModifiedOn")
                         .HasColumnType("datetimeoffset");
 
-                    b.Property<int>("MaxStudent")
+                    b.Property<int>("Level")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("SemesterId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("MaxStudent")
+                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -92,9 +95,25 @@ namespace StudentManagementSystem.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SemesterId");
+                    b.HasIndex("CourseCode")
+                        .IsUnique();
 
                     b.ToTable("Courses");
+                });
+
+            modelBuilder.Entity("StudentManagementSystem.Domain.Entities.CourseSemester", b =>
+                {
+                    b.Property<Guid>("CourseId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("SemesterId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("CourseId", "SemesterId");
+
+                    b.HasIndex("SemesterId");
+
+                    b.ToTable("CourseSemesters");
                 });
 
             modelBuilder.Entity("StudentManagementSystem.Domain.Entities.Enrollment", b =>
@@ -112,8 +131,8 @@ namespace StudentManagementSystem.Infrastructure.Migrations
                     b.Property<DateTimeOffset>("CreatedOn")
                         .HasColumnType("datetimeoffset");
 
-                    b.Property<int>("Grade")
-                        .HasColumnType("int");
+                    b.Property<double?>("Grade")
+                        .HasColumnType("float");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -130,6 +149,12 @@ namespace StudentManagementSystem.Infrastructure.Migrations
                     b.Property<int>("Location")
                         .HasColumnType("int");
 
+                    b.Property<Guid>("SemesterId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("State")
+                        .HasColumnType("int");
+
                     b.Property<Guid>("StudentId")
                         .HasColumnType("uniqueidentifier");
 
@@ -137,9 +162,40 @@ namespace StudentManagementSystem.Infrastructure.Migrations
 
                     b.HasIndex("CourseId");
 
+                    b.HasIndex("SemesterId");
+
                     b.HasIndex("StudentId");
 
                     b.ToTable("Enrollments");
+                });
+
+            modelBuilder.Entity("StudentManagementSystem.Domain.Entities.Image", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("FileDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FileExtension")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FilePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("FileSizeInBytes")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Images");
                 });
 
             modelBuilder.Entity("StudentManagementSystem.Domain.Entities.Semester", b =>
@@ -215,7 +271,7 @@ namespace StudentManagementSystem.Infrastructure.Migrations
 
                     b.HasIndex("StudentId");
 
-                    b.ToTable("StudentSemester");
+                    b.ToTable("StudentSemesters");
                 });
 
             modelBuilder.Entity("StudentManagementSystem.Domain.Entities.Token", b =>
@@ -304,13 +360,17 @@ namespace StudentManagementSystem.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("StudentCode")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("UserName")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("StudentCode")
+                        .IsUnique()
+                        .HasFilter("[StudentCode] IS NOT NULL");
 
                     b.HasIndex("UserName")
                         .IsUnique();
@@ -320,9 +380,9 @@ namespace StudentManagementSystem.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("0f6ebf50-bec8-459c-b007-aeec2846599d"),
+                            Id = new Guid("2b7466fc-0dc0-4c42-9790-a2911d86286a"),
                             CreatedBy = "System",
-                            CreatedOn = new DateTimeOffset(new DateTime(2024, 7, 18, 17, 23, 16, 770, DateTimeKind.Unspecified).AddTicks(9475), new TimeSpan(0, 7, 0, 0, 0)),
+                            CreatedOn = new DateTimeOffset(new DateTime(2024, 7, 19, 10, 12, 0, 991, DateTimeKind.Unspecified).AddTicks(79), new TimeSpan(0, 7, 0, 0, 0)),
                             DateOfBirth = new DateTime(1970, 4, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "adminHN@fpt.edu.vn",
                             FirstName = "Admin",
@@ -330,16 +390,16 @@ namespace StudentManagementSystem.Infrastructure.Migrations
                             JoinedDate = new DateTime(2000, 4, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Ha Noi",
                             Location = 1,
-                            PasswordHash = "AQAAAAIAAYagAAAAELzuQcQmsA2W9u9lmv2KSGkdd7hy9OQW7/RfASeWUnRdZgHxGQkJYisDqNjqRB4sHA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEChyexAEFhTYYjPQE9ylHtLpRLVHpFX5QJA9rnyhj+lr2UyafgqhOr3iicO8Ti94rw==",
                             Role = 1,
                             StudentCode = "HE999999",
                             UserName = "adminHN"
                         },
                         new
                         {
-                            Id = new Guid("17f246eb-0c49-496b-ac3c-556d7687ee56"),
+                            Id = new Guid("5b12f81a-3f8a-453e-8d02-bfc457484bb0"),
                             CreatedBy = "System",
-                            CreatedOn = new DateTimeOffset(new DateTime(2024, 7, 18, 17, 23, 16, 903, DateTimeKind.Unspecified).AddTicks(221), new TimeSpan(0, 7, 0, 0, 0)),
+                            CreatedOn = new DateTimeOffset(new DateTime(2024, 7, 19, 10, 12, 1, 82, DateTimeKind.Unspecified).AddTicks(7256), new TimeSpan(0, 7, 0, 0, 0)),
                             DateOfBirth = new DateTime(1970, 4, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "adminHCM@fpt.edu.vn",
                             FirstName = "Admin",
@@ -347,16 +407,16 @@ namespace StudentManagementSystem.Infrastructure.Migrations
                             JoinedDate = new DateTime(2000, 4, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Ho Chi Minh",
                             Location = 2,
-                            PasswordHash = "AQAAAAIAAYagAAAAEMzqK1rKswsJIxkU6CXPHb8WcYfONFwcKOY9Sm5DoxkMi5hwgJYFZYvjBCpPFtYXMA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGw1Y6zjnZXTUjuEWiUuhfaoumUdMEQFW1z31USV8I2z0JmuR9fv9r/rLE/0bwd3Vg==",
                             Role = 1,
                             StudentCode = "HE999998",
                             UserName = "adminHCM"
                         },
                         new
                         {
-                            Id = new Guid("4525a55a-af97-4b09-807b-9bd3981c8b0e"),
+                            Id = new Guid("e68c3f4f-178d-464a-9ece-05dffb0b7f69"),
                             CreatedBy = "System",
-                            CreatedOn = new DateTimeOffset(new DateTime(2024, 7, 18, 17, 23, 17, 49, DateTimeKind.Unspecified).AddTicks(4873), new TimeSpan(0, 7, 0, 0, 0)),
+                            CreatedOn = new DateTimeOffset(new DateTime(2024, 7, 19, 10, 12, 1, 172, DateTimeKind.Unspecified).AddTicks(2407), new TimeSpan(0, 7, 0, 0, 0)),
                             DateOfBirth = new DateTime(1970, 4, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "adminDN@fpt.edu.vn",
                             FirstName = "Admin",
@@ -364,16 +424,16 @@ namespace StudentManagementSystem.Infrastructure.Migrations
                             JoinedDate = new DateTime(2000, 4, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Da Nang",
                             Location = 3,
-                            PasswordHash = "AQAAAAIAAYagAAAAEPUx5crislypnpU+Uy0iDGcd16hqxHX3AxvKIjv1pUEKIeo5zjueZ7Z9o3Cd0A015w==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFpTZwRF4adiE9z/l75fnrsKRCwnt0+0ZI6ppSgAqXGgCS+ZLHMjeQIzx1g98hSl4Q==",
                             Role = 1,
                             StudentCode = "HE999997",
                             UserName = "adminDN"
                         },
                         new
                         {
-                            Id = new Guid("dc389062-03c2-4b58-9dfd-0a6cd6fc667b"),
+                            Id = new Guid("cce8ba54-e83e-4b15-8c9e-afef4a9ab5f4"),
                             CreatedBy = "System",
-                            CreatedOn = new DateTimeOffset(new DateTime(2024, 7, 18, 17, 23, 17, 186, DateTimeKind.Unspecified).AddTicks(1918), new TimeSpan(0, 7, 0, 0, 0)),
+                            CreatedOn = new DateTimeOffset(new DateTime(2024, 7, 19, 10, 12, 1, 280, DateTimeKind.Unspecified).AddTicks(2936), new TimeSpan(0, 7, 0, 0, 0)),
                             DateOfBirth = new DateTime(2002, 4, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "hoangttHE999996@fpt.edu.vn",
                             FirstName = "Hoa",
@@ -381,16 +441,16 @@ namespace StudentManagementSystem.Infrastructure.Migrations
                             JoinedDate = new DateTime(2020, 4, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Truong Trong",
                             Location = 1,
-                            PasswordHash = "AQAAAAIAAYagAAAAEG1BgYX4bDrGxSTlRWodqxZdqMYf5Eb0Huj++D2ZbQBM4dnbnRFul5+HDfocIdNjbw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKYVGxUrMLDWz60sfYYWEqmgbojY21petyYyCC9WOnrxd9fuCnQEocXw6U0d3wz49Q==",
                             Role = 2,
                             StudentCode = "HE999996",
                             UserName = "hoangtt"
                         },
                         new
                         {
-                            Id = new Guid("63c09218-9afb-4f47-a7fb-90f446b4ece8"),
+                            Id = new Guid("25b61220-eccd-4690-9f50-24a5aa2df743"),
                             CreatedBy = "System",
-                            CreatedOn = new DateTimeOffset(new DateTime(2024, 7, 18, 17, 23, 17, 319, DateTimeKind.Unspecified).AddTicks(9120), new TimeSpan(0, 7, 0, 0, 0)),
+                            CreatedOn = new DateTimeOffset(new DateTime(2024, 7, 19, 10, 12, 1, 374, DateTimeKind.Unspecified).AddTicks(8826), new TimeSpan(0, 7, 0, 0, 0)),
                             DateOfBirth = new DateTime(2002, 4, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "thanhdtHE999995@fpt.edu.vn",
                             FirstName = "Thanh",
@@ -398,20 +458,28 @@ namespace StudentManagementSystem.Infrastructure.Migrations
                             JoinedDate = new DateTime(2020, 4, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Nguyen Duc",
                             Location = 1,
-                            PasswordHash = "AQAAAAIAAYagAAAAECTftZruCMRdGTu001kz0WjjHCpL+J+BXbGkJl5KXLb7vbmygSDwwevts2sWvLZD2A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEN7LNlspm5dnfkeWeOt7AsycjTGHupRkfXPuVrw0O5dKSdVKQtNtM5q1GNYPVb8Beg==",
                             Role = 2,
                             StudentCode = "HE999995",
                             UserName = "thanhdt"
                         });
                 });
 
-            modelBuilder.Entity("StudentManagementSystem.Domain.Entities.Course", b =>
+            modelBuilder.Entity("StudentManagementSystem.Domain.Entities.CourseSemester", b =>
                 {
+                    b.HasOne("StudentManagementSystem.Domain.Entities.Course", "Course")
+                        .WithMany("CourseSemesters")
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("StudentManagementSystem.Domain.Entities.Semester", "Semester")
-                        .WithMany("Courses")
+                        .WithMany("CourseSemesters")
                         .HasForeignKey("SemesterId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Course");
 
                     b.Navigation("Semester");
                 });
@@ -424,6 +492,12 @@ namespace StudentManagementSystem.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("StudentManagementSystem.Domain.Entities.Semester", "Semester")
+                        .WithMany("Enrollment")
+                        .HasForeignKey("SemesterId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("StudentManagementSystem.Domain.Entities.User", "Student")
                         .WithMany("Enrollments")
                         .HasForeignKey("StudentId")
@@ -431,6 +505,8 @@ namespace StudentManagementSystem.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Course");
+
+                    b.Navigation("Semester");
 
                     b.Navigation("Student");
                 });
@@ -467,12 +543,16 @@ namespace StudentManagementSystem.Infrastructure.Migrations
 
             modelBuilder.Entity("StudentManagementSystem.Domain.Entities.Course", b =>
                 {
+                    b.Navigation("CourseSemesters");
+
                     b.Navigation("Enrollments");
                 });
 
             modelBuilder.Entity("StudentManagementSystem.Domain.Entities.Semester", b =>
                 {
-                    b.Navigation("Courses");
+                    b.Navigation("CourseSemesters");
+
+                    b.Navigation("Enrollment");
 
                     b.Navigation("StudentSemesters");
                 });

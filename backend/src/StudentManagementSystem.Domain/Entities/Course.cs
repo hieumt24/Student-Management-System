@@ -1,4 +1,5 @@
 ﻿using StudentManagementSystem.Domain.Common;
+using StudentManagementSystem.Domain.Enums;
 
 namespace StudentManagementSystem.Domain.Entities
 {
@@ -9,12 +10,12 @@ namespace StudentManagementSystem.Domain.Entities
 
         public int Credits { get; set; }
 
+        public CourseLevelType Level { get; set; }
         public int MaxStudent { get; set; }
 
-        public Guid SemesterId { get; set; }
-
-        public Semester Semester { get; set; }
+        public CourseStateType CourseState { get; set; }
 
         public ICollection<Enrollment>? Enrollments { get; set; }
+        public ICollection<CourseSemester>? CourseSemesters { get; set; }
     }
 }

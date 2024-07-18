@@ -36,6 +36,23 @@ namespace StudentManagementSystem.Infrastructure.Repositories
             return user;
         }
 
+        public async Task<Guid> FindSesterIdByStudentId(Guid studentId)
+        {
+            var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.Id == studentId);
+
+            if (user is null)
+            {
+                throw new NotFoundException(nameof(User), studentId.ToString());
+            }
+
+            var studentSemester = await _dbContext.StudentSemesters.FirstOrDefaultAsync(x => x.StudentId == user.Id);
+            if (studentSemester is null)
+            {
+                throw new NotFoundException(nameof(StudentSemester), studentId.ToString());
+            }
+            return studentSemester.SemesterId;
+        }
+
         public async Task<string> GenerateUniqueUserName(string baseUserName)
         {
             var matchingUserNames = await _dbContext.Users

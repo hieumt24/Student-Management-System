@@ -1,4 +1,6 @@
-﻿namespace StudentManagementSystem.Application.DTOs.Courses.Requests
+﻿using StudentManagementSystem.Domain.Enums;
+
+namespace StudentManagementSystem.Application.DTOs.Courses.Requests
 {
     public class AddCourseRequestDto
     {
@@ -7,8 +9,9 @@
 
         public int Credits { get; set; }
 
+        public CourseLevelType Level { get; set; }
         public int MaxStudent { get; set; }
 
-        public Guid SemesterId { get; set; }
+        public CourseStateType CourseState { get; set; }
     }
 }
