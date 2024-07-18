@@ -10,7 +10,6 @@ export const UsersList = () => {
     pageSize: 10,
     totalRecords: 0,
   });
-  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const fetchUsers = () => {
