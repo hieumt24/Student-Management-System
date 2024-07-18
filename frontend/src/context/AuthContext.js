@@ -9,6 +9,7 @@ const AuthContext = createContext({
     id: "",
     username: "",
     role: "Student",
+    location: 1
   },
   setUser: () => {},
 });
@@ -19,6 +20,7 @@ export const AuthProvider = ({ children }) => {
     id: "",
     username: "",
     role: "Student",
+    location: 1
   });
   const [isAuthenticated, setIsAuthenticated] = useState(!!token);
   const fetchUserFromToken = () => {
@@ -37,12 +39,14 @@ export const AuthProvider = ({ children }) => {
         role: decodedToken[
           "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"
         ],
+        location: decodedToken.Location
       });
     } else {
       setUser({
         id: "",
         username: "",
-        role: "Student"
+        role: "Student",
+        location: 1
       });
       setIsAuthenticated(false);
     }

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FaPlus, FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { Pagination } from "../../components/Pagination";
+import { useAuth } from "../../context/AuthContext";
 import { getPaginatedUsers } from "../../services/usersServices";
 
 export const UsersList = () => {
@@ -15,10 +16,7 @@ export const UsersList = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [sortConfig, setSortConfig] = useState({ key: "", direction: "" });
   const navigate = useNavigate();
-
-  useEffect(() => {
-    fetchUsers();
-  }, [pagination.pageIndex, pagination.pageSize, searchQuery, sortConfig]);
+  const { user } = useAuth();
 
   const fetchUsers = () => {
     getPaginatedUsers({
@@ -27,7 +25,7 @@ export const UsersList = () => {
       search: searchQuery,
       orderBy: sortConfig.key,
       isDescending: sortConfig.direction === "descending",
-      location: 1,
+      location: user.location,
     })
       .then((response) => {
         setUsers(response.data.data || []);
@@ -41,6 +39,12 @@ export const UsersList = () => {
         console.log(err);
       });
   };
+
+  useEffect(() => {
+    fetchUsers();
+  }, [pagination.pageIndex, pagination.pageSize, searchQuery, sortConfig]);
+
+  
 
   const handleSort = (key) => {
     let direction = "ascending";
@@ -79,37 +83,77 @@ export const UsersList = () => {
           <FaPlus className="mr-2" /> Create User
         </button>
       </div>
-      <div className="bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">
+      <div className="bg-white shadow-lg rounded-lg overflow-auto border border-gray-200">
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
             <tr>
-              <th onClick={() => handleSort("studentCode")} className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer">
-                Student code {sortConfig.key === "studentCode" && (sortConfig.direction === "ascending" ? "▲" : "▼")}
+              <th
+                onClick={() => handleSort("studentCode")}
+                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
+              >
+                Student code{" "}
+                {sortConfig.key === "studentCode" &&
+                  (sortConfig.direction === "ascending" ? "▲" : "▼")}
               </th>
-              <th onClick={() => handleSort("userName")} className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer">
-                Username {sortConfig.key === "userName" && (sortConfig.direction === "ascending" ? "▲" : "▼")}
+              <th
+                onClick={() => handleSort("userName")}
+                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
+              >
+                Username{" "}
+                {sortConfig.key === "userName" &&
+                  (sortConfig.direction === "ascending" ? "▲" : "▼")}
               </th>
-              <th onClick={() => handleSort("firstName")} className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer">
-                First name {sortConfig.key === "firstName" && (sortConfig.direction === "ascending" ? "▲" : "▼")}
+              <th
+                onClick={() => handleSort("firstName")}
+                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
+              >
+                First name{" "}
+                {sortConfig.key === "firstName" &&
+                  (sortConfig.direction === "ascending" ? "▲" : "▼")}
               </th>
-              <th onClick={() => handleSort("lastName")} className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer">
-                Last name {sortConfig.key === "lastName" && (sortConfig.direction === "ascending" ? "▲" : "▼")}
+              <th
+                onClick={() => handleSort("lastName")}
+                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
+              >
+                Last name{" "}
+                {sortConfig.key === "lastName" &&
+                  (sortConfig.direction === "ascending" ? "▲" : "▼")}
               </th>
-              <th onClick={() => handleSort("email")} className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer">
-                Email {sortConfig.key === "email" && (sortConfig.direction === "ascending" ? "▲" : "▼")}
+              <th
+                onClick={() => handleSort("email")}
+                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
+              >
+                Email{" "}
+                {sortConfig.key === "email" &&
+                  (sortConfig.direction === "ascending" ? "▲" : "▼")}
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Action
+              </th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
             {users.length > 0 ? (
               users.map((user, index) => (
-                <tr key={index} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user.studentCode}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{user.userName}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{user.firstName}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{user.lastName}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{user.email}</td>
+                <tr
+                  key={index}
+                  className={index % 2 === 0 ? "bg-gray-50" : "bg-white"}
+                >
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    {user.studentCode}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    {user.userName}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    {user.firstName}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    {user.lastName}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    {user.email}
+                  </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                     <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">
                       Edit
@@ -122,7 +166,10 @@ export const UsersList = () => {
               ))
             ) : (
               <tr>
-                <td colSpan={6} className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
+                <td
+                  colSpan={6}
+                  className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center"
+                >
                   No result
                 </td>
               </tr>

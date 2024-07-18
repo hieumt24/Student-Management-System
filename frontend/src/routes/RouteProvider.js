@@ -3,8 +3,8 @@ import Login from "../pages/auth/Login";
 import LandingPage from "../pages/LandingPage";
 import Layout from "../pages/Layout";
 import NotFound from "../pages/NotFound";
-import { UsersList } from "../pages/users";
-import { SemesterList, CreateSemester } from "../pages/semester";
+import { CreateSemester, SemesterList } from "../pages/semester";
+import { CreateUser, UsersList } from "../pages/users";
 
 export const RouteProvider = () => {
   return (
@@ -15,6 +15,7 @@ export const RouteProvider = () => {
       <Route path="/" element={<LandingPage />} />
       <Route path="/users" element={<Layout />}>
         <Route path="" element={<UsersList />}></Route>
+        <Route path="create" element={<CreateUser/>}></Route>
       </Route>
       <Route path="/semesters" element={<Layout />}>
         <Route path="" element={<SemesterList />}></Route>
