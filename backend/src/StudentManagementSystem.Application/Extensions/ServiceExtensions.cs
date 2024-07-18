@@ -3,12 +3,14 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using StudentManagementSystem.Application.DTOs.Courses.Requests;
 using StudentManagementSystem.Application.DTOs.Users.Requests;
 using StudentManagementSystem.Application.Helpers;
 using StudentManagementSystem.Application.Interface.Helpers;
 using StudentManagementSystem.Application.Interface.Services;
 using StudentManagementSystem.Application.Mappings;
 using StudentManagementSystem.Application.Services;
+using StudentManagementSystem.Application.Validations.Courses;
 using StudentManagementSystem.Application.Validations.Users;
 using StudentManagementSystem.Domain.Common;
 using StudentManagementSystem.Domain.Enums;
@@ -25,12 +27,16 @@ namespace StudentManagementSystem.Application.Extensions
             service.AddScoped<IUserService, UserService>();
             service.AddScoped<ITokenService, TokenService>();
             service.AddScoped<IAuthService, AuthService>();
+            service.AddScoped<ICourseService, CourseService>();
+            service.AddScoped<ISemesterService, SemesterService>();
 
             //injection mapping
             service.AddAutoMapper(typeof(GeneralProfile));
 
             //inject validator
             service.AddScoped<IValidator<AddUserRequestDto>, AddUserRequestValidation>();
+            service.AddScoped<IValidator<AddCourseRequestDto>, AddCourseRequestValidation>();
+
             var jwtSettings = service.Configure<JWTSettings>(configuration.GetSection("JWTSettings"));
             service.AddSingleton(jwtSettings);
             service.AddAuthentication(options =>
