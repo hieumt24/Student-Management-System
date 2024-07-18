@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "W4lgPB8+NHMsYl8Remh8PeGIuT/WbA8nfP8AMBpbbKU=",
+  "Source": "StudentManagementSystem.WebApi",
+  "BasePath": "_content/StudentManagementSystem.WebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
