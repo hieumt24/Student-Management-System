@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using StudentManagementSystem.Application.DTOs.Semesters.Requests;
+using StudentManagementSystem.Application.Filters;
 using StudentManagementSystem.Application.Interface.Services;
 
 namespace StudentManagementSystem.WebApi.Controllers
@@ -24,6 +25,13 @@ namespace StudentManagementSystem.WebApi.Controllers
                 return Ok(response);
             }
             return BadRequest(response);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllSemesters([FromQuery] PaginationFilter? pagination, [FromQuery] string? search, [FromQuery] string? orderBy, [FromQuery] bool? isDescending)
+        {
+            var response = await _semesterService.GetAllSemesters(pagination, search, orderBy, isDescending);
+            return Ok(response);
         }
     }
 }

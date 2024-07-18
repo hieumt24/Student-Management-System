@@ -32,7 +32,16 @@ namespace StudentManagementSystem.Infrastructure.DataAccess
 
             modelBuilder.Entity<Semester>()
                 .Property(s => s.SemesterCode)
-                .HasComputedColumnSql("CONCAT(LEFT(SemesterName, 2), RIGHT(AcademicYear, 2)) PERSISTED");
+                .HasComputedColumnSql("CONCAT(LEFT(SemesterName, 2), RIGHT(AcademicYear, 2)) PERSISTED")
+                ;
+
+            modelBuilder.Entity<Course>()
+                .HasIndex(c => c.CourseCode)
+                .IsUnique();
+
+            modelBuilder.Entity<User>()
+                .HasIndex(u => u.StudentCode)
+                .IsUnique();
 
             modelBuilder.Entity<Enrollment>()
                 .HasOne(e => e.Student)
