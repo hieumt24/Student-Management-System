@@ -5,7 +5,7 @@ using StudentManagementSystem.Application.Interface.Services;
 
 namespace StudentManagementSystem.WebApi.Controllers
 {
-    [Route("api/semesters")]
+    [Route("api/v1/semesters")]
     [ApiController]
     public class SemesterController : ControllerBase
     {

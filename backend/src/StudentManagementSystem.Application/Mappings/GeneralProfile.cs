@@ -22,7 +22,8 @@ namespace StudentManagementSystem.Application.Mappings
 
             //mapping for course
             CreateMap<CourseDto, Course>().ReverseMap();
-            CreateMap<Course, CourseResponseDto>().ReverseMap();
+            CreateMap<Course, CourseResponseDto>()
+                .ReverseMap();
             CreateMap<AddCourseRequestDto, Course>().ReverseMap();
 
             //mapping for semestes
