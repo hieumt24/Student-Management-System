@@ -82,8 +82,7 @@
               "RelativeToolTip": "StudentManagementSystem.Application\\Mappings\\GeneralProfile.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAA8AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-18T01:24:34.157Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-18T01:24:34.157Z"
             },
             {
               "$type": "Document",
@@ -95,8 +94,7 @@
               "RelativeToolTip": "StudentManagementSystem.Application\\Helpers\\PaginationHelper.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-18T01:16:48.34Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-18T01:16:48.34Z"
             },
             {
               "$type": "Document",
@@ -108,8 +106,7 @@
               "RelativeToolTip": "StudentManagementSystem.Infrastructure\\Repositories\\UserRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAA/AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-18T01:11:21.634Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-18T01:11:21.634Z"
             },
             {
               "$type": "Document",
@@ -121,8 +118,7 @@
               "RelativeToolTip": "StudentManagementSystem.Application\\Interface\\Repositories\\IUserRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAACDAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-18T01:10:34.987Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-18T01:10:34.987Z"
             },
             {
               "$type": "Document",
@@ -134,8 +130,7 @@
               "RelativeToolTip": "StudentManagementSystem.Application\\Services\\UserService.cs",
               "ViewState": "AQIAADQAAAAAAAAAAAAqwEkAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-18T01:09:00.077Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-18T01:09:00.077Z"
             },
             {
               "$type": "Document",
@@ -147,8 +142,7 @@
               "RelativeToolTip": "StudentManagementSystem.Application\\Filters\\PaginationFilter.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAqwAIAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-18T01:00:31.73Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-18T01:00:31.73Z"
             },
             {
               "$type": "Document",
@@ -160,8 +154,7 @@
               "RelativeToolTip": "StudentManagementSystem.Application\\DTOs\\Users\\Responses\\UserDto.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAAAcAAAAGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-18T00:56:23.516Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-18T00:56:23.516Z"
             },
             {
               "$type": "Document",
@@ -173,8 +166,7 @@
               "RelativeToolTip": "StudentManagementSystem.Application\\DTOs\\Users\\Responses\\UserResponseDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-18T00:55:17.834Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-18T00:55:17.834Z"
             },
             {
               "$type": "Document",
@@ -186,8 +178,7 @@
               "RelativeToolTip": "StudentManagementSystem.Application\\Interface\\Services\\IUserService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAqwAwAAABCAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-18T00:54:01.775Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-18T00:54:01.775Z"
             },
             {
               "$type": "Document",
@@ -199,8 +190,7 @@
               "RelativeToolTip": "StudentManagementSystem.WebApi\\Program.cs",
               "ViewState": "AQIAAAEAAAAAAAAAAAAAAEwAAAA5AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-18T00:30:58.661Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-18T00:30:58.661Z"
             },
             {
               "$type": "Document",
@@ -246,7 +236,7 @@
               "RelativeDocumentMoniker": "StudentManagementSystem.WebApi\\Controllers\\UserController.cs",
               "ToolTip": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.WebApi\\Controllers\\UserController.cs",
               "RelativeToolTip": "StudentManagementSystem.WebApi\\Controllers\\UserController.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAIwCEAAAAUAAAA",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAwwCEAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-17T10:02:57.117Z",
               "EditorCaption": ""
