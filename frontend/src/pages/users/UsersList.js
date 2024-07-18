@@ -33,7 +33,7 @@ export const UsersList = () => {
         });
     };
     fetchUsers();
-  }, [pagination, searchQuery]);
+  }, [pagination.pageIndex, pagination.pageSize, searchQuery]);
 
   return (
     <div className="px-[112px] w-full py-4">
