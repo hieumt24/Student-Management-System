@@ -6,8 +6,6 @@ import { login } from '../../services/authServices';
 
 export default function LoginForm() {
     const navigation = useNavigate();
-    const [usernameOrEmail, setUsernameOrEmail] = useState('');
-    const [password, setPassword] = useState('');
     const [formData, setFormData] = useState({
         usernameOrEmail: "",
         password: ""
@@ -21,13 +19,14 @@ export default function LoginForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         login(formData).then((response) => {
-            if (response.data.success) {
+            console.log(response.data);
+            if (response.data.succeeded) {
+                localStorage.setItem("token", response.data.data.token);
                 toast.success('Successfully logged in!');
-                navigation("/landing-page");
+                navigation("/");
             } else {
                 toast.error(response.data.message || "Login failed. Please check your credentials.");
             }
-            
         }).catch((err) => {
             toast.error(err.message || "Login failed. Check the console for error.")
             console.log(err);

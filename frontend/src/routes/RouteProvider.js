@@ -5,25 +5,17 @@ import Layout from "../pages/Layout";
 import NotFound from "../pages/NotFound";
 import { UsersList } from "../pages/users";
 
-
 export const RouteProvider = () => {
-    return (
-        <Routes>
-            <Route path="/auth">
-                <Route path="login" element={<Login />} />
-            </Route>
-            {/* <Route path="/">
-
-            </Route> */}
-            <Route path="/" element={<LandingPage />} />
-            <Route 
-                path="/users" 
-                element={<Layout/>}
-            >
-                <Route path="" element={<UsersList/>}></Route>
-            </Route>
-            <Route path="/*" element={<NotFound />} />
-            
-        </Routes>
-    );
-}
+  return (
+    <Routes>
+      <Route path="/auth">
+        <Route path="login" element={<Login />} />
+      </Route>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/users" element={<Layout />}>
+        <Route path="" element={<UsersList />}></Route>
+      </Route>
+      <Route path="/*" element={<NotFound />} />
+    </Routes>
+  );
+};

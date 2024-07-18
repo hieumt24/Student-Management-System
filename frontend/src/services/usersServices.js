@@ -1,5 +1,6 @@
 import axiosInstance from "../httpClient/axiosInstance";
 
 export function getPaginatedUsers(request) {
-    axiosInstance.get(`/users?PageIndex=${request.pageIndex}`)
+    const queryParams = new URLSearchParams(request).toString();
+    return axiosInstance.get(`/users?${queryParams}`);
 }
