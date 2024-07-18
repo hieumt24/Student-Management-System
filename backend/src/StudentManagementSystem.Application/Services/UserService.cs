@@ -68,11 +68,11 @@ namespace StudentManagementSystem.Application.Services
             }
         }
 
-        public async Task<PagedResponse<List<UserResponseDto>>> GetAllUserAsync(PaginationFilter pagination, LocationType location, string? search, RoleType? role, string? orderBy, bool? isDescending)
+        public async Task<PagedResponse<List<UserResponseDto>>> GetAllUserAsync(PaginationFilter? pagination, LocationType location, string? search, RoleType? role, string? orderBy, bool? isDescending)
         {
             try
             {
-                var users = await _userRepository.GetAllMatchingUserAsync(pagination, location);
+                var users = await _userRepository.GetAllMatchingUserAsync(pagination, location, search, role, orderBy, isDescending);
 
                 if (users.Data is null)
                 {

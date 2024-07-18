@@ -31,9 +31,9 @@ namespace StudentManagementSystem.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllUserAsync([FromQuery] PaginationFilter filter, LocationType location)
+        public async Task<IActionResult> GetAllUserAsync([FromQuery] PaginationFilter? filter, LocationType location, [FromQuery] string? search, [FromQuery] RoleType? role, [FromQuery] string? orderBy, [FromQuery] bool? isDescending)
         {
-            var response = await _userService.GetAllUserAsync(filter, location);
+            var response = await _userService.GetAllUserAsync(filter, location, search, role, orderBy, isDescending);
             return Ok(response);
         }
     }

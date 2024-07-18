@@ -15,6 +15,6 @@ namespace StudentManagementSystem.Application.Interface.Repositories
 
         Task<User> FindByUserNameAndEmail(string userName, string email);
 
-        Task<(IEnumerable<User> Data, int TotalRecords)> GetAllMatchingUserAsync(PaginationFilter pagination, LocationType location);
+        Task<(IEnumerable<User> Data, int TotalRecords)> GetAllMatchingUserAsync(PaginationFilter? pagination, LocationType location, string? search, RoleType? role, string? orderBy, bool? isDescending);
     }
 }

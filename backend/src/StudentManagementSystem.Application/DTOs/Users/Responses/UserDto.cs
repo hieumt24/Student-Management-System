@@ -18,8 +18,6 @@ namespace StudentManagementSystem.Application.DTOs.Users.Responses
 
         public string UserName { get; set; } = string.Empty;
 
-        public string PasswordHash { get; set; } = string.Empty;
-
         public RoleType Role { get; set; }
 
         public LocationType Location { get; set; }
