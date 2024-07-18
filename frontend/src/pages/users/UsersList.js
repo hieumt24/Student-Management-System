@@ -5,6 +5,15 @@ import { Pagination } from "../../components/Pagination";
 import { useAuth } from "../../context/AuthContext";
 import { getPaginatedUsers } from "../../services/usersServices";
 
+// Utility function to format date
+const formatDate = (dateStr) => {
+  const date = new Date(dateStr);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0"); // Months are 0-based
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}/${month}/${day}`;
+};
+
 export const UsersList = () => {
   const [users, setUsers] = useState([]);
   const [pagination, setPagination] = useState({
@@ -127,6 +136,22 @@ export const UsersList = () => {
                 {sortConfig.key === "email" &&
                   (sortConfig.direction === "ascending" ? "▲" : "▼")}
               </th>
+              <th
+                onClick={() => handleSort("dateOfBirth")}
+                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
+              >
+                DateOfBirth{" "}
+                {sortConfig.key === "dateOfBirth" &&
+                  (sortConfig.direction === "ascending" ? "▲" : "▼")}
+              </th>
+              <th
+                onClick={() => handleSort("joinedDate")}
+                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
+              >
+                Joined Date{" "}
+                {sortConfig.key === "joinedDate" &&
+                  (sortConfig.direction === "ascending" ? "▲" : "▼")}
+              </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Action
               </th>
@@ -154,6 +179,12 @@ export const UsersList = () => {
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                     {user.email}
                   </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    {formatDate(user.dateOfBirth)}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    {formatDate(user.joinedDate)}
+                  </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                     <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">
                       Edit
@@ -167,7 +198,7 @@ export const UsersList = () => {
             ) : (
               <tr>
                 <td
-                  colSpan={6}
+                  colSpan={7}
                   className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center"
                 >
                   No result

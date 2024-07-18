@@ -4,7 +4,7 @@ using StudentManagementSystem.Application.Interface.Services;
 
 namespace StudentManagementSystem.WebApi.Controllers
 {
-    [Route("api/enrollments")]
+    [Route("api/v1/enrollments")]
     [ApiController]
     public class EnrollmentController : ControllerBase
     {

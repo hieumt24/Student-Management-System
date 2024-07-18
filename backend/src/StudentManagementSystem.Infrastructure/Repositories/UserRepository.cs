@@ -109,19 +109,24 @@ namespace StudentManagementSystem.Infrastructure.Repositories
                     { "fullname", x => x.FirstName + " " + x.LastName },
                     { "studentCode",  x => x.StudentCode },
                     { "email", x => x.Email },
-                    { "username", x => x.UserName },
+                    { "firstName", x => x.FirstName },
+                    { "lastName", x => x.LastName },
+                    { "userName", x => x.UserName },
+                    {"dateOfBirth", x => x.DateOfBirth},
                     { "joineddate", x => x.JoinedDate },
                     { "role", x => x.Role },
                     {"createdon", x => x.CreatedOn },
                     { "lastmodifiedon", x => x.LastModifiedOn }
                 };
-
-                if (columnsSelector.ContainsKey(orderBy.ToLower()))
-                {
-                    query = isDescending.HasValue && isDescending.Value
-                        ? query.OrderByDescending(columnsSelector[orderBy.ToLower()])
-                        : query.OrderBy(columnsSelector[orderBy.ToLower()]);
-                }
+                var selectedColumn = columnsSelector[orderBy];
+                query = isDescending.HasValue && isDescending.Value
+                    ? query.OrderByDescending(selectedColumn)
+                    : query.OrderBy(selectedColumn);
+            }
+            //else default sort by StudentCode
+            else
+            {
+                query = query.OrderBy(x => x.StudentCode);
             }
 
             var users = await query.

@@ -15,6 +15,9 @@ namespace StudentManagementSystem.Domain.Entities
 
         public CourseStateType CourseState { get; set; }
 
+        //image url
+        public string? ImageUrl { get; set; }
+
         public ICollection<Enrollment>? Enrollments { get; set; }
         public ICollection<CourseSemester>? CourseSemesters { get; set; }
     }

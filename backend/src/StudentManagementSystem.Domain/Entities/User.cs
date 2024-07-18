@@ -26,6 +26,8 @@ namespace StudentManagementSystem.Domain.Entities
 
         public LocationType Location { get; set; }
 
+        public string? ImageUrl { get; set; }
+
         public ICollection<StudentSemester>? StudentSemesters { get; set; }
         public Token? Token { get; set; }
 
