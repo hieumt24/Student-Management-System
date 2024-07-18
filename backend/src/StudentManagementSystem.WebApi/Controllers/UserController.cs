@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
 using StudentManagementSystem.Application.DTOs.Users.Requests;
@@ -20,6 +21,7 @@ namespace StudentManagementSystem.WebApi.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AddUserAsync(AddUserRequestDto request)
         {
             var response = await _userService.AddUserAsync(request);
@@ -31,6 +33,7 @@ namespace StudentManagementSystem.WebApi.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAllUserAsync([FromQuery] PaginationFilter? filter, LocationType location, [FromQuery] string? search, [FromQuery] RoleType? role, [FromQuery] string? orderBy, [FromQuery] bool? isDescending)
         {
             var response = await _userService.GetAllUserAsync(filter, location, search, role, orderBy, isDescending);
