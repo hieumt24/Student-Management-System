@@ -1,0 +1,16 @@
+D:\FULearning\Semester8th\PRN231\Final Project\Student-Management-System\backend\src\StudentManagementSystem.Application\bin\Debug\net8.0\StudentManagementSystem.Application.deps.json
+D:\FULearning\Semester8th\PRN231\Final Project\Student-Management-System\backend\src\StudentManagementSystem.Application\bin\Debug\net8.0\StudentManagementSystem.Application.dll
+D:\FULearning\Semester8th\PRN231\Final Project\Student-Management-System\backend\src\StudentManagementSystem.Application\bin\Debug\net8.0\StudentManagementSystem.Application.pdb
+D:\FULearning\Semester8th\PRN231\Final Project\Student-Management-System\backend\src\StudentManagementSystem.Application\bin\Debug\net8.0\StudentManagementSystem.Domain.dll
+D:\FULearning\Semester8th\PRN231\Final Project\Student-Management-System\backend\src\StudentManagementSystem.Application\bin\Debug\net8.0\StudentManagementSystem.Domain.pdb
+D:\FULearning\Semester8th\PRN231\Final Project\Student-Management-System\backend\src\StudentManagementSystem.Application\obj\Debug\net8.0\StudentManagementSystem.Application.csproj.AssemblyReference.cache
+D:\FULearning\Semester8th\PRN231\Final Project\Student-Management-System\backend\src\StudentManagementSystem.Application\obj\Debug\net8.0\StudentManagementSystem.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\FULearning\Semester8th\PRN231\Final Project\Student-Management-System\backend\src\StudentManagementSystem.Application\obj\Debug\net8.0\StudentManagementSystem.Application.AssemblyInfoInputs.cache
+D:\FULearning\Semester8th\PRN231\Final Project\Student-Management-System\backend\src\StudentManagementSystem.Application\obj\Debug\net8.0\StudentManagementSystem.Application.AssemblyInfo.cs
+D:\FULearning\Semester8th\PRN231\Final Project\Student-Management-System\backend\src\StudentManagementSystem.Application\obj\Debug\net8.0\StudentManagementSystem.Application.csproj.CoreCompileInputs.cache
+D:\FULearning\Semester8th\PRN231\Final Project\Student-Management-System\backend\src\StudentManagementSystem.Application\obj\Debug\net8.0\StudentManagementSystem.Application.sourcelink.json
+D:\FULearning\Semester8th\PRN231\Final Project\Student-Management-System\backend\src\StudentManagementSystem.Application\obj\Debug\net8.0\StudentM.486FEF39.Up2Date
+D:\FULearning\Semester8th\PRN231\Final Project\Student-Management-System\backend\src\StudentManagementSystem.Application\obj\Debug\net8.0\StudentManagementSystem.Application.dll
+D:\FULearning\Semester8th\PRN231\Final Project\Student-Management-System\backend\src\StudentManagementSystem.Application\obj\Debug\net8.0\refint\StudentManagementSystem.Application.dll
+D:\FULearning\Semester8th\PRN231\Final Project\Student-Management-System\backend\src\StudentManagementSystem.Application\obj\Debug\net8.0\StudentManagementSystem.Application.pdb
+D:\FULearning\Semester8th\PRN231\Final Project\Student-Management-System\backend\src\StudentManagementSystem.Application\obj\Debug\net8.0\ref\StudentManagementSystem.Application.dll
