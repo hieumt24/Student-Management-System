@@ -1,4 +1,5 @@
 ﻿using StudentManagementSystem.Domain.Common;
+using StudentManagementSystem.Domain.Enums;
 
 namespace StudentManagementSystem.Domain.Entities
 {
@@ -10,6 +11,8 @@ namespace StudentManagementSystem.Domain.Entities
         public int Grade { get; set; }
 
         public bool? IsPassed { get; set; }
+
+        public LocationType Location { get; set; }
 
         public User Student { get; set; }
         public Course Course { get; set; }
