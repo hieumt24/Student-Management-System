@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
-import { useAuth } from '../../context/AuthContext';
-import { toast } from 'react-toastify';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { useAuth } from '../../context/AuthContext';
 
 export default function LoginForm() {
     const navigation = useNavigate();
