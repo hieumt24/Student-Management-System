@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using StudentManagementSystem.Application.DTOs.Courses.Requests;
 using StudentManagementSystem.Application.DTOs.Courses.Responses;
+using StudentManagementSystem.Application.DTOs.Semesters.Requests;
+using StudentManagementSystem.Application.DTOs.Semesters.Responses;
 using StudentManagementSystem.Application.DTOs.Users.Requests;
 using StudentManagementSystem.Application.DTOs.Users.Responses;
 using StudentManagementSystem.Domain.Entities;
@@ -20,6 +22,11 @@ namespace StudentManagementSystem.Application.Mappings
             CreateMap<CourseDto, Course>().ReverseMap();
             CreateMap<CourseResponseDto, Course>().ReverseMap();
             CreateMap<AddCourseRequestDto, Course>().ReverseMap();
+
+            //mapping for semestes
+            CreateMap<SemesterDto, Semester>().ReverseMap();
+            CreateMap<AddSemesterRequestDto, Semester>().ReverseMap();
+            CreateMap<SemesterResponseDto, Semester>().ReverseMap();
         }
     }
 }
