@@ -196,7 +196,7 @@
               "RelativeDocumentMoniker": "StudentManagementSystem.Application\\Interface\\Repositories\\IUserRepository.cs",
               "ToolTip": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Application\\Interface\\Repositories\\IUserRepository.cs",
               "RelativeToolTip": "StudentManagementSystem.Application\\Interface\\Repositories\\IUserRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAmwBEAAABQAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAABQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-18T01:10:34.987Z",
               "EditorCaption": ""
@@ -211,8 +211,7 @@
               "RelativeToolTip": "StudentManagementSystem.Application\\Services\\UserService.cs",
               "ViewState": "AQIAADoAAAAAAAAAAAAgwEoAAABJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-18T01:09:00.077Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-18T01:09:00.077Z"
             },
             {
               "$type": "Document",
