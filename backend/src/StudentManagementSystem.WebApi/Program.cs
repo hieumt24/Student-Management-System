@@ -4,6 +4,7 @@ using Microsoft.OData.Edm;
 using Microsoft.OData.ModelBuilder;
 using StudentManagementSystem.Domain.Entities;
 using StudentManagementSystem.Infrastructure.DataAccess;
+using StudentManagementSystem.WebApi.Middlewares;
 
 namespace StudentManagementSystem.WebApi
 {
@@ -57,6 +58,9 @@ namespace StudentManagementSystem.WebApi
                 app.UseSwaggerUI();
             }
             app.UseCors("AllowAllOrigins");
+
+            app.UseMiddleware<TokenValidationMiddleware>();
+
             app.UseHttpsRedirection();
 
             app.UseAuthentication();
