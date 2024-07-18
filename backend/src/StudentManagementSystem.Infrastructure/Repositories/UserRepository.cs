@@ -6,6 +6,7 @@ using StudentManagementSystem.Domain.Enums;
 using StudentManagementSystem.Domain.Exceptions;
 using StudentManagementSystem.Infrastructure.Common;
 using StudentManagementSystem.Infrastructure.DataAccess;
+using System.Linq.Expressions;
 
 namespace StudentManagementSystem.Infrastructure.Repositories
 {
@@ -15,14 +16,14 @@ namespace StudentManagementSystem.Infrastructure.Repositories
         {
         }
 
-        public Task<bool> CheckStudentCodeExsits(string studentCode)
+        public async Task<bool> CheckStudentCodeExsits(string studentCode)
         {
-            var student = _dbContext.Users.FirstOrDefaultAsync(x => x.StudentCode == studentCode);
+            var student = await _dbContext.Users.FirstOrDefaultAsync(x => x.StudentCode == studentCode);
             if (student is null)
             {
-                return Task.FromResult(true);
+                return false;
             }
-            return Task.FromResult(false);
+            return true;
         }
 
         public async Task<User> FindByUserNameAndEmail(string userName, string email)
@@ -61,12 +62,51 @@ namespace StudentManagementSystem.Infrastructure.Repositories
             return baseUserName + (maxNumber + 1);
         }
 
-        public async Task<(IEnumerable<User> Data, int TotalRecords)> GetAllMatchingUserAsync(PaginationFilter pagination, LocationType location)
+        public async Task<(IEnumerable<User> Data, int TotalRecords)> GetAllMatchingUserAsync(PaginationFilter? pagination, LocationType location, string? search, RoleType? role, string? orderBy, bool? isDescending)
         {
             var query = _dbContext.Users.AsNoTracking()
                 .Where(x => x.Location == location && !x.IsDeleted);
 
+            string searchPhraseLower = search?.ToLower() ?? string.Empty;
+
+            if (!string.IsNullOrWhiteSpace(searchPhraseLower))
+            {
+                query = query.Where(x => x.FirstName.ToLower().Contains(searchPhraseLower) ||
+                                                        x.LastName.ToLower().Contains(searchPhraseLower) ||
+                                                        x.StudentCode.ToLower().Contains(searchPhraseLower) ||
+                                                        x.Email.ToLower().Contains(searchPhraseLower) ||
+                                                        x.UserName.ToLower().Contains(searchPhraseLower));
+            }
+
+            if (role.HasValue)
+            {
+                query = query.Where(x => x.Role == role.Value);
+            }
+
             var totalRecords = await query.CountAsync();
+
+            if (!string.IsNullOrEmpty(orderBy))
+            {
+                var columnsSelector = new Dictionary<string, Expression<Func<User, object>>>
+                {
+                    { "fullname", x => x.FirstName + " " + x.LastName },
+                    { "studentCode",  x => x.StudentCode },
+                    { "email", x => x.Email },
+                    { "username", x => x.UserName },
+                    { "joineddate", x => x.JoinedDate },
+                    { "role", x => x.Role },
+                    {"createdon", x => x.CreatedOn },
+                    { "lastmodifiedon", x => x.LastModifiedOn }
+                };
+
+                if (columnsSelector.ContainsKey(orderBy.ToLower()))
+                {
+                    query = isDescending.HasValue && isDescending.Value
+                        ? query.OrderByDescending(columnsSelector[orderBy.ToLower()])
+                        : query.OrderBy(columnsSelector[orderBy.ToLower()]);
+                }
+            }
+
             var users = await query.
                 Skip((pagination.PageIndex - 1) * pagination.PageSize)
                 .Take(pagination.PageSize)
