@@ -6,6 +6,6 @@ namespace StudentManagementSystem.Application.Interface.Services
 {
     public interface ICourseService
     {
-        Task<Response<CourseResponseDto>> CreateCourseAsync(AddCourseRequestDto request);
+        Task<Response<CourseResponseDto>> AddCourseAsync(AddCourseRequestDto request);
     }
 }

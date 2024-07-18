@@ -1,4 +1,5 @@
-﻿using StudentManagementSystem.Domain.Common;
+﻿using StudentManagementSystem.Application.DTOs.Courses.Responses;
+using StudentManagementSystem.Domain.Common;
 
 namespace StudentManagementSystem.Application.DTOs.Semesters.Responses
 {

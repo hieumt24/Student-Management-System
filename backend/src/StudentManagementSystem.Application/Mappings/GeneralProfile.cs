@@ -20,13 +20,18 @@ namespace StudentManagementSystem.Application.Mappings
 
             //mapping for course
             CreateMap<CourseDto, Course>().ReverseMap();
-            CreateMap<CourseResponseDto, Course>().ReverseMap();
+            CreateMap<Course, CourseResponseDto>().
+                ForMember(dest => dest.SemesterName, opt => opt.MapFrom(src => src.Semester.SemesterName))
+                .ForMember(dest => dest.SemesterCode, opt => opt.MapFrom(src => src.Semester.SemesterCode))
+                .ForMember(dest => dest.AcademicYear, opt => opt.MapFrom(src => src.Semester.AcademicYear))
+                .ReverseMap()
+                ;
             CreateMap<AddCourseRequestDto, Course>().ReverseMap();
 
             //mapping for semestes
             CreateMap<SemesterDto, Semester>().ReverseMap();
             CreateMap<AddSemesterRequestDto, Semester>().ReverseMap();
-            CreateMap<SemesterResponseDto, Semester>().ReverseMap();
+            CreateMap<Semester, SemesterResponseDto>().ReverseMap();
         }
     }
 }
