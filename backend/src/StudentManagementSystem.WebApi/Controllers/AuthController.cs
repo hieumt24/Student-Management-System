@@ -22,7 +22,7 @@ namespace StudentManagementSystem.WebApi.Controllers
             var response = await _authService.LoginAsync(request);
             if (!response.Succeeded)
             {
-                return BadRequest(response.Message);
+                return Unauthorized(response);
             }
             return Ok(response);
         }
