@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
-import { useAuth } from '../../context/AuthContext';
-import { toast } from 'react-toastify';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { login } from '../../services/authServices';
 
 export default function LoginForm() {
     const navigation = useNavigate();
-    const { login } = useAuth();
-    const [usernameOrEmail, setUsernameOrEmail] = useState('');
-    const [password, setPassword] = useState('');
-
+    const [formData, setFormData] = useState({
+        usernameOrEmail: "",
+        password: ""
+    })
     const [showPassword, setShowPassword] = useState(false);
 
     const togglePasswordVisibility = () => {
@@ -18,13 +18,19 @@ export default function LoginForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const result = await login(usernameOrEmail, usernameOrEmail, password);
-        if (result.success) {
-            await toast.success('Successfully logged in!');
-            navigation("/landing-page");
-        } else {
-            toast.error("Login failed. Please check your credentials.");
-        }
+        login(formData).then((response) => {
+            console.log(response.data);
+            if (response.data.succeeded) {
+                localStorage.setItem("token", response.data.data.token);
+                toast.success('Successfully logged in!');
+                navigation("/");
+            } else {
+                toast.error(response.data.message || "Login failed. Please check your credentials.");
+            }
+        }).catch((err) => {
+            toast.error(err.message || "Login failed. Check the console for error.")
+            console.log(err);
+        });
     };
 
     return (
@@ -49,8 +55,8 @@ export default function LoginForm() {
                             type="text"
                             id="usernameOrEmail"
                             className="w-full px-3 py-2 border rounded-md border-gray-300"
-                            value={usernameOrEmail}
-                            onChange={(e) => setUsernameOrEmail(e.target.value)}
+                            value={formData.usernameOrEmail}
+                            onChange={(e) => setFormData({...formData, usernameOrEmail: e.target.value})}
                             required
                         />
                     </div>
@@ -62,8 +68,8 @@ export default function LoginForm() {
                             type={showPassword ? "text" : "password"}
                             id="password"
                             className="w-full px-3 py-2 border border-gray-300 rounded-md pr-10"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            value={formData.password}
+                            onChange={(e) => setFormData({...formData, password: e.target.value})}
                             required
                         />
                         <button
