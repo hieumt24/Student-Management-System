@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using StudentManagementSystem.Application.Filters;
 using StudentManagementSystem.Application.Interface.Repositories;
 using StudentManagementSystem.Domain.Entities;
 using StudentManagementSystem.Domain.Enums;
@@ -58,6 +59,20 @@ namespace StudentManagementSystem.Infrastructure.Repositories
             }
 
             return baseUserName + (maxNumber + 1);
+        }
+
+        public async Task<(IEnumerable<User> Data, int TotalRecords)> GetAllMatchingUserAsync(PaginationFilter pagination, LocationType location)
+        {
+            var query = _dbContext.Users.AsNoTracking()
+                .Where(x => x.Location == location && !x.IsDeleted);
+
+            var totalRecords = await query.CountAsync();
+            var users = await query.
+                Skip((pagination.PageIndex - 1) * pagination.PageSize)
+                .Take(pagination.PageSize)
+                .ToListAsync();
+
+            return (Data: users, TotalRecords: totalRecords);
         }
 
         public async Task<RoleType> GetRoleAsync(Guid userId)

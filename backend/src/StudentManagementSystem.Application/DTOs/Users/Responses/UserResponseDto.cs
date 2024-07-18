@@ -1,10 +1,10 @@
-﻿using StudentManagementSystem.Domain.Common;
-using StudentManagementSystem.Domain.Enums;
+﻿using StudentManagementSystem.Domain.Enums;
 
 namespace StudentManagementSystem.Application.DTOs.Users.Responses
 {
-    public class UserDto : BaseEntity
+    public class UserResponseDto
     {
+        public Guid Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
@@ -23,5 +23,9 @@ namespace StudentManagementSystem.Application.DTOs.Users.Responses
         public RoleType Role { get; set; }
 
         public LocationType Location { get; set; }
+
+        public DateTimeOffset CreatedOn { get; set; }
+
+        public DateTimeOffset LastModifiedOn { get; set; }
     }
 }

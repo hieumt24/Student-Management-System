@@ -1,4 +1,8 @@
+using Microsoft.AspNetCore.OData;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OData.Edm;
+using Microsoft.OData.ModelBuilder;
+using StudentManagementSystem.Domain.Entities;
 using StudentManagementSystem.Infrastructure.DataAccess;
 
 namespace StudentManagementSystem.WebApi
@@ -31,6 +35,17 @@ namespace StudentManagementSystem.WebApi
                 });
             });
 
+            builder.Services.AddControllers().AddOData(option =>
+            {
+                option.Select()
+                        .Filter()
+                        .Count()
+                        .OrderBy()
+                        .Expand()
+                        .SetMaxTop(100);
+                option.AddRouteComponents("odata", GetEdmModel()).RouteOptions.EnableKeyInParenthesis = false;
+            });
+
             Application.Extensions.ServiceExtensions.ConfigureServices(builder.Services, builder.Configuration);
             Infrastructure.Extensions.InfrastructureExtension.Configure(builder.Services, builder.Configuration);
             var app = builder.Build();
@@ -51,6 +66,17 @@ namespace StudentManagementSystem.WebApi
             app.MapControllers();
 
             app.Run();
+        }
+
+        private static IEdmModel GetEdmModel()
+        {
+            ODataConventionModelBuilder builder = new();
+            builder.EntitySet<User>("Users");
+            builder.EntitySet<Course>("Courses");
+            builder.EntitySet<Semester>("Semesters");
+            builder.EntitySet<Enrollment>("Enrollments");
+
+            return builder.GetEdmModel();
         }
     }
 }

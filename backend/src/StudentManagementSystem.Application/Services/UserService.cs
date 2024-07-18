@@ -3,11 +3,14 @@ using FluentValidation;
 using Microsoft.AspNetCore.Identity;
 using StudentManagementSystem.Application.DTOs.Users.Requests;
 using StudentManagementSystem.Application.DTOs.Users.Responses;
+using StudentManagementSystem.Application.Filters;
+using StudentManagementSystem.Application.Helpers;
 using StudentManagementSystem.Application.Interface.Helpers;
 using StudentManagementSystem.Application.Interface.Repositories;
 using StudentManagementSystem.Application.Interface.Services;
 using StudentManagementSystem.Application.Wrappers;
 using StudentManagementSystem.Domain.Entities;
+using StudentManagementSystem.Domain.Enums;
 
 namespace StudentManagementSystem.Application.Services
 {
@@ -62,6 +65,28 @@ namespace StudentManagementSystem.Application.Services
             catch (Exception ex)
             {
                 return new Response<UserDto> { Succeeded = false, Errors = new List<string> { ex.Message } };
+            }
+        }
+
+        public async Task<PagedResponse<List<UserResponseDto>>> GetAllUserAsync(PaginationFilter pagination, LocationType location)
+        {
+            try
+            {
+                var users = await _userRepository.GetAllMatchingUserAsync(pagination, location);
+
+                if (users.Data is null)
+                {
+                    return new PagedResponse<List<UserResponseDto>> { Succeeded = false, Errors = new List<string> { "No users found" } };
+                }
+                var userResponseDto = _mapper.Map<List<UserResponseDto>>(users.Data);
+
+                var pagedResponse = PaginationHelper.CreatePageResponse(userResponseDto, pagination, users.TotalRecords);
+
+                return pagedResponse;
+            }
+            catch (Exception ex)
+            {
+                return new PagedResponse<List<UserResponseDto>> { Succeeded = false, Errors = new List<string> { ex.Message } };
             }
         }
     }
