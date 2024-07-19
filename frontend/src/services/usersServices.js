@@ -16,3 +16,11 @@ export function getUserById(userId) {
 export function updateUser(userId, request) {
   return axiosInstance.put(`/users/${userId}`, request);
 }
+
+export function checkUserValidForDelete(userId) {
+  return axiosInstance.post(`/users/isValidDeletedUser/${userId}`);
+}
+
+export function deleteUser(userId) {
+  return axiosInstance.delete(`/users/${userId}`);
+}
