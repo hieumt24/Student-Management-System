@@ -8,11 +8,12 @@ import { getPaginatedCourses, getStudentEnrollment } from "../../services";
 
 export const CourseList = () => {
   const { user } = useAuth();
+  const [refresh, setRefresh] = useState(0);
   const [courses, setCourses] = useState([]);
   const [pagination, setPagination] = useState({
     pageIndex: 1,
     pageCount: 0,
-    pageSize: 9,
+    pageSize: 12,
     totalRecords: 0,
   });
   const [searchQuery, setSearchQuery] = useState("");
@@ -21,7 +22,7 @@ export const CourseList = () => {
 
   useEffect(() => {
     fetchCourses();
-  }, [pagination.pageIndex, pagination.pageSize, searchQuery, sortConfig]);
+  }, [pagination.pageIndex, pagination.pageSize, searchQuery, sortConfig, refresh]);
 
   const fetchCourses = async () => {
     try {
@@ -60,8 +61,7 @@ export const CourseList = () => {
 
   useEffect(() => {
     fetchEnrolledCourses();
-  }, []);
-  console.log(enrolledCourses);
+  }, [refresh]);
 
   const handleSort = (e) => {
     const [key, direction] = e.target.value.split(",");
@@ -126,7 +126,10 @@ export const CourseList = () => {
               enrolled={enrolledCourses.some(
                 (enrollment) => enrollment.courseId === course.id
               )}
-              full={course.studentInCourse > course.maxStudent}
+              full={course.studentInCourse >= course.maxStudent}
+              onEnroll={()=>{
+                setRefresh((prev)=>(prev+1));
+              }}
             />
           ))
         ) : (
