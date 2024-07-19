@@ -15,6 +15,17 @@ namespace StudentManagementSystem.Infrastructure.Repositories
         {
         }
 
+        public async Task<bool> CheckCourseFullSlot(Guid courseId)
+        {
+            var totalCourse = await _dbContext.Enrollments.CountAsync(x => x.CourseId == courseId);
+            var course = await _dbContext.Courses.FirstOrDefaultAsync(x => x.Id == courseId);
+            if (totalCourse > course.MaxStudent)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public async Task<(IEnumerable<Course> Data, int TotalRecords)> GetAllMatchingCourse(PaginationFilter? pagination, CourseLevelType? courseLevel, CourseStateType? courseState, string? search, string? orderBy, bool? isDescending)
         {
             var query = _dbContext.Courses.AsNoTracking();
