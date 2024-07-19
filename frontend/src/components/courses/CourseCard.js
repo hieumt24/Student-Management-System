@@ -16,7 +16,7 @@ export const CourseCard = ({ course, enroll=false }) => {
   };
 
   const handleEnroll = () => {
-    
+
   }
 
   return (
@@ -32,6 +32,9 @@ export const CourseCard = ({ course, enroll=false }) => {
         </h2>
         <p className="text-gray-600 mb-2">Course Code: {course.courseCode}</p>
         <p className="text-gray-600 mb-2">Credits: {course.credits}</p>
+        <p className="text-gray-600 mb-2">
+                  Student Joined: {course.studentInCourse}
+                </p>
         <p className="text-gray-600">Max Students: {course.maxStudent}</p>
 
         <div className="w-full flex justify-between mt-2">
