@@ -37,6 +37,7 @@ namespace StudentManagementSystem.Application.Mappings
             CreateMap<AddEnrollmentRequestDto, Enrollment>().ReverseMap();
             CreateMap<Enrollment, EnrollmentResponseDto>()
                 .ForMember(dest => dest.StudentName, opt => opt.MapFrom(src => src.Student.FirstName + " " + src.Student.LastName))
+                .ForMember(dest => dest.StudentCode, opt => opt.MapFrom(src => src.Student.StudentCode))
                 .ForMember(dest => dest.CourseCode, opt => opt.MapFrom(src => src.Course.CourseCode))
                 .ForMember(dest => dest.SemesterCode, opt => opt.MapFrom(src => src.Semester.SemesterCode))
                 .ReverseMap();

@@ -7,6 +7,8 @@ namespace StudentManagementSystem.Application.DTOs.Enrollments.Responses
         public Guid StudentId { get; set; }
 
         public string StudentName { get; set; }
+
+        public string StudentCode { get; set; }
         public Guid CourseId { get; set; }
 
         public string CourseCode { get; set; }
