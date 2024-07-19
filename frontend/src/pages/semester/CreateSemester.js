@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { FaCalendarAlt, FaGraduationCap } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { createSemester } from '../../services/semestersService';
-import { FaGraduationCap, FaCalendarAlt } from 'react-icons/fa';
 
 export const CreateSemester = () => {
     const [formData, setFormData] = useState({
@@ -29,6 +31,8 @@ export const CreateSemester = () => {
         return Object.keys(tempErrors).length === 0;
     };
 
+    const navigate = useNavigate();
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (validateForm()) {
@@ -36,6 +40,8 @@ export const CreateSemester = () => {
                 const response = await createSemester(formData);
                 console.log('Semester created:', response);
                 setFormData({ semesterName: '', academicYear: '' });
+                toast.success("Semester created");
+                navigate("/semesters");
             } catch (error) {
                 console.error('Error creating semester:', error);
             }

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Pagination } from "../../components/Pagination";
-import { getPaginatedUsers } from "../../services/usersServices";
-import { FaSearch, FaPlus } from "react-icons/fa";
+import { FaPlus, FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { Pagination } from "../../components/Pagination";
+import { useAuth } from "../../context/AuthContext";
+import { getPaginatedUsers } from "../../services/usersServices";
 
 // Utility function to format date
 const formatDate = (dateStr) => {
@@ -24,10 +25,7 @@ export const UsersList = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [sortConfig, setSortConfig] = useState({ key: "", direction: "" });
   const navigate = useNavigate();
-
-  useEffect(() => {
-    fetchUsers();
-  }, [pagination.pageIndex, pagination.pageSize, searchQuery, sortConfig]);
+  const { user } = useAuth();
 
   const fetchUsers = () => {
     getPaginatedUsers({
@@ -36,7 +34,7 @@ export const UsersList = () => {
       search: searchQuery,
       orderBy: sortConfig.key,
       isDescending: sortConfig.direction === "descending",
-      location: 1,
+      location: user.location,
     })
       .then((response) => {
         setUsers(response.data.data || []);
@@ -50,6 +48,12 @@ export const UsersList = () => {
         console.log(err);
       });
   };
+
+  useEffect(() => {
+    fetchUsers();
+  }, [pagination.pageIndex, pagination.pageSize, searchQuery, sortConfig]);
+
+  
 
   const handleSort = (key) => {
     let direction = "ascending";
@@ -88,7 +92,7 @@ export const UsersList = () => {
           <FaPlus className="mr-2" /> Create User
         </button>
       </div>
-      <div className="bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">
+      <div className="bg-white shadow-lg rounded-lg overflow-auto border border-gray-200">
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
             <tr>
