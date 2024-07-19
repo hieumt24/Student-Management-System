@@ -1,6 +1,8 @@
-﻿namespace StudentManagementSystem.Domain.Entities
+﻿using StudentManagementSystem.Domain.Common;
+
+namespace StudentManagementSystem.Domain.Entities
 {
-    public class CourseSemester
+    public class CourseSemester : BaseEntity
     {
         public Guid CourseId { get; set; }
         public Course Course { get; set; }

@@ -8,5 +8,7 @@ namespace StudentManagementSystem.Application.Interface.Repositories
     public interface ICourseRepository : IGenericRepository<Course>
     {
         Task<(IEnumerable<Course> Data, int TotalRecords)> GetAllMatchingCourse(PaginationFilter? pagination, CourseLevelType? courseLevel, CourseStateType? courseState, string? search, string? orderBy, bool? isDescending);
+
+        Task<bool> CheckCourseFullSlot(Guid courseId);
     }
 }

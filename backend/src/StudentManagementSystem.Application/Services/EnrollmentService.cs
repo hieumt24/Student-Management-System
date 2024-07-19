@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using FluentValidation;
+using Microsoft.AspNetCore.Http.Timeouts;
 using StudentManagementSystem.Application.DTOs.Enrollments.Requests;
 using StudentManagementSystem.Application.DTOs.Enrollments.Responses;
 using StudentManagementSystem.Application.Interface.Repositories;
@@ -16,19 +17,22 @@ namespace StudentManagementSystem.Application.Services
         private readonly IEnrollmentRepository _enrollmentRepository;
         private readonly IUserRepository _userRepository;
         private readonly IValidator<AddEnrollmentRequestDto> _addEnrollmentValidator;
+        private readonly ICourseRepository _courseRepository;
 
         public EnrollmentService
         (
                                             IMapper mapper,
                                             IEnrollmentRepository enrollmentRepository,
                                             IValidator<AddEnrollmentRequestDto> addEnrollmentValidator,
-                                            IUserRepository userRepository
+                                            IUserRepository userRepository,
+                                            ICourseRepository courseRepository
         )
         {
             _mapper = mapper;
             _enrollmentRepository = enrollmentRepository;
             _addEnrollmentValidator = addEnrollmentValidator;
             _userRepository = userRepository;
+            _courseRepository = courseRepository;
         }
 
         public async Task<Response<EnrollmentDto>> AddEnrollmentCourse(AddEnrollmentRequestDto request)
@@ -74,6 +78,12 @@ namespace StudentManagementSystem.Application.Services
                 enrollment.State = EnrolmentStateType.Enrolled;
                 enrollment.IsPassed = false;
                 enrollment.SemesterId = await _userRepository.FindSesterIdByStudentId(request.StudentId);
+
+                var checkedCourseFullSlot = await _courseRepository.CheckCourseFullSlot(request.CourseId);
+                if (checkedCourseFullSlot)
+                {
+                    return new Response<EnrollmentDto> { Succeeded = false, Message = "Course is full slot" };
+                }
 
                 await _enrollmentRepository.AddAsync(enrollment);
 

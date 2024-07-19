@@ -16,6 +16,27 @@ namespace StudentManagementSystem.Infrastructure.Repositories
         {
         }
 
+        public async Task<StudentSemester> AddStudentWithSemester(Guid studentId, Guid semesterId)
+        {
+            try
+            {
+                await _dbContext.StudentSemesters.AddAsync(new StudentSemester
+                {
+                    Id = Guid.NewGuid(),
+                    StudentId = studentId,
+                    SemesterId = semesterId,
+                    CreatedOn = DateTime.Now
+
+                });
+                await _dbContext.SaveChangesAsync();
+                return await _dbContext.StudentSemesters.FirstOrDefaultAsync(x => x.StudentId == studentId && x.SemesterId == semesterId);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
         public async Task<bool> CheckStudentCodeExsits(string studentCode)
         {
             var student = await _dbContext.Users.FirstOrDefaultAsync(x => x.StudentCode == studentCode);

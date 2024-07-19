@@ -17,6 +17,8 @@ namespace StudentManagementSystem.Application.Interface.Repositories
 
         Task<Guid> FindSesterIdByStudentId(Guid studentId);
 
+        Task<StudentSemester> AddStudentWithSemester(Guid studentId, Guid semesterId);
+
         Task<(IEnumerable<User> Data, int TotalRecords)> GetAllMatchingUserAsync(PaginationFilter? pagination, LocationType location, string? search, RoleType? role, string? orderBy, bool? isDescending);
     }
 }
