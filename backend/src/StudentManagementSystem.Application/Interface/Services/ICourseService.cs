@@ -11,5 +11,9 @@ namespace StudentManagementSystem.Application.Interface.Services
         Task<Response<CourseDto>> AddCourseAsync(AddCourseRequestDto request);
 
         Task<PagedResponse<List<CourseResponseDto>>> GetAllCoursesAsync(PaginationFilter? pagination, CourseLevelType? courseLevel, CourseStateType? courseState, string? search, string? orderBy, bool? isDescending);
+
+        Task<Response<CourseResponseDto>> GetCourseByIdAsync(Guid courseId);
+
+        Task<Response<CourseResponseDto>> UpdateCourseAsync(Guid courseId, EditCourseRequestDto request);
     }
 }

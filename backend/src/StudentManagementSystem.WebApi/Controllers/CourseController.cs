@@ -34,5 +34,27 @@ namespace StudentManagementSystem.WebApi.Controllers
             var response = await _courseService.GetAllCoursesAsync(pagination, courseLevel, courseState, search, orderBy, isDescending);
             return Ok(response);
         }
+
+        [HttpPut("{courseId}")]
+        public async Task<IActionResult> UpdateCourseAsync([FromBody] EditCourseRequestDto request, Guid courseId)
+        {
+            var response = await _courseService.UpdateCourseAsync(courseId, request);
+            if (response.Succeeded)
+            {
+                return Ok(response);
+            }
+            return BadRequest(response);
+        }
+
+        [HttpGet("{courseId}")]
+        public async Task<IActionResult> GetCourseByIdAsync(Guid courseId)
+        {
+            var response = await _courseService.GetCourseByIdAsync(courseId);
+            if (response.Succeeded)
+            {
+                return Ok(response);
+            }
+            return BadRequest(response);
+        }
     }
 }

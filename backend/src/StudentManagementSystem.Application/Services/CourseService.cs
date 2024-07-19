@@ -84,5 +84,48 @@ namespace StudentManagementSystem.Application.Services
                 return new PagedResponse<List<CourseResponseDto>> { Succeeded = false, Message = ex.Message };
             }
         }
+
+        public async Task<Response<CourseResponseDto>> GetCourseByIdAsync(Guid courseId)
+        {
+            try
+            {
+                var course = await _courseRepository.GetByIdAsync(courseId);
+                if (course is null)
+                {
+                    return new Response<CourseResponseDto> { Succeeded = false, Message = "Course not found" };
+                }
+                var courseResponseDto = _mapper.Map<CourseResponseDto>(course);
+                return new Response<CourseResponseDto> { Succeeded = true, Data = courseResponseDto };
+            }
+            catch (Exception ex)
+            {
+                return new Response<CourseResponseDto> { Succeeded = false, Message = ex.Message };
+            }
+        }
+
+        //edit course
+        public async Task<Response<CourseResponseDto>> UpdateCourseAsync(Guid courseId, EditCourseRequestDto request)
+        {
+            try
+            {
+                var course = await _courseRepository.GetByIdAsync(courseId);
+                if (course is null)
+                {
+                    return new Response<CourseResponseDto> { Succeeded = false, Message = "Course not found" };
+                }
+
+                course = _mapper.Map(request, course);
+                course.LastModifiedOn = DateTime.Now;
+
+                await _courseRepository.UpdateAsync(course);
+
+                var courseResponseDto = _mapper.Map<CourseResponseDto>(course);
+                return new Response<CourseResponseDto> { Succeeded = true, Data = courseResponseDto };
+            }
+            catch (Exception ex)
+            {
+                return new Response<CourseResponseDto> { Succeeded = false, Message = ex.Message };
+            }
+        }
     }
 }
