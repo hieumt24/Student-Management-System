@@ -19,6 +19,7 @@ namespace StudentManagementSystem.Application.Mappings
             CreateMap<AddUserRequestDto, User>().ReverseMap();
             CreateMap<UserDto, User>().ReverseMap();
             CreateMap<UserResponseDto, User>().ReverseMap();
+            CreateMap<EditUserRequestDto, User>().ReverseMap();
 
             //mapping for course
             CreateMap<CourseDto, Course>().ReverseMap();

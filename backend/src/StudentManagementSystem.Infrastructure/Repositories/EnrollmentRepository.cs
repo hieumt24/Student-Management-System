@@ -17,7 +17,7 @@ namespace StudentManagementSystem.Infrastructure.Repositories
 
         public async Task<bool> CheckStudentPassCourse(Guid enrollmentId, double grade)
         {
-            var enrollment = await _dbContext.Enrollments.FirstOrDefaultAsync(x => x.Id == enrollmentId);
+            var enrollment = await _dbContext.Enrollments.FirstOrDefaultAsync(x => x.Id == enrollmentId && !x.IsDeleted);
             if (grade < 5)
             {
                 enrollment.IsPassed = false;
@@ -35,7 +35,7 @@ namespace StudentManagementSystem.Infrastructure.Repositories
 
         public async Task<bool> CheckUserExsitingInEnrollment(Guid courseId, Guid studentId)
         {
-            var checkUser = await _dbContext.Enrollments.FirstOrDefaultAsync(x => x.CourseId == courseId && x.StudentId == studentId);
+            var checkUser = await _dbContext.Enrollments.FirstOrDefaultAsync(x => x.CourseId == courseId && x.StudentId == studentId && !x.IsDeleted);
             if (checkUser != null)
             {
                 return true;
@@ -45,7 +45,7 @@ namespace StudentManagementSystem.Infrastructure.Repositories
 
         public async Task<int> CountStudentInCourse(Guid courseId)
         {
-            var result = await _dbContext.Enrollments.CountAsync(x => x.CourseId == courseId);
+            var result = await _dbContext.Enrollments.CountAsync(x => x.CourseId == courseId && !x.IsDeleted);
             result = result + 1;
             return result;
         }
@@ -106,7 +106,7 @@ namespace StudentManagementSystem.Infrastructure.Repositories
 
         public async Task<List<Enrollment>> GetCourseById(Guid courseId)
         {
-            var enrollment = await _dbContext.Enrollments.Where(x => x.CourseId == courseId).ToListAsync();
+            var enrollment = await _dbContext.Enrollments.Where(x => x.CourseId == courseId && !x.IsDeleted).ToListAsync();
             if (enrollment is null)
             {
                 return null;

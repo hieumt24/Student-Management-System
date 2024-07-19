@@ -14,6 +14,8 @@ namespace StudentManagementSystem.Application.DTOs.Users.Responses
 
         public DateTime? JoinedDate { get; set; }
 
+        public GenderType Gender { get; set; }
+
         public string? StudentCode { get; set; }
 
         public string UserName { get; set; } = string.Empty;
