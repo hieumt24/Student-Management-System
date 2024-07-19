@@ -2,6 +2,7 @@ import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { useAuth } from '../../hooks';
 import { login } from '../../services/authServices';
 
 export default function LoginForm() {
@@ -16,11 +17,13 @@ export default function LoginForm() {
         setShowPassword(!showPassword);
     };
 
+    const {setIsAuthenticated} = useAuth();
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         login(formData).then((response) => {
-            console.log(response.data);
             if (response.data.succeeded) {
+                setIsAuthenticated(true);
                 localStorage.setItem("token", response.data.data.token);
                 toast.success('Successfully logged in!');
                 navigation("/");

@@ -1,23 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks";
 
 export default function Header() {
-  const { user } = useAuth();
+  const { user, setIsAuthenticated } = useAuth();
+  const [openUserMenu, setOpenUserMenu] = useState(false);
+  const navigate = useNavigate();
+  const handleSignOut = (e) => {
+    e.preventDefault();
+    localStorage.removeItem("token");
+    setIsAuthenticated(false);
+    navigate("/auth/login");
+  }
   return (
     <>
-      <div class="min-h-full">
-        <nav class="bg-gray-800">
-          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="flex h-16 items-center justify-between">
-              <div class="flex items-center">
-                {/* <div class="flex-shrink-0">
-                                    <img class="h-11 w-30" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjtlp4lj3cznWcQAKEfkSBxPcSO0ZebCdJvA&s" alt="Your Company" />
+      <div className="min-h-full">
+        <nav className="bg-gray-800">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="flex h-16 items-center justify-between">
+              <div className="flex items-center">
+                {/* <div className="flex-shrink-0">
+                                    <img className="h-11 w-30" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjtlp4lj3cznWcQAKEfkSBxPcSO0ZebCdJvA&s" alt="Your Company" />
                                 </div> */}
-                <div class="hidden md:block">
-                  <div class="ml-10 flex items-baseline space-x-4">
+                <div className="hidden md:block">
+                  <div className="ml-10 flex items-baseline space-x-4">
                     <a
                       href="/"
-                      class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+                      className="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
                     >
                       Dashboard
                     </a>
@@ -25,13 +34,13 @@ export default function Header() {
                       <>
                         <a
                           href="/users"
-                          class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                          className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                         >
                           User
                         </a>
                         <a
                           href="/semesters"
-                          class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                          className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                         >
                           Semester
                         </a>
@@ -39,23 +48,23 @@ export default function Header() {
                     )}
                     <a
                       href="#"
-                      class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                      className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                     >
                       Course
                     </a>
                   </div>
                 </div>
               </div>
-              <div class="hidden md:block">
-                <div class="ml-4 flex items-center md:ml-6">
+              <div className="hidden md:block">
+                <div className="ml-4 flex items-center md:ml-6">
                   <button
                     type="button"
-                    class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                    className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                   >
-                    <span class="absolute -inset-1.5"></span>
-                    <span class="sr-only">View notifications</span>
+                    <span className="absolute -inset-1.5"></span>
+                    <span className="sr-only">View notifications</span>
                     <svg
-                      class="h-6 w-6"
+                      className="h-6 w-6"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke-width="1.5"
@@ -70,26 +79,27 @@ export default function Header() {
                     </svg>
                   </button>
 
-                  <div class="relative ml-3">
+                  <div className="relative ml-3">
                     <div>
                       <button
                         type="button"
-                        class="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                        className="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                         id="user-menu-button"
                         aria-expanded="false"
                         aria-haspopup="true"
+                        onClick={()=>{setOpenUserMenu(!openUserMenu)}}
                       >
-                        <span class="absolute -inset-1.5"></span>
-                        <span class="sr-only">Open user menu</span>
+                        <span className="absolute -inset-1.5"></span>
+                        <span className="sr-only">Open user menu</span>
                         <img
-                          class="h-8 w-8 rounded-full"
+                          className="h-8 w-8 rounded-full"
                           src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                           alt=""
                         />
                       </button>
                     </div>
                     <div
-                      class="hidden absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                      className={`${!openUserMenu && "hidden"} absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
                       role="menu"
                       aria-orientation="vertical"
                       aria-labelledby="user-menu-button"
@@ -97,7 +107,7 @@ export default function Header() {
                     >
                       <a
                         href="#"
-                        class="block px-4 py-2 text-sm text-gray-700"
+                        className="block px-4 py-2 text-sm text-gray-700"
                         role="menuitem"
                         tabindex="-1"
                         id="user-menu-item-0"
@@ -106,7 +116,7 @@ export default function Header() {
                       </a>
                       <a
                         href="#"
-                        class="block px-4 py-2 text-sm text-gray-700"
+                        className="block px-4 py-2 text-sm text-gray-700"
                         role="menuitem"
                         tabindex="-1"
                         id="user-menu-item-1"
@@ -115,10 +125,11 @@ export default function Header() {
                       </a>
                       <a
                         href="#"
-                        class="block px-4 py-2 text-sm text-gray-700"
+                        className="block px-4 py-2 text-sm text-gray-700"
                         role="menuitem"
                         tabindex="-1"
                         id="user-menu-item-2"
+                        onClick={handleSignOut}
                       >
                         Sign out
                       </a>
@@ -126,17 +137,17 @@ export default function Header() {
                   </div>
                 </div>
               </div>
-              <div class="-mr-2 flex md:hidden">
+              <div className="-mr-2 flex md:hidden">
                 <button
                   type="button"
-                  class="relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  className="relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                   aria-controls="mobile-menu"
                   aria-expanded="false"
                 >
-                  <span class="absolute -inset-0.5"></span>
-                  <span class="sr-only">Open main menu</span>
+                  <span className="absolute -inset-0.5"></span>
+                  <span className="sr-only">Open main menu</span>
                   <svg
-                    class="block h-6 w-6"
+                    className="block h-6 w-6"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke-width="1.5"
@@ -150,7 +161,7 @@ export default function Header() {
                     />
                   </svg>
                   <svg
-                    class="hidden h-6 w-6"
+                    className="hidden h-6 w-6"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke-width="1.5"

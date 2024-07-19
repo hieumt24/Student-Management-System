@@ -43,13 +43,29 @@ export const RouteProvider = () => {
             <Route path="" element={<UsersList />}></Route>
             <Route path="create" element={<CreateUser />}></Route>
           </Route>
-          <Route path="/semesters" element={<Layout />}>
+          <Route
+            path="/semesters"
+            element={
+              <AuthRequired>
+                <Layout />
+              </AuthRequired>
+            }
+          >
             <Route path="" element={<SemesterList />}></Route>
             <Route path="create" element={<CreateSemester />}></Route>
           </Route>
         </>
       ) : (
-        <></>
+        <>
+          <Route
+            path="/"
+            element={
+              <AuthRequired>
+                <LandingPage />
+              </AuthRequired>
+            }
+          />
+        </>
       )}
 
       <Route path="/*" element={<NotFound />} />

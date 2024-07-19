@@ -26,6 +26,7 @@ export const AuthProvider = ({ children }) => {
   });
   const [isAuthenticated, setIsAuthenticated] = useState(!!token);
   const fetchUserFromToken = () => {
+    setLoading(true);
     const storedToken = localStorage.getItem("token");
 
     if (storedToken) {
