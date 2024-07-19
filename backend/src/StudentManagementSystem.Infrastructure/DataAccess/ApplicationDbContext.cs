@@ -22,6 +22,8 @@ namespace StudentManagementSystem.Infrastructure.DataAccess
         public DbSet<BlackListToken> BlackListTokens { get; set; }
         public DbSet<Semester> Semesters { get; set; }
 
+        public DbSet<CourseSemester> CourseSemesters { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -53,11 +55,6 @@ namespace StudentManagementSystem.Infrastructure.DataAccess
                 .WithMany(s => s.Enrollments)
                 .HasForeignKey(e => e.CourseId);
 
-            modelBuilder.Entity<Course>()
-                .HasOne(c => c.Semester)
-                .WithMany(s => s.Courses)
-                .HasForeignKey(c => c.SemesterId);
-
             modelBuilder.Entity<StudentSemester>()
                 .HasOne(ss => ss.Student)
                 .WithMany(s => s.StudentSemesters)
@@ -67,6 +64,19 @@ namespace StudentManagementSystem.Infrastructure.DataAccess
                 .HasOne(ss => ss.Semester)
                 .WithMany(s => s.StudentSemesters)
                 .HasForeignKey(ss => ss.SemesterId);
+
+            modelBuilder.Entity<CourseSemester>()
+                .HasKey(cs => new { cs.CourseId, cs.SemesterId });
+
+            modelBuilder.Entity<CourseSemester>()
+                .HasOne(cs => cs.Course)
+                .WithMany(c => c.CourseSemesters)
+                .HasForeignKey(cs => cs.CourseId);
+
+            modelBuilder.Entity<CourseSemester>()
+                .HasOne(cs => cs.Semester)
+                .WithMany(s => s.CourseSemesters)
+                .HasForeignKey(cs => cs.SemesterId);
 
             SeedData(modelBuilder);
         }

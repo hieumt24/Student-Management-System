@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using StudentManagementSystem.Application.DTOs.Courses.Requests;
+using StudentManagementSystem.Application.DTOs.Enrollments.Requests;
 using StudentManagementSystem.Application.DTOs.Semesters.Requests;
 using StudentManagementSystem.Application.DTOs.Users.Requests;
 using StudentManagementSystem.Application.Helpers;
@@ -12,6 +13,7 @@ using StudentManagementSystem.Application.Interface.Services;
 using StudentManagementSystem.Application.Mappings;
 using StudentManagementSystem.Application.Services;
 using StudentManagementSystem.Application.Validations.Courses;
+using StudentManagementSystem.Application.Validations.Enrollments;
 using StudentManagementSystem.Application.Validations.Semesters;
 using StudentManagementSystem.Application.Validations.Users;
 using StudentManagementSystem.Domain.Common;
@@ -31,6 +33,7 @@ namespace StudentManagementSystem.Application.Extensions
             service.AddScoped<IAuthService, AuthService>();
             service.AddScoped<ICourseService, CourseService>();
             service.AddScoped<ISemesterService, SemesterService>();
+            service.AddScoped<IEnrollmentService, EnrollmentService>();
 
             //injection mapping
             service.AddAutoMapper(typeof(GeneralProfile));
@@ -39,6 +42,7 @@ namespace StudentManagementSystem.Application.Extensions
             service.AddScoped<IValidator<AddUserRequestDto>, AddUserRequestValidation>();
             service.AddScoped<IValidator<AddCourseRequestDto>, AddCourseRequestValidation>();
             service.AddScoped<IValidator<AddSemesterRequestDto>, AddSemesterRequestValidation>();
+            service.AddScoped<IValidator<AddEnrollmentRequestDto>, AddEnrollmentRequestValidation>();
 
             var jwtSettings = service.Configure<JWTSettings>(configuration.GetSection("JWTSettings"));
             service.AddSingleton(jwtSettings);

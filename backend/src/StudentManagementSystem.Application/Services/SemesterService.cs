@@ -73,20 +73,8 @@ namespace StudentManagementSystem.Application.Services
                 {
                     return new PagedResponse<List<SemesterResponseDto>> { Succeeded = false, Message = "No semesters found" };
                 }
-                //var semesterResponseDto = _mapper.Map<List<SemesterResponseDto>>(semesters.Data);
-                var semesterResponseDto = semesters.Data.Select(semester => new SemesterResponseDto
-                {
-                    SemesterName = semester.SemesterName,
-                    SemesterCode = semester.SemesterCode,
-                    AcademicYear = semester.AcademicYear,
-                    Courses = semester.Courses.Select(course => new CourseDto
-                    {
-                        CourseCode = course.CourseCode,
-                        Title = course.Title,
-                        Credits = course.Credits,
-                        MaxStudent = course.MaxStudent
-                    }).ToList()
-                });
+                var semesterResponseDto = _mapper.Map<List<SemesterResponseDto>>(semesters.Data);
+
                 var pagedResponse = PaginationHelper.CreatePageResponse(semesterResponseDto.ToList(), pagination, semesters.TotalRecords);
                 return pagedResponse;
             }

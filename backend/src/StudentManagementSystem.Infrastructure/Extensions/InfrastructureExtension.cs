@@ -21,6 +21,7 @@ namespace StudentManagementSystem.Infrastructure.Extensions
             services.AddScoped<ISemesterRepository, SemesterRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ICourseRepository, CourseRepository>();
+            services.AddScoped<IEnrollmentRepository, EnrollmentRepository>();
 
             //injection
             var connectionString = configuration.GetConnectionString("DefaultConnection");

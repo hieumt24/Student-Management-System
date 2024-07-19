@@ -26,7 +26,7 @@ namespace StudentManagementSystem.Infrastructure.Repositories
 
         public async Task<(IEnumerable<Semester> Data, int TotalRecords)> GetAllMatchingSemester(PaginationFilter? pagination, string? search, string? orderBy, bool? isDescending)
         {
-            var query = _dbContext.Semesters.Include(x => x.Courses).AsNoTracking();
+            var query = _dbContext.Semesters.AsNoTracking();
 
             string searchPhraseLower = search?.ToLower() ?? string.Empty;
 
