@@ -77,7 +77,7 @@ namespace StudentManagementSystem.WebApi
 
             Application.Extensions.ServiceExtensions.ConfigureServices(builder.Services, builder.Configuration);
             Infrastructure.Extensions.InfrastructureExtension.Configure(builder.Services, builder.Configuration);
-
+            builder.Services.AddScoped<ErrorHandlingMiddleware>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -88,6 +88,7 @@ namespace StudentManagementSystem.WebApi
             }
             app.UseCors("AllowAllOrigins");
 
+            app.UseMiddleware<ErrorHandlingMiddleware>();
             app.UseMiddleware<TokenValidationMiddleware>();
 
             app.UseHttpsRedirection();

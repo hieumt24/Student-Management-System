@@ -43,6 +43,7 @@ namespace StudentManagementSystem.Application.Extensions
             service.AddScoped<IValidator<AddCourseRequestDto>, AddCourseRequestValidation>();
             service.AddScoped<IValidator<AddSemesterRequestDto>, AddSemesterRequestValidation>();
             service.AddScoped<IValidator<AddEnrollmentRequestDto>, AddEnrollmentRequestValidation>();
+            service.AddScoped<IValidator<EditEnrollmentRequestDto>, EditEnrollmentRequestValidation>();
 
             var jwtSettings = service.Configure<JWTSettings>(configuration.GetSection("JWTSettings"));
             service.AddSingleton(jwtSettings);

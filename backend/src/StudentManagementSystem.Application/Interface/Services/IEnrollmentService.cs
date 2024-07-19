@@ -9,5 +9,10 @@ namespace StudentManagementSystem.Application.Interface.Services
         Task<Response<EnrollmentDto>> AddEnrollmentCourse(AddEnrollmentRequestDto request);
 
         Task<Response<EnrollmentDto>> StudentEnrollmentCourse(AddEnrollmentRequestDto request);
+
+        //Task InsertGradeForStudent(AddGradeRequestDto request);
+        Task<Response<List<EnrollmentResponseDto>>> GetCourseById(Guid courseId);
+
+        Task<Response<EnrollmentDto>> InsertGradeForStudnet(EditEnrollmentRequestDto request);
     }
 }
