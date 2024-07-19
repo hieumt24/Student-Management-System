@@ -1,4 +1,8 @@
-export const CourseCard = ({ course, enroll=false }) => {
+import { toast } from "react-toastify";
+import { useAuth } from "../../hooks";
+import { enrollCourse } from "../../services";
+
+export const CourseCard = ({ course, enroll = false, enrolled = false }) => {
   const courseStateColors = {
     0: "bg-gray-200",
     1: "bg-green-200",
@@ -15,9 +19,25 @@ export const CourseCard = ({ course, enroll=false }) => {
     4: "Cancelled",
   };
 
-  const handleEnroll = () => {
+  const {user} = useAuth();
 
-  }
+  const handleEnroll = () => {
+    console.log(course);
+    enrollCourse({
+        studentId: user.id,
+        courseId: course.id,
+        location: user.location
+    }).then((response)=>{
+        if (response.data.succeeded) {
+            toast.success("Enroll successfully");
+        } else {
+            toast.error(response.data.message);
+        }
+    }).catch((err)=>{
+        console.log(err);
+        toast.error(err || "Unexpected error");
+    })
+  };
 
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
@@ -33,8 +53,8 @@ export const CourseCard = ({ course, enroll=false }) => {
         <p className="text-gray-600 mb-2">Course Code: {course.courseCode}</p>
         <p className="text-gray-600 mb-2">Credits: {course.credits}</p>
         <p className="text-gray-600 mb-2">
-                  Student Joined: {course.studentInCourse}
-                </p>
+          Student Joined: {course.studentInCourse}
+        </p>
         <p className="text-gray-600">Max Students: {course.maxStudent}</p>
 
         <div className="w-full flex justify-between mt-2">
@@ -47,10 +67,11 @@ export const CourseCard = ({ course, enroll=false }) => {
           </p>
           {enroll && (
             <button
-              className="px-4 py-2 text-white bg-green-500 rounded-md"
+              className={`px-4 py-2 text-white ${enrolled ? "bg-green-300" : "bg-green-500"} rounded-md `}
               onClick={handleEnroll}
+              disabled={enrolled}
             >
-              Enroll
+              {enrolled ? "Enrolled" : "Enroll"}
             </button>
           )}
         </div>

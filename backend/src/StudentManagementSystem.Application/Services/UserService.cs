@@ -59,7 +59,7 @@ namespace StudentManagementSystem.Application.Services
 
                 await _userRepository.AddAsync(user);
 
-                await _userRepository.AddStudentWithSemester(user.Id, Guid.Parse("64B90AB9-CA09-488B-ADED-E4134B344FD6"));
+                await _userRepository.AddStudentWithSemester(user.Id, Guid.Parse("93b68813-016a-4f94-b135-07d981c6f639"));
 
                 var userDto = _mapper.Map<UserDto>(user);
 

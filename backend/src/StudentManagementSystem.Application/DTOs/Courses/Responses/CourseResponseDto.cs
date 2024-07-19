@@ -4,6 +4,7 @@ namespace StudentManagementSystem.Application.DTOs.Courses.Responses
 {
     public class CourseResponseDto
     {
+        public Guid Id {get; set;}
         public string CourseCode { get; set; }
         public string Title { get; set; }
 
