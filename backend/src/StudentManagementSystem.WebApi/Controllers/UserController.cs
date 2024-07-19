@@ -40,8 +40,8 @@ namespace StudentManagementSystem.WebApi.Controllers
             return Ok(response);
         }
 
-        [HttpPut]
-        public async Task<IActionResult> UpdateUserAsync(EditUserRequestDto request, Guid userId)
+        [HttpPut("{userId}")]
+        public async Task<IActionResult> UpdateUserAsync([FromBody] EditUserRequestDto request, Guid userId)
         {
             var response = await _userService.UpdateUserAsync(request, userId);
             if (response.Succeeded)
