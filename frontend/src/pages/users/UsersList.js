@@ -14,6 +14,11 @@ const formatDate = (dateStr) => {
   return `${year}/${month}/${day}`;
 };
 
+const GenderType = {
+  1: "Male",
+  2: "Female",
+};
+
 export const UsersList = () => {
   const [users, setUsers] = useState([]);
   const [pagination, setPagination] = useState({
@@ -52,8 +57,6 @@ export const UsersList = () => {
   useEffect(() => {
     fetchUsers();
   }, [pagination.pageIndex, pagination.pageSize, searchQuery, sortConfig]);
-
-  
 
   const handleSort = (key) => {
     let direction = "ascending";
@@ -152,6 +155,14 @@ export const UsersList = () => {
                 {sortConfig.key === "joinedDate" &&
                   (sortConfig.direction === "ascending" ? "▲" : "▼")}
               </th>
+              <th
+                onClick={() => handleSort("gender")}
+                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
+              >
+                Gender{" "}
+                {sortConfig.key === "gender" &&
+                  (sortConfig.direction === "ascending" ? "▲" : "▼")}
+              </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Action
               </th>
@@ -185,8 +196,16 @@ export const UsersList = () => {
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                     {formatDate(user.joinedDate)}
                   </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    {GenderType[user.gender]}
+                  </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">
+                    <button
+                      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+                      onClick={() => {
+                        navigate(`edit/${user.id}`);
+                      }}
+                    >
                       Edit
                     </button>
                     <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">

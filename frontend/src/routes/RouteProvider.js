@@ -8,7 +8,7 @@ import LandingPage from "../pages/LandingPage";
 import Layout from "../pages/Layout";
 import NotFound from "../pages/NotFound";
 import { CreateSemester, SemesterList } from "../pages/semester";
-import { CreateUser, UsersList } from "../pages/users";
+import { CreateUser, EditUser, UsersList } from "../pages/users";
 
 export const RouteProvider = () => {
   const { user, loading } = useAuth();
@@ -43,6 +43,7 @@ export const RouteProvider = () => {
           >
             <Route path="" element={<UsersList />}></Route>
             <Route path="create" element={<CreateUser />}></Route>
+            <Route path="edit/:userId" element={<EditUser />}></Route>
           </Route>
           <Route
             path="/semesters"
@@ -81,11 +82,11 @@ export const RouteProvider = () => {
             path="/courses"
             element={
               <AuthRequired>
-                <Layout/>
+                <Layout />
               </AuthRequired>
             }
           >
-            <Route path="" element={<CourseList/>}/>
+            <Route path="" element={<CourseList />} />
           </Route>
         </>
       )}

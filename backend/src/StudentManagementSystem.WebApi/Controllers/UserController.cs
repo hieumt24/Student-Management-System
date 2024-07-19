@@ -40,8 +40,8 @@ namespace StudentManagementSystem.WebApi.Controllers
             return Ok(response);
         }
 
-        [HttpPut]
-        public async Task<IActionResult> UpdateUserAsync(EditUserRequestDto request, Guid userId)
+        [HttpPut("{userId}")]
+        public async Task<IActionResult> UpdateUserAsync([FromBody] EditUserRequestDto request, Guid userId)
         {
             var response = await _userService.UpdateUserAsync(request, userId);
             if (response.Succeeded)
@@ -55,6 +55,29 @@ namespace StudentManagementSystem.WebApi.Controllers
         public async Task<IActionResult> GetUserByIdAsync(Guid userId)
         {
             var response = await _userService.GetUserByIdAsync(userId);
+            if (response.Succeeded)
+            {
+                return Ok(response);
+            }
+            return BadRequest(response);
+        }
+
+        [HttpDelete("{userId}")]
+        public async Task<IActionResult> DeleteUserAsync(Guid userId)
+        {
+            var response = await _userService.DeleteUserAsync(userId);
+            if (response.Succeeded)
+            {
+                return Ok(response);
+            }
+            return BadRequest(response);
+        }
+
+        [HttpPost]
+        [Route("isValidDeletedUser/{userId}")]
+        public async Task<IActionResult> IsValidDeletedUser(Guid userId)
+        {
+            var response = await _userService.IsValidDeletedUser(userId);
             if (response.Succeeded)
             {
                 return Ok(response);

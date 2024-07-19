@@ -22,13 +22,20 @@ namespace StudentManagementSystem.Application.Services
         private readonly IValidator<AddUserRequestDto> _addUserValidator;
         private readonly PasswordHasher<User> _passwordHasher;
         private readonly IUserHelper _userHelper;
+        private readonly ITokenRepository _tokenRepository;
+        private readonly IBlackListTokenRepository _blackListTokenRepository;
+        private readonly IEnrollmentRepository _enrollmentRepository;
 
         public UserService
         (
             IMapper mapper,
             IUserRepository userRepository,
             IValidator<AddUserRequestDto> addUserValidator,
-            IUserHelper userHelper
+            IUserHelper userHelper,
+            ITokenRepository tokenRepository,
+            IBlackListTokenRepository blackListTokenRepository,
+            IEnrollmentRepository enrollmentRepository
+
         )
         {
             _mapper = mapper;
@@ -36,6 +43,9 @@ namespace StudentManagementSystem.Application.Services
             _passwordHasher = new PasswordHasher<User>();
             _addUserValidator = addUserValidator;
             _userHelper = userHelper;
+            _tokenRepository = tokenRepository;
+            _blackListTokenRepository = blackListTokenRepository;
+            _enrollmentRepository = enrollmentRepository;
         }
 
         public async Task<Response<UserDto>> AddUserAsync(AddUserRequestDto request)
@@ -64,6 +74,40 @@ namespace StudentManagementSystem.Application.Services
                 var userDto = _mapper.Map<UserDto>(user);
 
                 return new Response<UserDto> { Succeeded = true, Data = userDto };
+            }
+            catch (Exception ex)
+            {
+                return new Response<UserDto> { Succeeded = false, Errors = new List<string> { ex.Message } };
+            }
+        }
+
+        public async Task<Response<UserDto>> DeleteUserAsync(Guid userId)
+        {
+            try
+            {
+                var user = await _userRepository.GetByIdAsync(userId);
+                if (user == null)
+                {
+                    return new Response<UserDto> { Succeeded = false, Message = "User not found " };
+                }
+
+                user.LastModifiedOn = DateTime.Now;
+
+                var deletedUser = await _userRepository.DeleteAsync(userId);
+                if (deletedUser == null)
+                {
+                    return new Response<UserDto> { Succeeded = false, Message = "Deleted user failed" };
+                }
+                var token = await _tokenRepository.FindByUserIdAsync(deletedUser.Id);
+                if (token != null)
+                {
+                    await _blackListTokenRepository.AddAsync(new BlackListToken
+                    {
+                        Token = token.Value,
+                        CreatedOn = DateTime.Now
+                    });
+                }
+                return new Response<UserDto> { Succeeded = true, Message = "User deleted successfully" };
             }
             catch (Exception ex)
             {
@@ -108,6 +152,28 @@ namespace StudentManagementSystem.Application.Services
             catch (Exception ex)
             {
                 return new Response<UserDto> { Succeeded = false, Errors = new List<string> { ex.Message } };
+            }
+        }
+
+        public async Task<Response<bool>> IsValidDeletedUser(Guid userId)
+        {
+            try
+            {
+                var exisitngUser = await _userRepository.GetByIdAsync(userId);
+                if (exisitngUser == null)
+                {
+                    return new Response<bool> { Succeeded = false, Message = "User not found" };
+                }
+                var studentInEnrollment = await _enrollmentRepository.GetStudentInEnrollment(userId);
+                if (studentInEnrollment != null)
+                {
+                    return new Response<bool> { Succeeded = false, Message = "User is in enrollment" };
+                }
+                return new Response<bool> { Succeeded = true, Message = "User is valid to delete" };
+            }
+            catch (Exception ex)
+            {
+                return new Response<bool> { Succeeded = false, Errors = new List<string> { ex.Message } };
             }
         }
 
