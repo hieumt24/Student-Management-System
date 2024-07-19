@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using StudentManagementSystem.Application.DTOs.Courses.Requests;
+using StudentManagementSystem.Application.Filters;
 using StudentManagementSystem.Application.Interface.Services;
+using StudentManagementSystem.Domain.Enums;
 
 namespace StudentManagementSystem.WebApi.Controllers
 {
@@ -24,6 +26,13 @@ namespace StudentManagementSystem.WebApi.Controllers
                 return Ok(response);
             }
             return BadRequest(response);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllCoursesAsync([FromQuery] PaginationFilter? pagination, CourseLevelType? courseLevel, CourseStateType? courseState, string? search, string? orderBy, bool? isDescending)
+        {
+            var response = await _courseService.GetAllCoursesAsync(pagination, courseLevel, courseState, search, orderBy, isDescending);
+            return Ok(response);
         }
     }
 }
