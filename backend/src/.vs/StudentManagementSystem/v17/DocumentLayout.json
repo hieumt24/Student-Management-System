@@ -3,6 +3,22 @@
   "WorkspaceRootPath": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{78201FAF-3602-4421-8DAC-1304BD065432}|StudentManagementSystem.WebApi\\StudentManagementSystem.WebApi.csproj|d:\\github\\net\\fpt-prn\\thanh\\backend\\src\\studentmanagementsystem.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{78201FAF-3602-4421-8DAC-1304BD065432}|StudentManagementSystem.WebApi\\StudentManagementSystem.WebApi.csproj|solutionrelative:studentmanagementsystem.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|d:\\github\\net\\fpt-prn\\thanh\\backend\\src\\studentmanagementsystem.application\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|solutionrelative:studentmanagementsystem.application\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|d:\\github\\net\\fpt-prn\\thanh\\backend\\src\\studentmanagementsystem.application\\helpers\\userhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|solutionrelative:studentmanagementsystem.application\\helpers\\userhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|d:\\github\\net\\fpt-prn\\thanh\\backend\\src\\studentmanagementsystem.application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|solutionrelative:studentmanagementsystem.application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{78201FAF-3602-4421-8DAC-1304BD065432}|StudentManagementSystem.WebApi\\StudentManagementSystem.WebApi.csproj|d:\\github\\net\\fpt-prn\\thanh\\backend\\src\\studentmanagementsystem.webapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{78201FAF-3602-4421-8DAC-1304BD065432}|StudentManagementSystem.WebApi\\StudentManagementSystem.WebApi.csproj|solutionrelative:studentmanagementsystem.webapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
@@ -17,10 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|d:\\github\\net\\fpt-prn\\thanh\\backend\\src\\studentmanagementsystem.application\\mappings\\generalprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|solutionrelative:studentmanagementsystem.application\\mappings\\generalprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|d:\\github\\net\\fpt-prn\\thanh\\backend\\src\\studentmanagementsystem.application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|solutionrelative:studentmanagementsystem.application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|d:\\github\\net\\fpt-prn\\thanh\\backend\\src\\studentmanagementsystem.application\\filters\\paginationfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -51,10 +63,6 @@
       "RelativeMoniker": "D:0:0:{08136119-5108-4848-B69A-7E5E91C3EFD1}|StudentManagementSystem.Infrastructure\\StudentManagementSystem.Infrastructure.csproj|solutionrelative:studentmanagementsystem.infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{78201FAF-3602-4421-8DAC-1304BD065432}|StudentManagementSystem.WebApi\\StudentManagementSystem.WebApi.csproj|d:\\github\\net\\fpt-prn\\thanh\\backend\\src\\studentmanagementsystem.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{78201FAF-3602-4421-8DAC-1304BD065432}|StudentManagementSystem.WebApi\\StudentManagementSystem.WebApi.csproj|solutionrelative:studentmanagementsystem.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0AE7D68C-560F-4EF5-B956-377FA39814FE}|StudentManagementSystem.Domain\\StudentManagementSystem.Domain.csproj|d:\\github\\net\\fpt-prn\\thanh\\backend\\src\\studentmanagementsystem.domain\\entities\\studentsemester.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0AE7D68C-560F-4EF5-B956-377FA39814FE}|StudentManagementSystem.Domain\\StudentManagementSystem.Domain.csproj|solutionrelative:studentmanagementsystem.domain\\entities\\studentsemester.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -74,11 +82,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.Application\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "StudentManagementSystem.Application\\Services\\AuthService.cs",
+              "ToolTip": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.Application\\Services\\AuthService.cs",
+              "RelativeToolTip": "StudentManagementSystem.Application\\Services\\AuthService.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAowAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-18T02:29:38.027Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserHelper.cs",
+              "DocumentMoniker": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.Application\\Helpers\\UserHelper.cs",
+              "RelativeDocumentMoniker": "StudentManagementSystem.Application\\Helpers\\UserHelper.cs",
+              "ToolTip": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.Application\\Helpers\\UserHelper.cs",
+              "RelativeToolTip": "StudentManagementSystem.Application\\Helpers\\UserHelper.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAIAwwCgAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-18T02:26:56.226Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.WebApi\\appsettings.Development.json",
               "RelativeDocumentMoniker": "StudentManagementSystem.WebApi\\appsettings.Development.json",
@@ -91,7 +125,81 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.Application\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "StudentManagementSystem.Application\\Services\\UserService.cs",
+              "ToolTip": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.Application\\Services\\UserService.cs",
+              "RelativeToolTip": "StudentManagementSystem.Application\\Services\\UserService.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAlwDAAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-18T01:09:00.077Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PaginationFilter.cs",
+              "DocumentMoniker": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.Application\\Filters\\PaginationFilter.cs",
+              "RelativeDocumentMoniker": "StudentManagementSystem.Application\\Filters\\PaginationFilter.cs",
+              "ToolTip": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.Application\\Filters\\PaginationFilter.cs",
+              "RelativeToolTip": "StudentManagementSystem.Application\\Filters\\PaginationFilter.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAIAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-18T01:00:31.73Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "UserDto.cs",
+              "DocumentMoniker": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.Application\\DTOs\\Users\\Responses\\UserDto.cs",
+              "RelativeDocumentMoniker": "StudentManagementSystem.Application\\DTOs\\Users\\Responses\\UserDto.cs",
+              "ToolTip": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.Application\\DTOs\\Users\\Responses\\UserDto.cs",
+              "RelativeToolTip": "StudentManagementSystem.Application\\DTOs\\Users\\Responses\\UserDto.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAcAAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-18T00:56:23.516Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UserResponseDto.cs",
+              "DocumentMoniker": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.Application\\DTOs\\Users\\Responses\\UserResponseDto.cs",
+              "RelativeDocumentMoniker": "StudentManagementSystem.Application\\DTOs\\Users\\Responses\\UserResponseDto.cs",
+              "ToolTip": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.Application\\DTOs\\Users\\Responses\\UserResponseDto.cs",
+              "RelativeToolTip": "StudentManagementSystem.Application\\DTOs\\Users\\Responses\\UserResponseDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-18T00:55:17.834Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.Application\\Interface\\Services\\IUserService.cs",
+              "RelativeDocumentMoniker": "StudentManagementSystem.Application\\Interface\\Services\\IUserService.cs",
+              "ToolTip": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.Application\\Interface\\Services\\IUserService.cs",
+              "RelativeToolTip": "StudentManagementSystem.Application\\Interface\\Services\\IUserService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAwAAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-18T00:54:01.775Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.WebApi\\Program.cs",
+              "RelativeDocumentMoniker": "StudentManagementSystem.WebApi\\Program.cs",
+              "ToolTip": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.WebApi\\Program.cs",
+              "RelativeToolTip": "StudentManagementSystem.WebApi\\Program.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAzwBoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-18T00:30:58.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.WebApi\\appsettings.json",
               "RelativeDocumentMoniker": "StudentManagementSystem.WebApi\\appsettings.json",
@@ -104,79 +212,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.Application\\Services\\UserService.cs",
-              "RelativeDocumentMoniker": "StudentManagementSystem.Application\\Services\\UserService.cs",
-              "ToolTip": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.Application\\Services\\UserService.cs",
-              "RelativeToolTip": "StudentManagementSystem.Application\\Services\\UserService.cs",
-              "ViewState": "AQIAADQAAAAAAAAAAAAqwEkAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-18T01:09:00.077Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "PaginationFilter.cs",
-              "DocumentMoniker": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.Application\\Filters\\PaginationFilter.cs",
-              "RelativeDocumentMoniker": "StudentManagementSystem.Application\\Filters\\PaginationFilter.cs",
-              "ToolTip": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.Application\\Filters\\PaginationFilter.cs",
-              "RelativeToolTip": "StudentManagementSystem.Application\\Filters\\PaginationFilter.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAIAAAAhAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-18T01:00:31.73Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "UserDto.cs",
-              "DocumentMoniker": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.Application\\DTOs\\Users\\Responses\\UserDto.cs",
-              "RelativeDocumentMoniker": "StudentManagementSystem.Application\\DTOs\\Users\\Responses\\UserDto.cs",
-              "ToolTip": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.Application\\DTOs\\Users\\Responses\\UserDto.cs",
-              "RelativeToolTip": "StudentManagementSystem.Application\\DTOs\\Users\\Responses\\UserDto.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAcAAAAGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-18T00:56:23.516Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "UserResponseDto.cs",
-              "DocumentMoniker": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.Application\\DTOs\\Users\\Responses\\UserResponseDto.cs",
-              "RelativeDocumentMoniker": "StudentManagementSystem.Application\\DTOs\\Users\\Responses\\UserResponseDto.cs",
-              "ToolTip": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.Application\\DTOs\\Users\\Responses\\UserResponseDto.cs",
-              "RelativeToolTip": "StudentManagementSystem.Application\\DTOs\\Users\\Responses\\UserResponseDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-18T00:55:17.834Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "IUserService.cs",
-              "DocumentMoniker": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.Application\\Interface\\Services\\IUserService.cs",
-              "RelativeDocumentMoniker": "StudentManagementSystem.Application\\Interface\\Services\\IUserService.cs",
-              "ToolTip": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.Application\\Interface\\Services\\IUserService.cs",
-              "RelativeToolTip": "StudentManagementSystem.Application\\Interface\\Services\\IUserService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAwAAABCAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-18T00:54:01.775Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.WebApi\\Program.cs",
-              "RelativeDocumentMoniker": "StudentManagementSystem.WebApi\\Program.cs",
-              "ToolTip": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.WebApi\\Program.cs",
-              "RelativeToolTip": "StudentManagementSystem.WebApi\\Program.cs",
-              "ViewState": "AQIAAAEAAAAAAAAAAAAAAEwAAAA5AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-18T00:30:58.661Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "StudentSemester.cs",
               "DocumentMoniker": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.Domain\\Entities\\StudentSemester.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Domain\\Entities\\StudentSemester.cs",
@@ -188,7 +224,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "Semester.cs",
               "DocumentMoniker": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.Domain\\Entities\\Semester.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Domain\\Entities\\Semester.cs",
@@ -200,7 +236,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "UserController.cs",
               "DocumentMoniker": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.WebApi\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.WebApi\\Controllers\\UserController.cs",
@@ -213,7 +249,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "IUserRepository.cs",
               "DocumentMoniker": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.Application\\Interface\\Repositories\\IUserRepository.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Application\\Interface\\Repositories\\IUserRepository.cs",
@@ -225,7 +261,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "UserRepository.cs",
               "DocumentMoniker": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.Infrastructure\\Repositories\\UserRepository.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Infrastructure\\Repositories\\UserRepository.cs",
@@ -237,7 +273,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "PaginationHelper.cs",
               "DocumentMoniker": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.Application\\Helpers\\PaginationHelper.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Application\\Helpers\\PaginationHelper.cs",
@@ -249,7 +285,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "GeneralProfile.cs",
               "DocumentMoniker": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.Application\\Mappings\\GeneralProfile.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Application\\Mappings\\GeneralProfile.cs",
@@ -261,7 +297,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "User.cs",
               "DocumentMoniker": "D:\\Github\\Net\\FPT-PRN\\thanh\\backend\\src\\StudentManagementSystem.Domain\\Entities\\User.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Domain\\Entities\\User.cs",
