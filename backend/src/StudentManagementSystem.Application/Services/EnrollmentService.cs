@@ -14,18 +14,21 @@ namespace StudentManagementSystem.Application.Services
     {
         private readonly IMapper _mapper;
         private readonly IEnrollmentRepository _enrollmentRepository;
+        private readonly IUserRepository _userRepository;
         private readonly IValidator<AddEnrollmentRequestDto> _addEnrollmentValidator;
 
         public EnrollmentService
         (
-                       IMapper mapper,
-                                  IEnrollmentRepository enrollmentRepository,
-                                             IValidator<AddEnrollmentRequestDto> addEnrollmentValidator
+                                            IMapper mapper,
+                                            IEnrollmentRepository enrollmentRepository,
+                                            IValidator<AddEnrollmentRequestDto> addEnrollmentValidator,
+                                            IUserRepository userRepository
         )
         {
             _mapper = mapper;
             _enrollmentRepository = enrollmentRepository;
             _addEnrollmentValidator = addEnrollmentValidator;
+            _userRepository = userRepository;
         }
 
         public async Task<Response<EnrollmentDto>> AddEnrollmentCourse(AddEnrollmentRequestDto request)
@@ -42,6 +45,7 @@ namespace StudentManagementSystem.Application.Services
 
                 enrollment.CreatedOn = DateTime.Now;
 
+                enrollment.SemesterId = await _userRepository.FindSesterIdByStudentId(request.StudentId);
                 await _enrollmentRepository.AddAsync(enrollment);
 
                 var enrollmentDto = _mapper.Map<EnrollmentDto>(enrollment);
@@ -69,6 +73,7 @@ namespace StudentManagementSystem.Application.Services
                 enrollment.Grade = 0;
                 enrollment.State = EnrolmentStateType.Enrolled;
                 enrollment.IsPassed = false;
+                enrollment.SemesterId = await _userRepository.FindSesterIdByStudentId(request.StudentId);
 
                 await _enrollmentRepository.AddAsync(enrollment);
 

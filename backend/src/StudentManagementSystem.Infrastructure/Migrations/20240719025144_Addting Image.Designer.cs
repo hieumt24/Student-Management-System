@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StudentManagementSystem.Infrastructure.DataAccess;
 
@@ -11,9 +12,11 @@ using StudentManagementSystem.Infrastructure.DataAccess;
 namespace StudentManagementSystem.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240719025144_Addting Image")]
+    partial class AddtingImage
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -271,7 +274,7 @@ namespace StudentManagementSystem.Infrastructure.Migrations
 
                     b.HasIndex("StudentId");
 
-                    b.ToTable("StudentSemesters");
+                    b.ToTable("StudentSemester");
                 });
 
             modelBuilder.Entity("StudentManagementSystem.Domain.Entities.Token", b =>
@@ -380,9 +383,9 @@ namespace StudentManagementSystem.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("2b7466fc-0dc0-4c42-9790-a2911d86286a"),
+                            Id = new Guid("20c331c6-1080-4fb9-a9a7-f424d65677d0"),
                             CreatedBy = "System",
-                            CreatedOn = new DateTimeOffset(new DateTime(2024, 7, 19, 10, 12, 0, 991, DateTimeKind.Unspecified).AddTicks(79), new TimeSpan(0, 7, 0, 0, 0)),
+                            CreatedOn = new DateTimeOffset(new DateTime(2024, 7, 19, 9, 51, 43, 451, DateTimeKind.Unspecified).AddTicks(2436), new TimeSpan(0, 7, 0, 0, 0)),
                             DateOfBirth = new DateTime(1970, 4, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "adminHN@fpt.edu.vn",
                             FirstName = "Admin",
@@ -390,16 +393,16 @@ namespace StudentManagementSystem.Infrastructure.Migrations
                             JoinedDate = new DateTime(2000, 4, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Ha Noi",
                             Location = 1,
-                            PasswordHash = "AQAAAAIAAYagAAAAEChyexAEFhTYYjPQE9ylHtLpRLVHpFX5QJA9rnyhj+lr2UyafgqhOr3iicO8Ti94rw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKHdWD6InVl6wPNhQ8trJGnK+DUOj+cG8X9tmuZJ8vx8pMuDUUcDHx+jpHBDaoQWWQ==",
                             Role = 1,
                             StudentCode = "HE999999",
                             UserName = "adminHN"
                         },
                         new
                         {
-                            Id = new Guid("5b12f81a-3f8a-453e-8d02-bfc457484bb0"),
+                            Id = new Guid("31dbb180-efe3-4221-87a2-1ad1ee801856"),
                             CreatedBy = "System",
-                            CreatedOn = new DateTimeOffset(new DateTime(2024, 7, 19, 10, 12, 1, 82, DateTimeKind.Unspecified).AddTicks(7256), new TimeSpan(0, 7, 0, 0, 0)),
+                            CreatedOn = new DateTimeOffset(new DateTime(2024, 7, 19, 9, 51, 43, 574, DateTimeKind.Unspecified).AddTicks(7388), new TimeSpan(0, 7, 0, 0, 0)),
                             DateOfBirth = new DateTime(1970, 4, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "adminHCM@fpt.edu.vn",
                             FirstName = "Admin",
@@ -407,16 +410,16 @@ namespace StudentManagementSystem.Infrastructure.Migrations
                             JoinedDate = new DateTime(2000, 4, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Ho Chi Minh",
                             Location = 2,
-                            PasswordHash = "AQAAAAIAAYagAAAAEGw1Y6zjnZXTUjuEWiUuhfaoumUdMEQFW1z31USV8I2z0JmuR9fv9r/rLE/0bwd3Vg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBA+CcUzcehlQeipQO4bhJ/iB6DdHt+Ggcy6YctO+lcs+35siH02eQ3QCoQIROxU7w==",
                             Role = 1,
                             StudentCode = "HE999998",
                             UserName = "adminHCM"
                         },
                         new
                         {
-                            Id = new Guid("e68c3f4f-178d-464a-9ece-05dffb0b7f69"),
+                            Id = new Guid("e56f6d84-8c57-4116-9983-0c1331a4d225"),
                             CreatedBy = "System",
-                            CreatedOn = new DateTimeOffset(new DateTime(2024, 7, 19, 10, 12, 1, 172, DateTimeKind.Unspecified).AddTicks(2407), new TimeSpan(0, 7, 0, 0, 0)),
+                            CreatedOn = new DateTimeOffset(new DateTime(2024, 7, 19, 9, 51, 43, 701, DateTimeKind.Unspecified).AddTicks(522), new TimeSpan(0, 7, 0, 0, 0)),
                             DateOfBirth = new DateTime(1970, 4, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "adminDN@fpt.edu.vn",
                             FirstName = "Admin",
@@ -424,16 +427,16 @@ namespace StudentManagementSystem.Infrastructure.Migrations
                             JoinedDate = new DateTime(2000, 4, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Da Nang",
                             Location = 3,
-                            PasswordHash = "AQAAAAIAAYagAAAAEFpTZwRF4adiE9z/l75fnrsKRCwnt0+0ZI6ppSgAqXGgCS+ZLHMjeQIzx1g98hSl4Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEErjL4MHv9yDmzV0JTSU5Y2SheOtGjuCVmRz7fb6d7qf2h96gWNzdZyJEycz6I+kA==",
                             Role = 1,
                             StudentCode = "HE999997",
                             UserName = "adminDN"
                         },
                         new
                         {
-                            Id = new Guid("cce8ba54-e83e-4b15-8c9e-afef4a9ab5f4"),
+                            Id = new Guid("e307d859-0835-49ce-868f-530d940eb7ed"),
                             CreatedBy = "System",
-                            CreatedOn = new DateTimeOffset(new DateTime(2024, 7, 19, 10, 12, 1, 280, DateTimeKind.Unspecified).AddTicks(2936), new TimeSpan(0, 7, 0, 0, 0)),
+                            CreatedOn = new DateTimeOffset(new DateTime(2024, 7, 19, 9, 51, 43, 809, DateTimeKind.Unspecified).AddTicks(1806), new TimeSpan(0, 7, 0, 0, 0)),
                             DateOfBirth = new DateTime(2002, 4, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "hoangttHE999996@fpt.edu.vn",
                             FirstName = "Hoa",
@@ -441,16 +444,16 @@ namespace StudentManagementSystem.Infrastructure.Migrations
                             JoinedDate = new DateTime(2020, 4, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Truong Trong",
                             Location = 1,
-                            PasswordHash = "AQAAAAIAAYagAAAAEKYVGxUrMLDWz60sfYYWEqmgbojY21petyYyCC9WOnrxd9fuCnQEocXw6U0d3wz49Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEElVPRF15N174C4Qg/zabrZAsCv7GRskjv1HvyU5pON24LctGrHgIAJr5tWAyi59hw==",
                             Role = 2,
                             StudentCode = "HE999996",
                             UserName = "hoangtt"
                         },
                         new
                         {
-                            Id = new Guid("25b61220-eccd-4690-9f50-24a5aa2df743"),
+                            Id = new Guid("30b30026-c30f-47e7-901c-9a4de66da679"),
                             CreatedBy = "System",
-                            CreatedOn = new DateTimeOffset(new DateTime(2024, 7, 19, 10, 12, 1, 374, DateTimeKind.Unspecified).AddTicks(8826), new TimeSpan(0, 7, 0, 0, 0)),
+                            CreatedOn = new DateTimeOffset(new DateTime(2024, 7, 19, 9, 51, 43, 950, DateTimeKind.Unspecified).AddTicks(5178), new TimeSpan(0, 7, 0, 0, 0)),
                             DateOfBirth = new DateTime(2002, 4, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "thanhdtHE999995@fpt.edu.vn",
                             FirstName = "Thanh",
@@ -458,7 +461,7 @@ namespace StudentManagementSystem.Infrastructure.Migrations
                             JoinedDate = new DateTime(2020, 4, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Nguyen Duc",
                             Location = 1,
-                            PasswordHash = "AQAAAAIAAYagAAAAEN7LNlspm5dnfkeWeOt7AsycjTGHupRkfXPuVrw0O5dKSdVKQtNtM5q1GNYPVb8Beg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEH2nK0wL7j/PKC3N4vPXJdCj6PuEx7puclyMBFM1qO649EZla+8PlUYdEoV5HsVL0A==",
                             Role = 2,
                             StudentCode = "HE999995",
                             UserName = "thanhdt"
