@@ -15,5 +15,9 @@ namespace StudentManagementSystem.Application.Interface.Services
         Task<Response<UserDto>> GetUserByIdAsync(Guid userId);
 
         Task<PagedResponse<List<UserResponseDto>>> GetAllUserAsync(PaginationFilter? filter, LocationType location, string? search, RoleType? role, string? orderBy, bool? isDescending);
+
+        Task<Response<UserDto>> DeleteUserAsync(Guid userId);
+
+        Task<Response<bool>> IsValidDeletedUser(Guid userId);
     }
 }

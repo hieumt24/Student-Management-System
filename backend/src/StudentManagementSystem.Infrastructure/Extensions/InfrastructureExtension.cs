@@ -25,6 +25,7 @@ namespace StudentManagementSystem.Infrastructure.Extensions
             services.AddScoped<ICourseRepository, CourseRepository>();
             services.AddScoped<IEnrollmentRepository, EnrollmentRepository>();
             services.AddScoped<ILocalImageRepository, LocalImageRepository>();
+            services.AddScoped<IBlackListTokenRepository, BlackListTokenRepository>();
             //injection
             var connectionString = configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<ApplicationDbContext>(options =>

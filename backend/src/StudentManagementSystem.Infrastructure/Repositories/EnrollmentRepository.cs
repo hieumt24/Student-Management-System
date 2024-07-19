@@ -113,5 +113,10 @@ namespace StudentManagementSystem.Infrastructure.Repositories
             }
             return enrollment;
         }
+
+        public async Task<Enrollment> GetStudentInEnrollment(Guid studentId)
+        {
+            return await _dbContext.Enrollments.Where(x => x.StudentId == studentId && !x.IsDeleted).FirstOrDefaultAsync();
+        }
     }
 }

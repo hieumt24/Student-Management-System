@@ -4,10 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { Pagination } from "../../components/Pagination";
 import { CourseCard } from "../../components/courses";
 import { useAuth } from "../../hooks";
-import { getPaginatedCourses } from "../../services";
+import { getPaginatedCourses, getStudentEnrollment } from "../../services";
 
 export const CourseList = () => {
-  const {user} = useAuth();
+  const { user } = useAuth();
   const [courses, setCourses] = useState([]);
   const [pagination, setPagination] = useState({
     pageIndex: 1,
@@ -43,6 +43,26 @@ export const CourseList = () => {
     }
   };
 
+  const [enrolledCourses, setEnrolleCourses] = useState([]);
+  const fetchEnrolledCourses = () => {
+    getStudentEnrollment({
+      pageIndex: 1,
+      pageSize: 999999,
+      studentId: user.id,
+    })
+      .then((response) => {
+        setEnrolleCourses(response.data.data || []);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
+  useEffect(() => {
+    fetchEnrolledCourses();
+  }, []);
+  console.log(enrolledCourses);
+
   const handleSort = (e) => {
     const [key, direction] = e.target.value.split(",");
     setSortConfig({ key, direction });
@@ -72,12 +92,14 @@ export const CourseList = () => {
             />
             <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
           </div>
-          {user.role === "Admin" && (<button
-            onClick={handleCreateCourse}
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex items-center transition duration-300"
-          >
-            <FaPlus className="mr-2" /> Create Course
-          </button>)}
+          {user.role === "Admin" && (
+            <button
+              onClick={handleCreateCourse}
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex items-center transition duration-300"
+            >
+              <FaPlus className="mr-2" /> Create Course
+            </button>
+          )}
         </div>
       </div>
       <div className="mb-4 flex justify-end">
@@ -97,7 +119,15 @@ export const CourseList = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {courses.length > 0 ? (
           courses.map((course) => (
-            <CourseCard course={course} key={course.id} enroll={user.role === "Student"}/>
+            <CourseCard
+              course={course}
+              key={course.id}
+              enroll={user.role === "Student"}
+              enrolled={enrolledCourses.some(
+                (enrollment) => enrollment.courseId === course.id
+              )}
+              full={course.studentInCourse > course.maxStudent}
+            />
           ))
         ) : (
           <div className="col-span-3 text-center text-gray-500">
