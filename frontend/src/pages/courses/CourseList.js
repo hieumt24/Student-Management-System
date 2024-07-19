@@ -22,7 +22,13 @@ export const CourseList = () => {
 
   useEffect(() => {
     fetchCourses();
-  }, [pagination.pageIndex, pagination.pageSize, searchQuery, sortConfig, refresh]);
+  }, [
+    pagination.pageIndex,
+    pagination.pageSize,
+    searchQuery,
+    sortConfig,
+    refresh,
+  ]);
 
   const fetchCourses = async () => {
     try {
@@ -77,6 +83,10 @@ export const CourseList = () => {
     navigate("/courses/create");
   };
 
+  const handleCourseClick = (courseId) => {
+    navigate(`/courses/edit/${courseId}`);
+  };
+
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mb-6 flex justify-between items-center">
@@ -119,18 +129,24 @@ export const CourseList = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {courses.length > 0 ? (
           courses.map((course) => (
-            <CourseCard
-              course={course}
+            <div
               key={course.id}
-              enroll={user.role === "Student"}
-              enrolled={enrolledCourses.some(
-                (enrollment) => enrollment.courseId === course.id
-              )}
-              full={course.studentInCourse >= course.maxStudent}
-              onEnroll={()=>{
-                setRefresh((prev)=>(prev+1));
-              }}
-            />
+              onClick={() => handleCourseClick(course.id)}
+              className="cursor-pointer"
+            >
+              <CourseCard
+                course={course}
+                enroll={user.role === "Student"}
+                enrolled={enrolledCourses.some(
+                  (enrollment) => enrollment.courseId === course.id
+                )}
+                full={course.studentInCourse >= course.maxStudent}
+                onEnroll={(e) => {
+                  e.stopPropagation(); // Prevent navigation when enrolling
+                  setRefresh((prev) => prev + 1);
+                }}
+              />
+            </div>
           ))
         ) : (
           <div className="col-span-3 text-center text-gray-500">
