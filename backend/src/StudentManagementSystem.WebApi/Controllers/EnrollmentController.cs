@@ -25,5 +25,28 @@ namespace StudentManagementSystem.WebApi.Controllers
             }
             return BadRequest(response);
         }
+
+        [HttpGet]
+        [Route("course/{courseId}")]
+        public async Task<IActionResult> GetCourseById(Guid courseId)
+        {
+            var response = await _enrollmentService.GetCourseById(courseId);
+            if (response.Succeeded)
+            {
+                return Ok(response);
+            }
+            return BadRequest(response);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> InsertGradeForStudnet(EditEnrollmentRequestDto request)
+        {
+            var response = await _enrollmentService.InsertGradeForStudnet(request);
+            if (response.Succeeded)
+            {
+                return Ok(response);
+            }
+            return BadRequest(response);
+        }
     }
 }
