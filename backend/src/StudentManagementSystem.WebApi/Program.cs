@@ -2,8 +2,11 @@ using Microsoft.AspNetCore.OData;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OData.Edm;
 using Microsoft.OData.ModelBuilder;
+using Microsoft.OpenApi.Models;
 using StudentManagementSystem.Domain.Entities;
 using StudentManagementSystem.Infrastructure.DataAccess;
+using StudentManagementSystem.WebApi.Middlewares;
+using System.Reflection;
 
 namespace StudentManagementSystem.WebApi
 {
@@ -35,6 +38,31 @@ namespace StudentManagementSystem.WebApi
                 });
             });
 
+            builder.Services.AddSwaggerGen(options =>
+            {
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                options.IncludeXmlComments(xmlPath);
+                var securitySchema = new OpenApiSecurityScheme
+                {
+                    Name = "JWT Authentication",
+                    Description = "Enter JWT Bearer",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "bearer",
+                    Reference = new OpenApiReference
+                    {
+                        Type = ReferenceType.SecurityScheme,
+                        Id = "Bearer"
+                    }
+                };
+                options.AddSecurityDefinition("Bearer", securitySchema);
+                options.AddSecurityRequirement(new OpenApiSecurityRequirement
+            {
+                { securitySchema, new[] { "Bearer" } }
+            });
+            });
+
             builder.Services.AddControllers().AddOData(option =>
             {
                 option.Select()
@@ -57,6 +85,9 @@ namespace StudentManagementSystem.WebApi
                 app.UseSwaggerUI();
             }
             app.UseCors("AllowAllOrigins");
+
+            app.UseMiddleware<TokenValidationMiddleware>();
+
             app.UseHttpsRedirection();
 
             app.UseAuthentication();

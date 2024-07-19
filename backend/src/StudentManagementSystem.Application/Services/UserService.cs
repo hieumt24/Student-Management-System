@@ -23,12 +23,12 @@ namespace StudentManagementSystem.Application.Services
         private readonly IUserHelper _userHelper;
 
         public UserService
-            (
+        (
             IMapper mapper,
             IUserRepository userRepository,
             IValidator<AddUserRequestDto> addUserValidator,
             IUserHelper userHelper
-            )
+        )
         {
             _mapper = mapper;
             _userRepository = userRepository;
@@ -68,11 +68,11 @@ namespace StudentManagementSystem.Application.Services
             }
         }
 
-        public async Task<PagedResponse<List<UserResponseDto>>> GetAllUserAsync(PaginationFilter pagination, LocationType location)
+        public async Task<PagedResponse<List<UserResponseDto>>> GetAllUserAsync(PaginationFilter? pagination, LocationType location, string? search, RoleType? role, string? orderBy, bool? isDescending)
         {
             try
             {
-                var users = await _userRepository.GetAllMatchingUserAsync(pagination, location);
+                var users = await _userRepository.GetAllMatchingUserAsync(pagination, location, search, role, orderBy, isDescending);
 
                 if (users.Data is null)
                 {

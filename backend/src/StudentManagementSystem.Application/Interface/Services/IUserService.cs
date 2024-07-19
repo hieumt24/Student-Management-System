@@ -10,6 +10,6 @@ namespace StudentManagementSystem.Application.Interface.Services
     {
         Task<Response<UserDto>> AddUserAsync(AddUserRequestDto request);
 
-        Task<PagedResponse<List<UserResponseDto>>> GetAllUserAsync(PaginationFilter filter, LocationType location);
+        Task<PagedResponse<List<UserResponseDto>>> GetAllUserAsync(PaginationFilter? filter, LocationType location, string? search, RoleType? role, string? orderBy, bool? isDescending);
     }
 }

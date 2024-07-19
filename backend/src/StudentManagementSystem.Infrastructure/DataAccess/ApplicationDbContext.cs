@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using StudentManagementSystem.Domain.Entities;
+using StudentManagementSystem.Domain.Enums;
 
 namespace StudentManagementSystem.Infrastructure.DataAccess
 {
@@ -31,7 +32,16 @@ namespace StudentManagementSystem.Infrastructure.DataAccess
 
             modelBuilder.Entity<Semester>()
                 .Property(s => s.SemesterCode)
-                .HasComputedColumnSql("CONCAT(LEFT(SemesterName, 2), RIGHT(AcademicYear, 2)) PERSISTED");
+                .HasComputedColumnSql("CONCAT(LEFT(SemesterName, 2), RIGHT(AcademicYear, 2)) PERSISTED")
+                ;
+
+            modelBuilder.Entity<Course>()
+                .HasIndex(c => c.CourseCode)
+                .IsUnique();
+
+            modelBuilder.Entity<User>()
+                .HasIndex(u => u.StudentCode)
+                .IsUnique();
 
             modelBuilder.Entity<Enrollment>()
                 .HasOne(e => e.Student)
@@ -57,6 +67,106 @@ namespace StudentManagementSystem.Infrastructure.DataAccess
                 .HasOne(ss => ss.Semester)
                 .WithMany(s => s.StudentSemesters)
                 .HasForeignKey(ss => ss.SemesterId);
+
+            SeedData(modelBuilder);
+        }
+
+        private void SeedData(ModelBuilder modelBuilder)
+        {
+            var adminHN = new User
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "Admin",
+                LastName = "Ha Noi",
+                Email = "adminHN@fpt.edu.vn",
+                StudentCode = "HE999999",
+                DateOfBirth = new DateTime(1970, 04, 02),
+                JoinedDate = new DateTime(2000, 04, 02),
+                UserName = "adminHN",
+                Role = RoleType.Admin,
+                Location = LocationType.HaNoi
+            };
+
+            adminHN.PasswordHash = _passwordHasher.HashPassword(adminHN, "Admin@123");
+            adminHN.CreatedOn = DateTime.Now;
+            adminHN.CreatedBy = "System";
+
+            var adminHCM = new User
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "Admin",
+                LastName = "Ho Chi Minh",
+                StudentCode = "HE999998",
+                Email = "adminHCM@fpt.edu.vn",
+                DateOfBirth = new DateTime(1970, 04, 02),
+                JoinedDate = new DateTime(2000, 04, 02),
+                UserName = "adminHCM",
+                Role = RoleType.Admin,
+                Location = LocationType.HoChiMinh
+            };
+
+            adminHCM.PasswordHash = _passwordHasher.HashPassword(adminHCM, "Admin@123");
+            adminHCM.CreatedOn = DateTime.Now;
+            adminHCM.CreatedBy = "System";
+
+            var adminDN = new User
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "Admin",
+                LastName = "Da Nang",
+                StudentCode = "HE999997",
+                Email = "adminDN@fpt.edu.vn",
+                DateOfBirth = new DateTime(1970, 04, 02),
+                JoinedDate = new DateTime(2000, 04, 02),
+                UserName = "adminDN",
+                Role = RoleType.Admin,
+                Location = LocationType.DaNang
+            };
+
+            adminDN.PasswordHash = _passwordHasher.HashPassword(adminDN, "Admin@123");
+            adminDN.CreatedOn = DateTime.Now;
+            adminDN.CreatedBy = "System";
+
+            //seed data user
+
+            var userHoatt = new User
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "Hoa",
+                LastName = "Truong Trong",
+                StudentCode = "HE999996",
+                Email = "hoangttHE999996@fpt.edu.vn",
+                DateOfBirth = new DateTime(2002, 04, 02),
+                JoinedDate = new DateTime(2020, 04, 02),
+                UserName = "hoangtt",
+                Role = RoleType.Student,
+                Location = LocationType.HaNoi
+            };
+
+            userHoatt.PasswordHash = _passwordHasher.HashPassword(userHoatt, "hoatt@02042002");
+            userHoatt.CreatedOn = DateTime.Now;
+            userHoatt.CreatedBy = "System";
+
+            var userThanhdt = new User
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "Thanh",
+                LastName = "Nguyen Duc",
+                StudentCode = "HE999995",
+                Email = "thanhdtHE999995@fpt.edu.vn",
+                DateOfBirth = new DateTime(2002, 04, 02),
+                JoinedDate = new DateTime(2020, 04, 02),
+                UserName = "thanhdt",
+                Role = RoleType.Student,
+                Location = LocationType.HaNoi
+            };
+
+            userThanhdt.PasswordHash = _passwordHasher.HashPassword(userThanhdt, "thanhdt@02042002");
+            userThanhdt.CreatedOn = DateTime.Now;
+            userThanhdt.CreatedBy = "System";
+
+            modelBuilder.Entity<User>().HasData(adminHN, adminHCM, adminDN);
+            modelBuilder.Entity<User>().HasData(userHoatt, userThanhdt);
         }
     }
 }
