@@ -6,7 +6,7 @@ using StudentManagementSystem.Domain.Enums;
 
 namespace StudentManagementSystem.WebApi.Controllers
 {
-    [Route("api/courses")]
+    [Route("api/v1/courses")]
     [ApiController]
     public class CourseController : ControllerBase
     {
