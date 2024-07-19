@@ -22,7 +22,11 @@ namespace StudentManagementSystem.Infrastructure.DataAccess
         public DbSet<BlackListToken> BlackListTokens { get; set; }
         public DbSet<Semester> Semesters { get; set; }
 
+        public DbSet<Image> Images { get; set; }
+
         public DbSet<CourseSemester> CourseSemesters { get; set; }
+
+        public DbSet<StudentSemester> StudentSemesters { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
