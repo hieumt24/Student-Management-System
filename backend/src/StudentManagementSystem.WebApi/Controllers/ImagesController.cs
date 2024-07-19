@@ -5,7 +5,7 @@ using StudentManagementSystem.Application.Models;
 
 namespace StudentManagementSystem.WebApi.Controllers
 {
-    [Route("api/images")]
+    [Route("api/v1/images")]
     [ApiController]
     public class ImagesController : ControllerBase
     {
