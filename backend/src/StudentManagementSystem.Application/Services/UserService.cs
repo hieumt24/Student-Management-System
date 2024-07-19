@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DocumentFormat.OpenXml.Office2016.Drawing.Command;
 using FluentValidation;
 using Microsoft.AspNetCore.Identity;
 using StudentManagementSystem.Application.DTOs.Users.Requests;
@@ -56,8 +57,6 @@ namespace StudentManagementSystem.Application.Services
                 user.IsDeleted = false;
                 user.CreatedOn = DateTime.Now;
 
-
-
                 await _userRepository.AddAsync(user);
 
                 await _userRepository.AddStudentWithSemester(user.Id, Guid.Parse("64B90AB9-CA09-488B-ADED-E4134B344FD6"));
@@ -91,6 +90,52 @@ namespace StudentManagementSystem.Application.Services
             catch (Exception ex)
             {
                 return new PagedResponse<List<UserResponseDto>> { Succeeded = false, Errors = new List<string> { ex.Message } };
+            }
+        }
+
+        public async Task<Response<UserDto>> GetUserByIdAsync(Guid userId)
+        {
+            try
+            {
+                var exisitngUser = await _userRepository.GetByIdAsync(userId);
+                if (exisitngUser == null)
+                {
+                    return new Response<UserDto> { Succeeded = false, Message = "User not found" };
+                }
+                var userDto = _mapper.Map<UserDto>(exisitngUser);
+                return new Response<UserDto> { Succeeded = true, Data = userDto };
+            }
+            catch (Exception ex)
+            {
+                return new Response<UserDto> { Succeeded = false, Errors = new List<string> { ex.Message } };
+            }
+        }
+
+        public async Task<Response<UserDto>> UpdateUserAsync(EditUserRequestDto request, Guid userId)
+        {
+            try
+            {
+                var user = _mapper.Map<User>(request);
+
+                var exisitingUser = await _userRepository.GetByIdAsync(userId);
+                if (exisitingUser is null)
+                {
+                    return new Response<UserDto> { Succeeded = false, Errors = new List<string> { "User not found" } };
+                }
+
+                exisitingUser.DateOfBirth = user.DateOfBirth;
+                exisitingUser.JoinedDate = user.JoinedDate;
+                exisitingUser.Gender = user.Gender;
+                exisitingUser.LastModifiedOn = DateTime.Now;
+
+                await _userRepository.UpdateAsync(exisitingUser);
+
+                var userDto = _mapper.Map<UserDto>(exisitingUser);
+                return new Response<UserDto> { Succeeded = true, Data = userDto };
+            }
+            catch (Exception ex)
+            {
+                return new Response<UserDto> { Succeeded = false, Errors = new List<string> { ex.Message } };
             }
         }
     }

@@ -39,5 +39,27 @@ namespace StudentManagementSystem.WebApi.Controllers
             var response = await _userService.GetAllUserAsync(filter, location, search, role, orderBy, isDescending);
             return Ok(response);
         }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateUserAsync(EditUserRequestDto request, Guid userId)
+        {
+            var response = await _userService.UpdateUserAsync(request, userId);
+            if (response.Succeeded)
+            {
+                return Ok(response);
+            }
+            return BadRequest(response);
+        }
+
+        [HttpGet("{userId}")]
+        public async Task<IActionResult> GetUserByIdAsync(Guid userId)
+        {
+            var response = await _userService.GetUserByIdAsync(userId);
+            if (response.Succeeded)
+            {
+                return Ok(response);
+            }
+            return BadRequest(response);
+        }
     }
 }

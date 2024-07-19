@@ -38,7 +38,7 @@ namespace StudentManagementSystem.Infrastructure.Repositories
 
         public async Task<(IEnumerable<Course> Data, int TotalRecords)> GetAllMatchingCourse(PaginationFilter? pagination, CourseLevelType? courseLevel, CourseStateType? courseState, string? search, string? orderBy, bool? isDescending)
         {
-            var query = _dbContext.Courses.AsNoTracking();
+            var query = _dbContext.Courses.AsNoTracking().Where(x => !x.IsDeleted);
 
             if (courseLevel.HasValue)
             {

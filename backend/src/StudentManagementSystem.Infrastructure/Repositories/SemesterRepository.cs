@@ -16,7 +16,7 @@ namespace StudentManagementSystem.Infrastructure.Repositories
 
         public async Task<bool> CheckSemesterCodeExisiting(string semesterName, string academicYear)
         {
-            var isSemesterCodeExisting = await _dbContext.Semesters.FirstOrDefaultAsync(x => x.AcademicYear.ToLower().Equals(academicYear.ToLower()) && x.SemesterName.ToLower().Equals(semesterName.ToLower()));
+            var isSemesterCodeExisting = await _dbContext.Semesters.FirstOrDefaultAsync(x => x.AcademicYear.ToLower().Equals(academicYear.ToLower()) && x.SemesterName.ToLower().Equals(semesterName.ToLower()) && !x.IsDeleted);
             if (isSemesterCodeExisting != null)
             {
                 return true;
@@ -26,7 +26,7 @@ namespace StudentManagementSystem.Infrastructure.Repositories
 
         public async Task<(IEnumerable<Semester> Data, int TotalRecords)> GetAllMatchingSemester(PaginationFilter? pagination, string? search, string? orderBy, bool? isDescending)
         {
-            var query = _dbContext.Semesters.AsNoTracking();
+            var query = _dbContext.Semesters.AsNoTracking().Where(x => !x.IsDeleted);
 
             string searchPhraseLower = search?.ToLower() ?? string.Empty;
 
@@ -44,7 +44,6 @@ namespace StudentManagementSystem.Infrastructure.Repositories
                     {"semesterCode", x => x.SemesterCode },
                     {"academicYear", x => x.AcademicYear },
                     { "semesterName", x => x.SemesterName }
-               
                 };
                 var selectedColumn = columnsSelector[orderBy];
 

@@ -38,7 +38,7 @@ namespace StudentManagementSystem.Infrastructure.Repositories
 
         public async Task<bool> CheckStudentCodeExsits(string studentCode)
         {
-            var student = await _dbContext.Users.FirstOrDefaultAsync(x => x.StudentCode == studentCode);
+            var student = await _dbContext.Users.FirstOrDefaultAsync(x => x.StudentCode == studentCode && !x.IsDeleted);
             if (student is null)
             {
                 return false;
@@ -58,7 +58,7 @@ namespace StudentManagementSystem.Infrastructure.Repositories
 
         public async Task<Guid> FindSesterIdByStudentId(Guid studentId)
         {
-            var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.Id == studentId);
+            var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.Id == studentId && !x.IsDeleted);
 
             if (user is null)
             {
