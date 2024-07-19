@@ -3,6 +3,8 @@ using FluentValidation;
 using Microsoft.AspNetCore.Http.Timeouts;
 using StudentManagementSystem.Application.DTOs.Enrollments.Requests;
 using StudentManagementSystem.Application.DTOs.Enrollments.Responses;
+using StudentManagementSystem.Application.Filters;
+using StudentManagementSystem.Application.Helpers;
 using StudentManagementSystem.Application.Interface.Repositories;
 using StudentManagementSystem.Application.Interface.Services;
 using StudentManagementSystem.Application.Wrappers;
@@ -62,6 +64,26 @@ namespace StudentManagementSystem.Application.Services
             catch (Exception ex)
             {
                 return new Response<EnrollmentDto> { Succeeded = false, Message = ex.Message };
+            }
+        }
+
+        public async Task<PagedResponse<List<EnrollmentResponseDto>>> GetAllEnrollmentOfStudnet(PaginationFilter? pagination, Guid studentId, CourseLevelType? level, EnrolmentStateType? enrolmentStateType, bool? isPassed, string? search, string? orderBy, bool? isDescending)
+        {
+            try
+            {
+                var enrollmentOfStudent = await _enrollmentRepository.GetAllEnrollmentOfStudent(pagination, studentId, level, enrolmentStateType, isPassed, search, orderBy, isDescending);
+                if (enrollmentOfStudent.Data is null)
+                {
+                    return new PagedResponse<List<EnrollmentResponseDto>> { Succeeded = false, Message = "Enrollment not found" };
+                }
+                var enrollmentResponseDto = _mapper.Map<List<EnrollmentResponseDto>>(enrollmentOfStudent.Data);
+
+                var pagedResponse = PaginationHelper.CreatePageResponse(enrollmentResponseDto, pagination, enrollmentOfStudent.TotalRecords);
+                return pagedResponse;
+            }
+            catch (Exception ex)
+            {
+                return new PagedResponse<List<EnrollmentResponseDto>> { Succeeded = false, Errors = new List<string> { ex.Message } };
             }
         }
 

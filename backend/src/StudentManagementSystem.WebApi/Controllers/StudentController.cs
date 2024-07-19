@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using StudentManagementSystem.Application.DTOs.Enrollments.Requests;
+using StudentManagementSystem.Application.Filters;
 using StudentManagementSystem.Application.Interface.Services;
+using StudentManagementSystem.Domain.Enums;
 
 namespace StudentManagementSystem.WebApi.Controllers
 {
@@ -24,6 +26,13 @@ namespace StudentManagementSystem.WebApi.Controllers
                 return Ok(response);
             }
             return BadRequest(response);
+        }
+
+        [HttpGet("enrollments")]
+        public async Task<IActionResult> GetAllEnrollmentsOfStudent([FromQuery] PaginationFilter? filter, Guid studentId, CourseLevelType? level, EnrolmentStateType? enrolmentStateType, bool? isPassed, string? search, string? orderBy, bool? isDescending)
+        {
+            var response = await _enrollmentService.GetAllEnrollmentOfStudnet(filter, studentId, level, enrolmentStateType, isPassed, search, orderBy, isDescending);
+            return Ok(response);
         }
     }
 }
