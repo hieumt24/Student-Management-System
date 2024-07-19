@@ -53,8 +53,6 @@ export const UsersList = () => {
     fetchUsers();
   }, [pagination.pageIndex, pagination.pageSize, searchQuery, sortConfig]);
 
-  
-
   const handleSort = (key) => {
     let direction = "ascending";
     if (sortConfig.key === key && sortConfig.direction === "ascending") {
@@ -186,7 +184,12 @@ export const UsersList = () => {
                     {formatDate(user.joinedDate)}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">
+                    <button
+                      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+                      onClick={() => {
+                        navigate(`edit/${user.id}`);
+                      }}
+                    >
                       Edit
                     </button>
                     <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
