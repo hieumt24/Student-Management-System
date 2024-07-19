@@ -15,6 +15,16 @@ namespace StudentManagementSystem.Infrastructure.Repositories
         {
         }
 
+        public async Task<bool> CheckCourseCodeExsiting(string courseCode)
+        {
+            var checkCourseCode = await _dbContext.Courses.FirstOrDefaultAsync(x => x.CourseCode == courseCode);
+            if (checkCourseCode == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
         public async Task<bool> CheckCourseFullSlot(Guid courseId)
         {
             var totalCourse = await _dbContext.Enrollments.CountAsync(x => x.CourseId == courseId);

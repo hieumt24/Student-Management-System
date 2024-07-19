@@ -10,5 +10,7 @@ namespace StudentManagementSystem.Application.Interface.Repositories
         Task<(IEnumerable<Course> Data, int TotalRecords)> GetAllMatchingCourse(PaginationFilter? pagination, CourseLevelType? courseLevel, CourseStateType? courseState, string? search, string? orderBy, bool? isDescending);
 
         Task<bool> CheckCourseFullSlot(Guid courseId);
+
+        Task<bool> CheckCourseCodeExsiting(string courseCode);
     }
 }

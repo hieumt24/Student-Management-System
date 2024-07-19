@@ -26,7 +26,6 @@ namespace StudentManagementSystem.Infrastructure.Repositories
                     StudentId = studentId,
                     SemesterId = semesterId,
                     CreatedOn = DateTime.Now
-
                 });
                 await _dbContext.SaveChangesAsync();
                 return await _dbContext.StudentSemesters.FirstOrDefaultAsync(x => x.StudentId == studentId && x.SemesterId == semesterId);

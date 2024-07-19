@@ -42,6 +42,14 @@ namespace StudentManagementSystem.Application.Mappings
             CreateMap<EditEnrollmentRequestDto, Enrollment>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.EnrollmentId))
                 .ReverseMap();
+
+            CreateMap<Enrollment, StudentEnrollmentResponseDto>()
+                .ForMember(dest => dest.SemesterCode, opt => opt.MapFrom(src => src.Semester.SemesterCode))
+                .ForMember(dest => dest.CourseCode, opt => opt.MapFrom(src => src.Course.CourseCode))
+                .ForMember(dest => dest.CourseName, opt => opt.MapFrom(src => src.Course.Title))
+                .ForMember(dest => dest.Level, opt => opt.MapFrom(src => src.Course.Level))
+                .ForMember(dest => dest.Credits, opt => opt.MapFrom(src => src.Course.Credits))
+                .ReverseMap();
         }
     }
 }
