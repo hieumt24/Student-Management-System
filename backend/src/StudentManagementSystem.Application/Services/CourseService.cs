@@ -17,17 +17,20 @@ namespace StudentManagementSystem.Application.Services
         private readonly IMapper _mapper;
         private readonly ICourseRepository _courseRepository;
         private readonly IValidator<AddCourseRequestDto> _addCourseValidator;
+        private readonly IEnrollmentRepository _enrollmentRepository;
 
         public CourseService
         (
         IMapper mapper,
          ICourseRepository courseRepository,
-         IValidator<AddCourseRequestDto> addCourseValidator
+         IValidator<AddCourseRequestDto> addCourseValidator,
+         IEnrollmentRepository enrollmentRepository
          )
         {
             _mapper = mapper;
             _courseRepository = courseRepository;
             _addCourseValidator = addCourseValidator;
+            _enrollmentRepository = enrollmentRepository;
         }
 
         public async Task<Response<CourseDto>> AddCourseAsync(AddCourseRequestDto request)
@@ -70,6 +73,7 @@ namespace StudentManagementSystem.Application.Services
                 {
                     return new PagedResponse<List<CourseResponseDto>> { Succeeded = false, Message = "No courses found" };
                 }
+
                 var courseResponseDto = _mapper.Map<List<CourseResponseDto>>(courses.Data);
                 var pagedResponse = PaginationHelper.CreatePageResponse(courseResponseDto, pagination, courses.TotalRecords);
 

@@ -33,6 +33,23 @@ namespace StudentManagementSystem.Infrastructure.Repositories
             return true;
         }
 
+        public async Task<bool> CheckUserExsitingInEnrollment(Guid courseId, Guid studentId)
+        {
+            var checkUser = await _dbContext.Enrollments.FirstOrDefaultAsync(x => x.CourseId == courseId && x.StudentId == studentId);
+            if (checkUser != null)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public async Task<int> CountStudentInCourse(Guid courseId)
+        {
+            var result = await _dbContext.Enrollments.CountAsync(x => x.CourseId == courseId);
+            result = result + 1;
+            return result;
+        }
+
         public async Task<(IEnumerable<Enrollment> Data, int TotalRecords)> GetAllEnrollmentOfStudent(PaginationFilter? pagination, Guid studentId, CourseLevelType? level, EnrolmentStateType? enrolmentStateType, bool? isPassed, string? search, string? orderBy, bool? isDescending)
         {
             var enrollment = _dbContext.Enrollments.Include(x => x.Course).Include(x => x.Student).Include(x => x.Semester);

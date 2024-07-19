@@ -1,5 +1,6 @@
 ﻿using StudentManagementSystem.Application.DTOs.Enrollments.Requests;
 using StudentManagementSystem.Application.DTOs.Enrollments.Responses;
+using StudentManagementSystem.Application.DTOs.Users.Requests;
 using StudentManagementSystem.Application.Filters;
 using StudentManagementSystem.Application.Wrappers;
 using StudentManagementSystem.Domain.Enums;
@@ -10,7 +11,7 @@ namespace StudentManagementSystem.Application.Interface.Services
     {
         Task<Response<EnrollmentDto>> AddEnrollmentCourse(AddEnrollmentRequestDto request);
 
-        Task<Response<EnrollmentDto>> StudentEnrollmentCourse(AddEnrollmentRequestDto request);
+        Task<Response<EnrollmentDto>> StudentEnrollmentCourse(AddStudentEnrollmentRequestDto request);
 
         //Task InsertGradeForStudent(AddGradeRequestDto request);
         Task<Response<List<EnrollmentResponseDto>>> GetCourseById(Guid courseId);

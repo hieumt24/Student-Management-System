@@ -12,5 +12,7 @@ namespace StudentManagementSystem.Application.Interface.Repositories
         Task<bool> CheckCourseFullSlot(Guid courseId);
 
         Task<bool> CheckCourseCodeExsiting(string courseCode);
+
+        Task UpdateStateCourse(Guid courseId, CourseStateType courseStateType);
     }
 }
