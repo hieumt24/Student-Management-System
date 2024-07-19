@@ -25,7 +25,7 @@ namespace StudentManagementSystem.Application.Services
 
         public Task<Response<string>> ChangePasswordAsync(ChangePasswordRequest request)
         {
-            throw new NotImplementedException();
+            throw new Exception();
         }
 
         public async Task<Response<AuthenticationResponse>> LoginAsync(AuthenticationRequest request)

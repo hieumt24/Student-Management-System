@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using StudentManagementSystem.Application.DTOs.Images;
 using StudentManagementSystem.Application.Interface.Repositories;
 using StudentManagementSystem.Application.Models;

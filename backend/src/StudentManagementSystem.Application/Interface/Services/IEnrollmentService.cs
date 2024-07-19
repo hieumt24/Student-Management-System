@@ -20,5 +20,7 @@ namespace StudentManagementSystem.Application.Interface.Services
         Task<Response<List<EnrollmentResponseDto>>> GetReportGradeOfStudent(Guid studentId);
 
         Task<PagedResponse<List<EnrollmentResponseDto>>> GetAllEnrollmentOfStudents(PaginationFilter? pagination, Guid studentId, CourseLevelType? level, EnrolmentStateType? enrolmentStateType, bool? isPassed, string? search, string? orderBy, bool? isDescending);
+
+        Task<PagedResponse<List<EnrollmentResponseDto>>> GetAllEnrollment(PaginationFilter? pagination, CourseLevelType? level, EnrolmentStateType? enrolmentStateType, bool? isPassed, string? search, string? orderBy, bool? isDescending);
     }
 }
