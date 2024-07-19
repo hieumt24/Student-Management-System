@@ -10,5 +10,10 @@ export function createCourse(request) {
 } 
 
 export function enrollCourse(request) {
-    return axiosInstance.post("/enrollments");
+    return axiosInstance.post("/students/enroll", request);
+}
+
+export function getStudentEnrollment(request) {
+    const queryParams = new URLSearchParams(request).toString();
+    return axiosInstance.get(`/students/enrollments?${queryParams}`);
 }
