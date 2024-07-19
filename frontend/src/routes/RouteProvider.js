@@ -77,6 +77,16 @@ export const RouteProvider = () => {
               </AuthRequired>
             }
           />
+          <Route
+            path="/courses"
+            element={
+              <AuthRequired>
+                <Layout/>
+              </AuthRequired>
+            }
+          >
+            <Route path="" element={<CourseList/>}/>
+          </Route>
         </>
       )}
 

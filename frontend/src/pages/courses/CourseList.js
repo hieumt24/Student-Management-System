@@ -1,26 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { FaSearch, FaPlus, FaSort } from "react-icons/fa";
+import { FaPlus, FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { getPaginatedCourses } from "../../services";
 import { Pagination } from "../../components/Pagination";
-
-const courseStateColors = {
-  0: "bg-gray-200",
-  1: "bg-green-200",
-  2: "bg-blue-200",
-  3: "bg-yellow-200",
-  4: "bg-red-200",
-};
-
-const courseStateNames = {
-  0: "Not Started",
-  1: "Open",
-  2: "Complete",
-  3: "In Progress",
-  4: "Cancelled",
-};
+import { CourseCard } from "../../components/courses";
+import { useAuth } from "../../hooks";
+import { getPaginatedCourses } from "../../services";
 
 export const CourseList = () => {
+  const {user} = useAuth();
   const [courses, setCourses] = useState([]);
   const [pagination, setPagination] = useState({
     pageIndex: 1,
@@ -85,12 +72,12 @@ export const CourseList = () => {
             />
             <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
           </div>
-          <button
+          {user.role === "Admin" && (<button
             onClick={handleCreateCourse}
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex items-center transition duration-300"
           >
             <FaPlus className="mr-2" /> Create Course
-          </button>
+          </button>)}
         </div>
       </div>
       <div className="mb-4 flex justify-end">
@@ -110,35 +97,7 @@ export const CourseList = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {courses.length > 0 ? (
           courses.map((course) => (
-            <div
-              key={course.id}
-              className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300"
-            >
-              <img
-                src={course.imageUrl}
-                alt={course.title}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4">
-                <h2 className="text-xl font-semibold text-gray-800 mb-2">
-                  {course.title}
-                </h2>
-                <p className="text-gray-600 mb-2">
-                  Course Code: {course.courseCode}
-                </p>
-                <p className="text-gray-600 mb-2">Credits: {course.credits}</p>
-                <p className="text-gray-600">
-                  Max Students: {course.maxStudent}
-                </p>
-                <p
-                  className={`${
-                    courseStateColors[course.courseState]
-                  } font-bold mt-2`}
-                >
-                  State Course: {courseStateNames[course.courseState]}
-                </p>
-              </div>
-            </div>
+            <CourseCard course={course} key={course.id} enroll={user.role === "Student"}/>
           ))
         ) : (
           <div className="col-span-3 text-center text-gray-500">

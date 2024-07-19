@@ -8,3 +8,7 @@ export function getPaginatedCourses(request) {
 export function createCourse(request) {
     return axiosInstance.post(`/courses`, request);
 } 
+
+export function enrollCourse(request) {
+    return axiosInstance.post("/enrollments");
+}
