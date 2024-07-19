@@ -3,12 +3,64 @@
   "WorkspaceRootPath": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|d:\\fulearning\\semester8th\\prn231\\final project\\student-management-system\\backend\\src\\studentmanagementsystem.application\\services\\enrollmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|solutionrelative:studentmanagementsystem.application\\services\\enrollmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Infrastructure\\Migrations\\20240719083046_add base entity by course semester.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:StudentManagementSystem.Infrastructure\\Migrations\\20240719083046_add base entity by course semester.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{78201FAF-3602-4421-8DAC-1304BD065432}|StudentManagementSystem.WebApi\\StudentManagementSystem.WebApi.csproj|d:\\fulearning\\semester8th\\prn231\\final project\\student-management-system\\backend\\src\\studentmanagementsystem.webapi\\controllers\\enrollmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{78201FAF-3602-4421-8DAC-1304BD065432}|StudentManagementSystem.WebApi\\StudentManagementSystem.WebApi.csproj|solutionrelative:studentmanagementsystem.webapi\\controllers\\enrollmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0AE7D68C-560F-4EF5-B956-377FA39814FE}|StudentManagementSystem.Domain\\StudentManagementSystem.Domain.csproj|d:\\fulearning\\semester8th\\prn231\\final project\\student-management-system\\backend\\src\\studentmanagementsystem.domain\\entities\\coursesemester.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AE7D68C-560F-4EF5-B956-377FA39814FE}|StudentManagementSystem.Domain\\StudentManagementSystem.Domain.csproj|solutionrelative:studentmanagementsystem.domain\\entities\\coursesemester.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AE7D68C-560F-4EF5-B956-377FA39814FE}|StudentManagementSystem.Domain\\StudentManagementSystem.Domain.csproj|d:\\fulearning\\semester8th\\prn231\\final project\\student-management-system\\backend\\src\\studentmanagementsystem.domain\\entities\\semester.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AE7D68C-560F-4EF5-B956-377FA39814FE}|StudentManagementSystem.Domain\\StudentManagementSystem.Domain.csproj|solutionrelative:studentmanagementsystem.domain\\entities\\semester.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AE7D68C-560F-4EF5-B956-377FA39814FE}|StudentManagementSystem.Domain\\StudentManagementSystem.Domain.csproj|d:\\fulearning\\semester8th\\prn231\\final project\\student-management-system\\backend\\src\\studentmanagementsystem.domain\\entities\\blacklisttoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AE7D68C-560F-4EF5-B956-377FA39814FE}|StudentManagementSystem.Domain\\StudentManagementSystem.Domain.csproj|solutionrelative:studentmanagementsystem.domain\\entities\\blacklisttoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AE7D68C-560F-4EF5-B956-377FA39814FE}|StudentManagementSystem.Domain\\StudentManagementSystem.Domain.csproj|d:\\fulearning\\semester8th\\prn231\\final project\\student-management-system\\backend\\src\\studentmanagementsystem.domain\\entities\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AE7D68C-560F-4EF5-B956-377FA39814FE}|StudentManagementSystem.Domain\\StudentManagementSystem.Domain.csproj|solutionrelative:studentmanagementsystem.domain\\entities\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AE7D68C-560F-4EF5-B956-377FA39814FE}|StudentManagementSystem.Domain\\StudentManagementSystem.Domain.csproj|d:\\fulearning\\semester8th\\prn231\\final project\\student-management-system\\backend\\src\\studentmanagementsystem.domain\\entities\\enrollment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AE7D68C-560F-4EF5-B956-377FA39814FE}|StudentManagementSystem.Domain\\StudentManagementSystem.Domain.csproj|solutionrelative:studentmanagementsystem.domain\\entities\\enrollment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AE7D68C-560F-4EF5-B956-377FA39814FE}|StudentManagementSystem.Domain\\StudentManagementSystem.Domain.csproj|d:\\fulearning\\semester8th\\prn231\\final project\\student-management-system\\backend\\src\\studentmanagementsystem.domain\\entities\\studentsemester.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AE7D68C-560F-4EF5-B956-377FA39814FE}|StudentManagementSystem.Domain\\StudentManagementSystem.Domain.csproj|solutionrelative:studentmanagementsystem.domain\\entities\\studentsemester.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AE7D68C-560F-4EF5-B956-377FA39814FE}|StudentManagementSystem.Domain\\StudentManagementSystem.Domain.csproj|d:\\fulearning\\semester8th\\prn231\\final project\\student-management-system\\backend\\src\\studentmanagementsystem.domain\\entities\\token.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AE7D68C-560F-4EF5-B956-377FA39814FE}|StudentManagementSystem.Domain\\StudentManagementSystem.Domain.csproj|solutionrelative:studentmanagementsystem.domain\\entities\\token.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AE7D68C-560F-4EF5-B956-377FA39814FE}|StudentManagementSystem.Domain\\StudentManagementSystem.Domain.csproj|d:\\fulearning\\semester8th\\prn231\\final project\\student-management-system\\backend\\src\\studentmanagementsystem.domain\\enums\\roletype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AE7D68C-560F-4EF5-B956-377FA39814FE}|StudentManagementSystem.Domain\\StudentManagementSystem.Domain.csproj|solutionrelative:studentmanagementsystem.domain\\enums\\roletype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|d:\\fulearning\\semester8th\\prn231\\final project\\student-management-system\\backend\\src\\studentmanagementsystem.application\\services\\courseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|solutionrelative:studentmanagementsystem.application\\services\\courseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|d:\\fulearning\\semester8th\\prn231\\final project\\student-management-system\\backend\\src\\studentmanagementsystem.application\\dtos\\courses\\requests\\addcourserequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|solutionrelative:studentmanagementsystem.application\\dtos\\courses\\requests\\addcourserequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|d:\\fulearning\\semester8th\\prn231\\final project\\student-management-system\\backend\\src\\studentmanagementsystem.application\\dtos\\courses\\responses\\coursedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|solutionrelative:studentmanagementsystem.application\\dtos\\courses\\responses\\coursedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|d:\\fulearning\\semester8th\\prn231\\final project\\student-management-system\\backend\\src\\studentmanagementsystem.application\\dtos\\courses\\responses\\courseresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|solutionrelative:studentmanagementsystem.application\\dtos\\courses\\responses\\courseresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AE7D68C-560F-4EF5-B956-377FA39814FE}|StudentManagementSystem.Domain\\StudentManagementSystem.Domain.csproj|d:\\fulearning\\semester8th\\prn231\\final project\\student-management-system\\backend\\src\\studentmanagementsystem.domain\\enums\\coursestatetype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AE7D68C-560F-4EF5-B956-377FA39814FE}|StudentManagementSystem.Domain\\StudentManagementSystem.Domain.csproj|solutionrelative:studentmanagementsystem.domain\\enums\\coursestatetype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|d:\\fulearning\\semester8th\\prn231\\final project\\student-management-system\\backend\\src\\studentmanagementsystem.application\\services\\enrollmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|solutionrelative:studentmanagementsystem.application\\services\\enrollmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{08136119-5108-4848-B69A-7E5E91C3EFD1}|StudentManagementSystem.Infrastructure\\StudentManagementSystem.Infrastructure.csproj|d:\\fulearning\\semester8th\\prn231\\final project\\student-management-system\\backend\\src\\studentmanagementsystem.infrastructure\\repositories\\courserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,6 +69,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|d:\\fulearning\\semester8th\\prn231\\final project\\student-management-system\\backend\\src\\studentmanagementsystem.application\\interface\\repositories\\icourserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|solutionrelative:studentmanagementsystem.application\\interface\\repositories\\icourserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{78201FAF-3602-4421-8DAC-1304BD065432}|StudentManagementSystem.WebApi\\StudentManagementSystem.WebApi.csproj|d:\\fulearning\\semester8th\\prn231\\final project\\student-management-system\\backend\\src\\studentmanagementsystem.webapi\\controllers\\enrollmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{78201FAF-3602-4421-8DAC-1304BD065432}|StudentManagementSystem.WebApi\\StudentManagementSystem.WebApi.csproj|solutionrelative:studentmanagementsystem.webapi\\controllers\\enrollmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|d:\\fulearning\\semester8th\\prn231\\final project\\student-management-system\\backend\\src\\studentmanagementsystem.application\\interface\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -83,20 +139,8 @@
       "RelativeMoniker": "D:0:0:{08136119-5108-4848-B69A-7E5E91C3EFD1}|StudentManagementSystem.Infrastructure\\StudentManagementSystem.Infrastructure.csproj|solutionrelative:studentmanagementsystem.infrastructure\\migrations\\20240719042111_add image.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0AE7D68C-560F-4EF5-B956-377FA39814FE}|StudentManagementSystem.Domain\\StudentManagementSystem.Domain.csproj|d:\\fulearning\\semester8th\\prn231\\final project\\student-management-system\\backend\\src\\studentmanagementsystem.domain\\entities\\enrollment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0AE7D68C-560F-4EF5-B956-377FA39814FE}|StudentManagementSystem.Domain\\StudentManagementSystem.Domain.csproj|solutionrelative:studentmanagementsystem.domain\\entities\\enrollment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0AE7D68C-560F-4EF5-B956-377FA39814FE}|StudentManagementSystem.Domain\\StudentManagementSystem.Domain.csproj|d:\\fulearning\\semester8th\\prn231\\final project\\student-management-system\\backend\\src\\studentmanagementsystem.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0AE7D68C-560F-4EF5-B956-377FA39814FE}|StudentManagementSystem.Domain\\StudentManagementSystem.Domain.csproj|solutionrelative:studentmanagementsystem.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0AE7D68C-560F-4EF5-B956-377FA39814FE}|StudentManagementSystem.Domain\\StudentManagementSystem.Domain.csproj|d:\\fulearning\\semester8th\\prn231\\final project\\student-management-system\\backend\\src\\studentmanagementsystem.domain\\entities\\semester.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0AE7D68C-560F-4EF5-B956-377FA39814FE}|StudentManagementSystem.Domain\\StudentManagementSystem.Domain.csproj|solutionrelative:studentmanagementsystem.domain\\entities\\semester.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0AE7D68C-560F-4EF5-B956-377FA39814FE}|StudentManagementSystem.Domain\\StudentManagementSystem.Domain.csproj|d:\\fulearning\\semester8th\\prn231\\final project\\student-management-system\\backend\\src\\studentmanagementsystem.domain\\entities\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0AE7D68C-560F-4EF5-B956-377FA39814FE}|StudentManagementSystem.Domain\\StudentManagementSystem.Domain.csproj|solutionrelative:studentmanagementsystem.domain\\entities\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{78201FAF-3602-4421-8DAC-1304BD065432}|StudentManagementSystem.WebApi\\StudentManagementSystem.WebApi.csproj|d:\\fulearning\\semester8th\\prn231\\final project\\student-management-system\\backend\\src\\studentmanagementsystem.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -123,20 +167,12 @@
       "RelativeMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|solutionrelative:studentmanagementsystem.application\\models\\image.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|d:\\fulearning\\semester8th\\prn231\\final project\\student-management-system\\backend\\src\\studentmanagementsystem.application\\dtos\\courses\\responses\\courseresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|solutionrelative:studentmanagementsystem.application\\dtos\\courses\\responses\\courseresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|d:\\fulearning\\semester8th\\prn231\\final project\\student-management-system\\backend\\src\\studentmanagementsystem.application\\mappings\\generalprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|solutionrelative:studentmanagementsystem.application\\mappings\\generalprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|d:\\fulearning\\semester8th\\prn231\\final project\\student-management-system\\backend\\src\\studentmanagementsystem.application\\interface\\services\\icourseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|solutionrelative:studentmanagementsystem.application\\interface\\services\\icourseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|d:\\fulearning\\semester8th\\prn231\\final project\\student-management-system\\backend\\src\\studentmanagementsystem.application\\services\\courseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|solutionrelative:studentmanagementsystem.application\\services\\courseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A6D70A13-FBC9-4389-8C0D-613BCED6BAFA}|StudentManagementSystem.Application\\StudentManagementSystem.Application.csproj|d:\\fulearning\\semester8th\\prn231\\final project\\student-management-system\\backend\\src\\studentmanagementsystem.application\\validations\\enrollments\\addenrollmentrequestvalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -174,7 +210,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 34,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -182,7 +218,124 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "20240719083046_add base entity by course semester.cs",
+              "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Infrastructure\\Migrations\\20240719083046_add base entity by course semester.cs",
+              "RelativeDocumentMoniker": "StudentManagementSystem.Infrastructure\\Migrations\\20240719083046_add base entity by course semester.cs",
+              "ToolTip": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Infrastructure\\Migrations\\20240719083046_add base entity by course semester.cs",
+              "RelativeToolTip": "StudentManagementSystem.Infrastructure\\Migrations\\20240719083046_add base entity by course semester.cs",
+              "ViewState": "AQIAACsAAAAAAAAAAAAgwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-19T08:30:46.373Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BlackListToken.cs",
+              "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Domain\\Entities\\BlackListToken.cs",
+              "RelativeDocumentMoniker": "StudentManagementSystem.Domain\\Entities\\BlackListToken.cs",
+              "ToolTip": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Domain\\Entities\\BlackListToken.cs",
+              "RelativeToolTip": "StudentManagementSystem.Domain\\Entities\\BlackListToken.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-19T08:28:28.618Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Token.cs",
+              "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Domain\\Entities\\Token.cs",
+              "RelativeDocumentMoniker": "StudentManagementSystem.Domain\\Entities\\Token.cs",
+              "ToolTip": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Domain\\Entities\\Token.cs",
+              "RelativeToolTip": "StudentManagementSystem.Domain\\Entities\\Token.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-19T08:28:22.627Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "RoleType.cs",
+              "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Domain\\Enums\\RoleType.cs",
+              "RelativeDocumentMoniker": "StudentManagementSystem.Domain\\Enums\\RoleType.cs",
+              "ToolTip": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Domain\\Enums\\RoleType.cs",
+              "RelativeToolTip": "StudentManagementSystem.Domain\\Enums\\RoleType.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-19T08:28:21.701Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "StudentSemester.cs",
+              "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Domain\\Entities\\StudentSemester.cs",
+              "RelativeDocumentMoniker": "StudentManagementSystem.Domain\\Entities\\StudentSemester.cs",
+              "ToolTip": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Domain\\Entities\\StudentSemester.cs",
+              "RelativeToolTip": "StudentManagementSystem.Domain\\Entities\\StudentSemester.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-19T08:28:16.009Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CourseSemester.cs",
+              "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Domain\\Entities\\CourseSemester.cs",
+              "RelativeDocumentMoniker": "StudentManagementSystem.Domain\\Entities\\CourseSemester.cs",
+              "ToolTip": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Domain\\Entities\\CourseSemester.cs",
+              "RelativeToolTip": "StudentManagementSystem.Domain\\Entities\\CourseSemester.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-19T08:28:13.499Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "CourseDto.cs",
+              "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Application\\DTOs\\Courses\\Responses\\CourseDto.cs",
+              "RelativeDocumentMoniker": "StudentManagementSystem.Application\\DTOs\\Courses\\Responses\\CourseDto.cs",
+              "ToolTip": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Application\\DTOs\\Courses\\Responses\\CourseDto.cs",
+              "RelativeToolTip": "StudentManagementSystem.Application\\DTOs\\Courses\\Responses\\CourseDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-19T08:26:26.92Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AddCourseRequestDto.cs",
+              "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Application\\DTOs\\Courses\\Requests\\AddCourseRequestDto.cs",
+              "RelativeDocumentMoniker": "StudentManagementSystem.Application\\DTOs\\Courses\\Requests\\AddCourseRequestDto.cs",
+              "ToolTip": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Application\\DTOs\\Courses\\Requests\\AddCourseRequestDto.cs",
+              "RelativeToolTip": "StudentManagementSystem.Application\\DTOs\\Courses\\Requests\\AddCourseRequestDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-19T08:26:20.508Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "CourseStateType.cs",
+              "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Domain\\Enums\\CourseStateType.cs",
+              "RelativeDocumentMoniker": "StudentManagementSystem.Domain\\Enums\\CourseStateType.cs",
+              "ToolTip": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Domain\\Enums\\CourseStateType.cs",
+              "RelativeToolTip": "StudentManagementSystem.Domain\\Enums\\CourseStateType.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-19T08:15:59.525Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
               "Title": "UserService.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Application\\Services\\UserService.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Application\\Services\\UserService.cs",
@@ -195,7 +348,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 23,
               "Title": "UserHelper.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Application\\Helpers\\UserHelper.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Application\\Helpers\\UserHelper.cs",
@@ -208,20 +361,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 15,
               "Title": "CourseRepository.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Infrastructure\\Repositories\\CourseRepository.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Infrastructure\\Repositories\\CourseRepository.cs",
               "ToolTip": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Infrastructure\\Repositories\\CourseRepository.cs",
               "RelativeToolTip": "StudentManagementSystem.Infrastructure\\Repositories\\CourseRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAZAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-19T06:09:43.757Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 26,
               "Title": "EnrollmentRepository.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Infrastructure\\Repositories\\EnrollmentRepository.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Infrastructure\\Repositories\\EnrollmentRepository.cs",
@@ -233,7 +386,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 24,
               "Title": "SemesterRepository.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Infrastructure\\Repositories\\SemesterRepository.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Infrastructure\\Repositories\\SemesterRepository.cs",
@@ -246,7 +399,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 22,
               "Title": "StudentController.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.WebApi\\Controllers\\StudentController.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.WebApi\\Controllers\\StudentController.cs",
@@ -259,7 +412,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 28,
               "Title": "SemesterController.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.WebApi\\Controllers\\SemesterController.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.WebApi\\Controllers\\SemesterController.cs",
@@ -271,7 +424,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 17,
               "Title": "EnrollmentController.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.WebApi\\Controllers\\EnrollmentController.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.WebApi\\Controllers\\EnrollmentController.cs",
@@ -284,7 +437,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 32,
               "Title": "AuthController.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.WebApi\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.WebApi\\Controllers\\AuthController.cs",
@@ -296,7 +449,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 33,
               "Title": "20240719042111_add image.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Infrastructure\\Migrations\\20240719042111_add image.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Infrastructure\\Migrations\\20240719042111_add image.cs",
@@ -308,7 +461,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 5,
               "Title": "Enrollment.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Domain\\Entities\\Enrollment.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Domain\\Entities\\Enrollment.cs",
@@ -316,11 +469,12 @@
               "RelativeToolTip": "StudentManagementSystem.Domain\\Entities\\Enrollment.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-19T04:20:42.509Z"
+              "WhenOpened": "2024-07-19T04:20:42.509Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 2,
               "Title": "Semester.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Domain\\Entities\\Semester.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Domain\\Entities\\Semester.cs",
@@ -328,11 +482,12 @@
               "RelativeToolTip": "StudentManagementSystem.Domain\\Entities\\Semester.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-19T04:20:41.627Z"
+              "WhenOpened": "2024-07-19T04:20:41.627Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 25,
               "Title": "LocalImageRepository.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Infrastructure\\Repositories\\LocalImageRepository.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Infrastructure\\Repositories\\LocalImageRepository.cs",
@@ -344,7 +499,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 37,
               "Title": "ILocalImageRepository.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Application\\Interface\\Repositories\\ILocalImageRepository.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Application\\Interface\\Repositories\\ILocalImageRepository.cs",
@@ -356,7 +511,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 39,
               "Title": "ImageUploadRequestDto.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Application\\DTOs\\Images\\ImageUploadRequestDto.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Application\\DTOs\\Images\\ImageUploadRequestDto.cs",
@@ -368,7 +523,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 30,
               "Title": "ImagesController.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.WebApi\\Controllers\\ImagesController.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.WebApi\\Controllers\\ImagesController.cs",
@@ -380,7 +535,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 35,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.WebApi\\Program.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.WebApi\\Program.cs",
@@ -392,7 +547,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 36,
               "Title": "InfrastructureExtension.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Infrastructure\\Extensions\\InfrastructureExtension.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Infrastructure\\Extensions\\InfrastructureExtension.cs",
@@ -404,19 +559,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 12,
               "Title": "CourseResponseDto.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Application\\DTOs\\Courses\\Responses\\CourseResponseDto.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Application\\DTOs\\Courses\\Responses\\CourseResponseDto.cs",
               "ToolTip": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Application\\DTOs\\Courses\\Responses\\CourseResponseDto.cs",
               "RelativeToolTip": "StudentManagementSystem.Application\\DTOs\\Courses\\Responses\\CourseResponseDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-19T03:33:58.512Z"
+              "WhenOpened": "2024-07-19T03:33:58.512Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 41,
               "Title": "GeneralProfile.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Application\\Mappings\\GeneralProfile.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Application\\Mappings\\GeneralProfile.cs",
@@ -428,19 +584,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 4,
               "Title": "Course.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Domain\\Entities\\Course.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Domain\\Entities\\Course.cs",
               "ToolTip": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Domain\\Entities\\Course.cs",
               "RelativeToolTip": "StudentManagementSystem.Domain\\Entities\\Course.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAtAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABIAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-19T03:27:48.812Z"
+              "WhenOpened": "2024-07-19T03:27:48.812Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 21,
               "Title": "UserController.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.WebApi\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.WebApi\\Controllers\\UserController.cs",
@@ -453,12 +610,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 16,
               "Title": "ICourseRepository.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Application\\Interface\\Repositories\\ICourseRepository.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Application\\Interface\\Repositories\\ICourseRepository.cs",
-              "ToolTip": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Application\\Interface\\Repositories\\ICourseRepository.cs*",
-              "RelativeToolTip": "StudentManagementSystem.Application\\Interface\\Repositories\\ICourseRepository.cs*",
+              "ToolTip": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Application\\Interface\\Repositories\\ICourseRepository.cs",
+              "RelativeToolTip": "StudentManagementSystem.Application\\Interface\\Repositories\\ICourseRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-19T03:21:40.392Z",
@@ -466,19 +623,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 9,
               "Title": "CourseService.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Application\\Services\\CourseService.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Application\\Services\\CourseService.cs",
               "ToolTip": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Application\\Services\\CourseService.cs",
               "RelativeToolTip": "StudentManagementSystem.Application\\Services\\CourseService.cs",
-              "ViewState": "AQIAACsAAAAAAAAAAAAowEUAAAAlAAAA",
+              "ViewState": "AQIAABcAAAAAAAAAAAAgwEUAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-19T03:19:55.004Z"
+              "WhenOpened": "2024-07-19T03:19:55.004Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 42,
               "Title": "ICourseService.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Application\\Interface\\Services\\ICourseService.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Application\\Interface\\Services\\ICourseService.cs",
@@ -490,7 +648,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 31,
               "Title": "CourseController.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.WebApi\\Controllers\\CourseController.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.WebApi\\Controllers\\CourseController.cs",
@@ -502,7 +660,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 48,
               "Title": "20240719031201_update db.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Infrastructure\\Migrations\\20240719031201_update db.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Infrastructure\\Migrations\\20240719031201_update db.cs",
@@ -514,7 +672,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 29,
               "Title": "GenericRepository.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Infrastructure\\Common\\GenericRepository.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Infrastructure\\Common\\GenericRepository.cs",
@@ -526,7 +684,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 43,
               "Title": "AddEnrollmentRequestValidation.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Application\\Validations\\Enrollments\\AddEnrollmentRequestValidation.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Application\\Validations\\Enrollments\\AddEnrollmentRequestValidation.cs",
@@ -538,7 +696,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 44,
               "Title": "BaseEntity.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Domain\\Common\\BaseEntity.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Domain\\Common\\BaseEntity.cs",
@@ -550,7 +708,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 19,
               "Title": "UserRepository.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Infrastructure\\Repositories\\UserRepository.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Infrastructure\\Repositories\\UserRepository.cs",
@@ -563,7 +721,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 18,
               "Title": "IUserRepository.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Application\\Interface\\Repositories\\IUserRepository.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Application\\Interface\\Repositories\\IUserRepository.cs",
@@ -576,7 +734,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 45,
               "Title": "AddEnrollmentRequestDto.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Application\\DTOs\\Enrollments\\Requests\\AddEnrollmentRequestDto.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Application\\DTOs\\Enrollments\\Requests\\AddEnrollmentRequestDto.cs",
@@ -588,20 +746,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 14,
               "Title": "EnrollmentService.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Application\\Services\\EnrollmentService.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Application\\Services\\EnrollmentService.cs",
               "ToolTip": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Application\\Services\\EnrollmentService.cs",
               "RelativeToolTip": "StudentManagementSystem.Application\\Services\\EnrollmentService.cs",
-              "ViewState": "AQIAAD0AAAAAAAAAAAAowFYAAAAAAAAA",
+              "ViewState": "AQIAAEUAAAAAAAAAAADwv1EAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-19T02:57:54.806Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 27,
               "Title": "SemesterService.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Application\\Services\\SemesterService.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Application\\Services\\SemesterService.cs",
@@ -613,7 +771,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 34,
               "Title": "User.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Domain\\Entities\\User.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Domain\\Entities\\User.cs",
@@ -625,7 +783,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 49,
               "Title": "20240719025144_Addting Image.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Infrastructure\\Migrations\\20240719025144_Addting Image.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Infrastructure\\Migrations\\20240719025144_Addting Image.cs",
@@ -637,7 +795,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 46,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.WebApi\\appsettings.json",
               "RelativeDocumentMoniker": "StudentManagementSystem.WebApi\\appsettings.json",
@@ -649,7 +807,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 47,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.WebApi\\appsettings.Development.json",
               "RelativeDocumentMoniker": "StudentManagementSystem.WebApi\\appsettings.Development.json",
@@ -661,7 +819,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 38,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Infrastructure\\DataAccess\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Infrastructure\\DataAccess\\ApplicationDbContext.cs",
@@ -673,7 +831,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 40,
               "Title": "Image.cs",
               "DocumentMoniker": "D:\\FULearning\\Semester8th\\PRN231\\Final Project\\Student-Management-System\\backend\\src\\StudentManagementSystem.Application\\Models\\Image.cs",
               "RelativeDocumentMoniker": "StudentManagementSystem.Application\\Models\\Image.cs",
