@@ -69,13 +69,19 @@ namespace StudentManagementSystem.Infrastructure.Repositories
                     { nameof(Course.Credits), x => x.Credits },
                     { nameof(Course.Level), x => x.Level },
                     { nameof(Course.MaxStudent), x => x.MaxStudent },
-                    { nameof(Course.CourseState), x => x.CourseState }
+                    { nameof(Course.CourseState), x => x.CourseState },
+                    { nameof(Course.CreatedOn), x => x.CreatedOn },
                 };
 
                 var selectedColumn = columnsSelector[orderBy];
                 query = isDescending.HasValue && isDescending.Value
                     ? query.OrderByDescending(selectedColumn)
                     : query.OrderBy(selectedColumn);
+            }
+            else
+            {
+                //default CreateOn
+                query = query.OrderByDescending(x => x.CreatedOn);
             }
 
             var courses = await query
