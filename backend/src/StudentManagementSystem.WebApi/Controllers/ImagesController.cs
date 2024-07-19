@@ -8,7 +8,6 @@ namespace StudentManagementSystem.WebApi.Controllers
 {
     [Route("api/v1/images")]
     [ApiController]
-    [Authorize(Roles = "Admin")]
     public class ImagesController : ControllerBase
     {
         private readonly ILocalImageRepository _localImageRepository;

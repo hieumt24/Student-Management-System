@@ -71,6 +71,26 @@ namespace StudentManagementSystem.Application.Services
             }
         }
 
+        public async Task<PagedResponse<List<EnrollmentResponseDto>>> GetAllEnrollment(PaginationFilter? pagination, CourseLevelType? level, EnrolmentStateType? enrolmentStateType, bool? isPassed, string? search, string? orderBy, bool? isDescending)
+        {
+            try
+            {
+                var enrollments = await _enrollmentRepository.GetAllEnrollments(pagination, level, enrolmentStateType, isPassed, search, orderBy, isDescending);
+                if (enrollments.Data is null)
+                {
+                    return new PagedResponse<List<EnrollmentResponseDto>> { Succeeded = false, Message = "Enrollment not found" };
+                }
+                var enrollmentResponseDto = _mapper.Map<List<EnrollmentResponseDto>>(enrollments.Data);
+
+                var pagedResponse = PaginationHelper.CreatePageResponse(enrollmentResponseDto, pagination, enrollments.TotalRecords);
+                return pagedResponse;
+            }
+            catch (Exception ex)
+            {
+                return new PagedResponse<List<EnrollmentResponseDto>> { Succeeded = false, Errors = new List<string> { ex.Message } };
+            }
+        }
+
         public async Task<PagedResponse<List<EnrollmentResponseDto>>> GetAllEnrollmentOfStudents(PaginationFilter? pagination, Guid studentId, CourseLevelType? level, EnrolmentStateType? enrolmentStateType, bool? isPassed, string? search, string? orderBy, bool? isDescending)
         {
             try
