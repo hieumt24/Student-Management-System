@@ -13,5 +13,7 @@ namespace StudentManagementSystem.Application.DTOs.Courses.Requests
         public int MaxStudent { get; set; }
 
         public CourseStateType CourseState { get; set; }
+
+        public string? ImageUrl { get; set; }
     }
 }
