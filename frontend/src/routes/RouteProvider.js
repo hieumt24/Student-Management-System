@@ -4,6 +4,7 @@ import LandingPage from "../pages/LandingPage";
 import Layout from "../pages/Layout";
 import NotFound from "../pages/NotFound";
 import { UsersList } from "../pages/users";
+import { SemesterList, CreateSemester } from "../pages/semester";
 
 export const RouteProvider = () => {
   return (
@@ -14,6 +15,11 @@ export const RouteProvider = () => {
       <Route path="/" element={<LandingPage />} />
       <Route path="/users" element={<Layout />}>
         <Route path="" element={<UsersList />}></Route>
+      </Route>
+      <Route path="/semesters" element={<Layout />}>
+        <Route path="" element={<SemesterList />}></Route>
+        <Route path="create" element={<CreateSemester />}></Route>
+
       </Route>
       <Route path="/*" element={<NotFound />} />
     </Routes>
