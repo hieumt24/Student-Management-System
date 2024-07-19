@@ -78,11 +78,7 @@ namespace StudentManagementSystem.WebApi.Controllers
         public async Task<IActionResult> IsValidDeletedUser(Guid userId)
         {
             var response = await _userService.IsValidDeletedUser(userId);
-            if (response.Succeeded)
-            {
-                return Ok(response);
-            }
-            return BadRequest(response);
+            return Ok(response);
         }
     }
 }
