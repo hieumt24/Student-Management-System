@@ -2,7 +2,7 @@ import { toast } from "react-toastify";
 import { useAuth } from "../../hooks";
 import { enrollCourse } from "../../services";
 
-export const CourseCard = ({ course, enroll = false, enrolled = false }) => {
+export const CourseCard = ({ course, enroll = false, enrolled = false, full = false }) => {
   const courseStateColors = {
     0: "bg-gray-200",
     1: "bg-green-200",
@@ -67,11 +67,11 @@ export const CourseCard = ({ course, enroll = false, enrolled = false }) => {
           </p>
           {enroll && (
             <button
-              className={`px-4 py-2 text-white ${enrolled ? "bg-green-300" : "bg-green-500"} rounded-md `}
+              className={`px-4 py-2 text-white ${(enrolled || full) ? "bg-green-300" : "bg-green-500"} rounded-md `}
               onClick={handleEnroll}
-              disabled={enrolled}
+              disabled={enrolled || full}
             >
-              {enrolled ? "Enrolled" : "Enroll"}
+              {enrolled ? "Enrolled": full ? "Full slot" : "Enroll"}
             </button>
           )}
         </div>

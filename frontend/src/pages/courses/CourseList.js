@@ -126,6 +126,7 @@ export const CourseList = () => {
               enrolled={enrolledCourses.some(
                 (enrollment) => enrollment.courseId === course.id
               )}
+              full={course.studentInCourse > course.maxStudent}
             />
           ))
         ) : (
