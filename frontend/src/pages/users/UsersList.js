@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FaPlus, FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { Pagination } from "../../components/Pagination";
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "../../hooks";
 import { getPaginatedUsers } from "../../services/usersServices";
 
 // Utility function to format date
