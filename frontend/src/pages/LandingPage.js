@@ -1,5 +1,5 @@
 import React from 'react'
-import HeaderLayout from '../components/layout/HeaderLayout'
+import HeaderLayout from '../components/layout/Header'
 
 export default function LandingPage() {
     return (
