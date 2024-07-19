@@ -34,6 +34,7 @@ namespace StudentManagementSystem.Application.Extensions
             service.AddScoped<ICourseService, CourseService>();
             service.AddScoped<ISemesterService, SemesterService>();
             service.AddScoped<IEnrollmentService, EnrollmentService>();
+            service.AddScoped<IEportDataService, ExportDataService>();
 
             //injection mapping
             service.AddAutoMapper(typeof(GeneralProfile));

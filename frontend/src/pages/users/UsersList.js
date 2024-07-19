@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { FaPlus, FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { Pagination } from "../../components/Pagination";
 import { useAuth } from "../../hooks";
-import { getPaginatedUsers } from "../../services/usersServices";
+import { checkUserValidForDelete, deleteUser, getPaginatedUsers } from "../../services/usersServices";
 
 // Utility function to format date
 const formatDate = (dateStr) => {
@@ -74,6 +75,28 @@ export const UsersList = () => {
   const handleCreateUser = () => {
     navigate("/users/create");
   };
+
+  const handleDelete = (e) => {
+    checkUserValidForDelete(e.target.value).then((response)=>{
+      if (!response.data.succeeded) {
+        alert(response.data.message);
+      } else {
+        // eslint-disable-next-line no-restricted-globals
+        if (confirm("Are you sure?")) {
+          deleteUser(e.target.value).then(()=>{
+          fetchUsers();
+          toast.success("User deleted");
+        }).catch((err)=>{
+          toast.error("Error deleting user. Check console for details");
+          console.log(err);
+        })
+        }
+      }
+    }).catch((err)=>{
+      console.log(err);
+      toast.error("Error checking user");
+    });
+  }
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -208,7 +231,7 @@ export const UsersList = () => {
                     >
                       Edit
                     </button>
-                    <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                    <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onClick={handleDelete} value={user.id}>
                       Delete
                     </button>
                   </td>
