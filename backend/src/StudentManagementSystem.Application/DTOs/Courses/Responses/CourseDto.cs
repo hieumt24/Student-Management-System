@@ -9,6 +9,7 @@ namespace StudentManagementSystem.Application.DTOs.Courses.Responses
         public int Level { get; set; }
         public int Credits { get; set; }
         public CourseStateType CourseState { get; set; }
+        public int? StudentInCourse { get; set; }
         public int MaxStudent { get; set; }
 
         public string? ImageUrl { get; set; }

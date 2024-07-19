@@ -50,6 +50,8 @@ namespace StudentManagementSystem.Application.Mappings
                 .ForMember(dest => dest.Level, opt => opt.MapFrom(src => src.Course.Level))
                 .ForMember(dest => dest.Credits, opt => opt.MapFrom(src => src.Course.Credits))
                 .ReverseMap();
+
+            CreateMap<AddStudentEnrollmentRequestDto, Enrollment>().ReverseMap();
         }
     }
 }
