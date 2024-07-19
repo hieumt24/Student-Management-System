@@ -29,7 +29,7 @@ namespace StudentManagementSystem.Infrastructure.Repositories
         {
             var totalCourse = await _dbContext.Enrollments.CountAsync(x => x.CourseId == courseId);
             var course = await _dbContext.Courses.FirstOrDefaultAsync(x => x.Id == courseId);
-            if (totalCourse > course.MaxStudent)
+            if (totalCourse > course.MaxStudent - 1)
             {
                 return true;
             }
@@ -84,6 +84,24 @@ namespace StudentManagementSystem.Infrastructure.Repositories
                 .ToListAsync();
 
             return (Data: courses, TotalRecords: totalRecords);
+        }
+
+        public async Task UpdateStateCourse(Guid courseId, CourseStateType courseStateType)
+        {
+            try
+            {
+                var course = await _dbContext.Courses.FirstOrDefaultAsync(x => x.Id == courseId);
+                if (course != null)
+                {
+                    _dbContext.Entry(course).State = EntityState.Modified;
+                    course.CourseState = courseStateType;
+                    await _dbContext.SaveChangesAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

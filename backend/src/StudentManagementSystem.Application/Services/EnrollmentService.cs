@@ -3,6 +3,7 @@ using FluentValidation;
 using Microsoft.AspNetCore.Http.Timeouts;
 using StudentManagementSystem.Application.DTOs.Enrollments.Requests;
 using StudentManagementSystem.Application.DTOs.Enrollments.Responses;
+using StudentManagementSystem.Application.DTOs.Users.Requests;
 using StudentManagementSystem.Application.Filters;
 using StudentManagementSystem.Application.Helpers;
 using StudentManagementSystem.Application.Interface.Repositories;
@@ -21,6 +22,7 @@ namespace StudentManagementSystem.Application.Services
         private readonly IValidator<AddEnrollmentRequestDto> _addEnrollmentValidator;
         private readonly ICourseRepository _courseRepository;
         private readonly IValidator<EditEnrollmentRequestDto> _editEnrollmentValidator;
+        private readonly IValidator<AddStudentEnrollmentRequestDto> _addStudentEnrollmentValidator;
 
         public EnrollmentService
         (
@@ -29,7 +31,8 @@ namespace StudentManagementSystem.Application.Services
                                             IValidator<AddEnrollmentRequestDto> addEnrollmentValidator,
                                             IUserRepository userRepository,
                                             ICourseRepository courseRepository,
-                                            IValidator<EditEnrollmentRequestDto> editEnrollmentValidator
+                                            IValidator<EditEnrollmentRequestDto> editEnrollmentValidator,
+                                            IValidator<AddStudentEnrollmentRequestDto> addStudentEnrollmentValidator
 
         )
         {
@@ -39,6 +42,7 @@ namespace StudentManagementSystem.Application.Services
             _userRepository = userRepository;
             _courseRepository = courseRepository;
             _editEnrollmentValidator = editEnrollmentValidator;
+            _addStudentEnrollmentValidator = addStudentEnrollmentValidator;
         }
 
         public async Task<Response<EnrollmentDto>> AddEnrollmentCourse(AddEnrollmentRequestDto request)
@@ -138,9 +142,9 @@ namespace StudentManagementSystem.Application.Services
             }
         }
 
-        public async Task<Response<EnrollmentDto>> StudentEnrollmentCourse(AddEnrollmentRequestDto request)
+        public async Task<Response<EnrollmentDto>> StudentEnrollmentCourse(AddStudentEnrollmentRequestDto request)
         {
-            var validationResult = await _addEnrollmentValidator.ValidateAsync(request);
+            var validationResult = await _addStudentEnrollmentValidator.ValidateAsync(request);
             if (!validationResult.IsValid)
             {
                 var errors = validationResult.Errors.Select(e => e.ErrorMessage).ToList();
@@ -148,6 +152,13 @@ namespace StudentManagementSystem.Application.Services
             }
             try
             {
+                var checkStudentInEnrollment = await _enrollmentRepository.CheckUserExsitingInEnrollment(request.CourseId, request.StudentId);
+
+                if (checkStudentInEnrollment)
+                {
+                    return new Response<EnrollmentDto> { Succeeded = false, Message = "Student already enrolled in this course" };
+                }
+
                 var enrollment = _mapper.Map<Enrollment>(request);
 
                 enrollment.CreatedOn = DateTime.Now;
@@ -159,8 +170,19 @@ namespace StudentManagementSystem.Application.Services
                 var checkedCourseFullSlot = await _courseRepository.CheckCourseFullSlot(request.CourseId);
                 if (checkedCourseFullSlot)
                 {
+                    await _courseRepository.UpdateStateCourse(enrollment.CourseId, CourseStateType.InProgress);
                     return new Response<EnrollmentDto> { Succeeded = false, Message = "Course is full slot" };
                 }
+                var course = await _courseRepository.GetByIdAsync(request.CourseId);
+
+                if (course is null)
+                {
+                    return new Response<EnrollmentDto> { Succeeded = false, Message = "Course not found" };
+                }
+                course.StudentInCourse = await _enrollmentRepository.CountStudentInCourse(course.Id);
+
+                await _courseRepository.UpdateAsync(course);
+                var studentInCourse = await _enrollmentRepository.CountStudentInCourse(request.CourseId);
 
                 await _enrollmentRepository.AddAsync(enrollment);
 

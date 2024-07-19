@@ -12,5 +12,9 @@ namespace StudentManagementSystem.Application.Interface.Repositories
         Task<bool> CheckStudentPassCourse(Guid enrollmentId, double grade);
 
         Task<(IEnumerable<Enrollment> Data, int TotalRecords)> GetAllEnrollmentOfStudent(PaginationFilter? pagination, Guid studentId, CourseLevelType? level, EnrolmentStateType? enrolmentStateType, bool? isPassed, string? search, string? orderBy, bool? isDescending);
+
+        Task<int> CountStudentInCourse(Guid courseId);
+
+        Task<bool> CheckUserExsitingInEnrollment(Guid courseId, Guid studentId);
     }
 }

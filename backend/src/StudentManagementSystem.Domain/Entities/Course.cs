@@ -11,6 +11,8 @@ namespace StudentManagementSystem.Domain.Entities
         public int Credits { get; set; }
 
         public CourseLevelType Level { get; set; }
+
+        public int? StudentInCourse { get; set; }
         public int MaxStudent { get; set; }
 
         public CourseStateType CourseState { get; set; }

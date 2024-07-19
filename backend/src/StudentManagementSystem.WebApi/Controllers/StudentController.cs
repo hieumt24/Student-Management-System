@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using StudentManagementSystem.Application.DTOs.Enrollments.Requests;
+using StudentManagementSystem.Application.DTOs.Users.Requests;
 using StudentManagementSystem.Application.Filters;
 using StudentManagementSystem.Application.Interface.Services;
 using StudentManagementSystem.Domain.Enums;
@@ -18,7 +19,7 @@ namespace StudentManagementSystem.WebApi.Controllers
         }
 
         [HttpPost("enroll")]
-        public async Task<IActionResult> EnrollCourse(AddEnrollmentRequestDto request)
+        public async Task<IActionResult> EnrollCourse(AddStudentEnrollmentRequestDto request)
         {
             var response = await _enrollmentService.StudentEnrollmentCourse(request);
             if (response.Succeeded)
