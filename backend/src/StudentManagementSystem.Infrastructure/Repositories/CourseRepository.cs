@@ -51,12 +51,10 @@ namespace StudentManagementSystem.Infrastructure.Repositories
                     { nameof(Course.CourseState), x => x.CourseState }
                 };
 
-                if (columnsSelector.ContainsKey(orderBy.ToLower()))
-                {
-                    query = isDescending.HasValue && isDescending.Value
-                        ? query.OrderByDescending(columnsSelector[orderBy])
-                        : query.OrderBy(columnsSelector[orderBy]);
-                }
+                var selectedColumn = columnsSelector[orderBy];
+                query = isDescending.HasValue && isDescending.Value
+                    ? query.OrderByDescending(selectedColumn)
+                    : query.OrderBy(selectedColumn);
             }
 
             var courses = await query

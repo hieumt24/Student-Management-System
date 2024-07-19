@@ -43,12 +43,11 @@ namespace StudentManagementSystem.Infrastructure.Repositories
                 {
                     {"semesterCode", x => x.SemesterCode }
                 };
-                if (columnsSelector.ContainsKey(orderBy.ToLower()))
-                {
-                    query = isDescending.HasValue && isDescending.Value
-                        ? query.OrderByDescending(columnsSelector[orderBy])
-                        : query.OrderBy(columnsSelector[orderBy]);
-                }
+                var selectedColumn = columnsSelector[orderBy];
+
+                query = isDescending.HasValue && isDescending.Value
+                    ? query.OrderByDescending(selectedColumn)
+                    : query.OrderBy(selectedColumn);
             }
             var semesters = await query
                 .Skip((pagination.PageIndex - 1) * pagination.PageSize)
