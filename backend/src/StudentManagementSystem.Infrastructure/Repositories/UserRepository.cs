@@ -147,7 +147,7 @@ namespace StudentManagementSystem.Infrastructure.Repositories
             //else default sort by StudentCode
             else
             {
-                query = query.OrderBy(x => x.StudentCode);
+                query = query.OrderBy(x => x.CreatedOn);
             }
 
             var users = await query.
