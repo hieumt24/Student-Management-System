@@ -2,7 +2,7 @@ import { toast } from "react-toastify";
 import { useAuth } from "../../hooks";
 import { enrollCourse } from "../../services";
 
-export const CourseCard = ({ course, enroll = false, enrolled = false, full = false }) => {
+export const CourseCard = ({ course, enroll = false, enrolled = false, full = false, onEnroll }) => {
   const courseStateColors = {
     0: "bg-gray-200",
     1: "bg-green-200",
@@ -22,13 +22,13 @@ export const CourseCard = ({ course, enroll = false, enrolled = false, full = fa
   const {user} = useAuth();
 
   const handleEnroll = () => {
-    console.log(course);
     enrollCourse({
         studentId: user.id,
         courseId: course.id,
         location: user.location
     }).then((response)=>{
         if (response.data.succeeded) {
+            onEnroll();
             toast.success("Enroll successfully");
         } else {
             toast.error(response.data.message);
@@ -36,7 +36,7 @@ export const CourseCard = ({ course, enroll = false, enrolled = false, full = fa
     }).catch((err)=>{
         console.log(err);
         toast.error(err || "Unexpected error");
-    })
+    });
   };
 
   return (
@@ -53,7 +53,7 @@ export const CourseCard = ({ course, enroll = false, enrolled = false, full = fa
         <p className="text-gray-600 mb-2">Course Code: {course.courseCode}</p>
         <p className="text-gray-600 mb-2">Credits: {course.credits}</p>
         <p className="text-gray-600 mb-2">
-          Student Joined: {course.studentInCourse}
+          Student Joined: {course.studentInCourse || 0}
         </p>
         <p className="text-gray-600">Max Students: {course.maxStudent}</p>
 
