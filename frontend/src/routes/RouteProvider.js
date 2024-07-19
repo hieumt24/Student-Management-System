@@ -3,6 +3,7 @@ import { AuthRequired } from "../components/auth";
 import { LoadingSpinner } from "../components/LoadingSpinner";
 import { useAuth } from "../hooks";
 import Login from "../pages/auth/Login";
+import { CourseList, CreateCourse } from "../pages/courses";
 import LandingPage from "../pages/LandingPage";
 import Layout from "../pages/Layout";
 import NotFound from "../pages/NotFound";
@@ -53,6 +54,17 @@ export const RouteProvider = () => {
           >
             <Route path="" element={<SemesterList />}></Route>
             <Route path="create" element={<CreateSemester />}></Route>
+          </Route>
+          <Route
+            path="/courses"
+            element={
+              <AuthRequired>
+                <Layout />
+              </AuthRequired>
+            }
+          >
+            <Route path="" element={<CourseList />}></Route>
+            <Route path="create" element={<CreateCourse />}></Route>
           </Route>
         </>
       ) : (

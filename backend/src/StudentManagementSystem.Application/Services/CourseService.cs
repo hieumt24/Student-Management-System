@@ -44,6 +44,12 @@ namespace StudentManagementSystem.Application.Services
 
                 course.CreatedOn = DateTime.Now;
 
+                var checkCourseCode = await _courseRepository.CheckCourseCodeExsiting(course.CourseCode);
+                if (checkCourseCode)
+                {
+                    return new Response<CourseDto> { Succeeded = false, Message = "Course code already exists" };
+                }
+
                 await _courseRepository.AddAsync(course);
 
                 var courseDto = _mapper.Map<CourseDto>(course);

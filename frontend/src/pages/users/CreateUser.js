@@ -15,7 +15,7 @@ export const CreateUser = () => {
     role: 2,
   });
   const [errors, setErrors] = useState({});
-  const {user} = useAuth();
+  const { user } = useAuth();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -71,7 +71,7 @@ export const CreateUser = () => {
     e.preventDefault();
     if (validateForm()) {
       try {
-        await createUser({...formData, location: user.location});
+        await createUser({ ...formData, location: user.location });
         setFormData({
           firstName: "",
           lastName: "",
@@ -83,6 +83,7 @@ export const CreateUser = () => {
         toast.success("User created");
         navigate("/users");
       } catch (error) {
+        toast.error(error.response.data.message);
         console.error("Error creating user:", error);
       }
     }
@@ -110,9 +111,8 @@ export const CreateUser = () => {
                 <MdDriveFileRenameOutline className="text-gray-400" />
               </div>
               <input
-                className={`shadow appearance-none border rounded w-full py-2 px-3 pl-10 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
-                  errors.firstName ? "border-red-500" : ""
-                }`}
+                className={`shadow appearance-none border rounded w-full py-2 px-3 pl-10 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${errors.firstName ? "border-red-500" : ""
+                  }`}
                 id="firstName"
                 type="text"
                 placeholder="Enter user first name"
@@ -139,9 +139,8 @@ export const CreateUser = () => {
                 <MdDriveFileRenameOutline className="text-gray-400" />
               </div>
               <input
-                className={`shadow appearance-none border rounded w-full py-2 px-3 pl-10 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
-                  errors.lastName ? "border-red-500" : ""
-                }`}
+                className={`shadow appearance-none border rounded w-full py-2 px-3 pl-10 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${errors.lastName ? "border-red-500" : ""
+                  }`}
                 id="lastName"
                 type="text"
                 placeholder="Enter user last name"
@@ -168,9 +167,8 @@ export const CreateUser = () => {
                 <MdDriveFileRenameOutline className="text-gray-400" />
               </div>
               <input
-                className={`shadow appearance-none border rounded w-full py-2 px-3 pl-10 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
-                  errors.dateOfBirth ? "border-red-500" : ""
-                }`}
+                className={`shadow appearance-none border rounded w-full py-2 px-3 pl-10 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${errors.dateOfBirth ? "border-red-500" : ""
+                  }`}
                 id="dateOfBirth"
                 type="date"
                 placeholder="Enter user last name"
@@ -197,9 +195,8 @@ export const CreateUser = () => {
                 <MdDriveFileRenameOutline className="text-gray-400" />
               </div>
               <input
-                className={`shadow appearance-none border rounded w-full py-2 px-3 pl-10 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
-                  errors.joinedDate ? "border-red-500" : ""
-                }`}
+                className={`shadow appearance-none border rounded w-full py-2 px-3 pl-10 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${errors.joinedDate ? "border-red-500" : ""
+                  }`}
                 id="joinedDate"
                 type="date"
                 placeholder="Enter user last name"

@@ -43,6 +43,7 @@ export const CreateSemester = () => {
                 toast.success("Semester created");
                 navigate("/semesters");
             } catch (error) {
+                toast.error(error.response.data.message);
                 console.error('Error creating semester:', error);
             }
         }
