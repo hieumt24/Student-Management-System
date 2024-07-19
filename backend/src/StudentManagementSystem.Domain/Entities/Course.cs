@@ -10,14 +10,12 @@ namespace StudentManagementSystem.Domain.Entities
 
         public int Credits { get; set; }
 
-        public int Level { get; set; }
+        public CourseLevelType Level { get; set; }
         public int MaxStudent { get; set; }
 
         public CourseStateType CourseState { get; set; }
-        public Guid SemesterId { get; set; }
-
-        public Semester Semester { get; set; }
 
         public ICollection<Enrollment>? Enrollments { get; set; }
+        public ICollection<CourseSemester>? CourseSemesters { get; set; }
     }
 }
