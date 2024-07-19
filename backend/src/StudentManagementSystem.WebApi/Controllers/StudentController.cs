@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using StudentManagementSystem.Application.DTOs.Enrollments.Requests;
 using StudentManagementSystem.Application.DTOs.Users.Requests;
 using StudentManagementSystem.Application.Filters;
@@ -9,6 +10,7 @@ namespace StudentManagementSystem.WebApi.Controllers
 {
     [Route("api/v1/students")]
     [ApiController]
+    [Authorize]
     public class StudentController : ControllerBase
     {
         private readonly IEnrollmentService _enrollmentService;

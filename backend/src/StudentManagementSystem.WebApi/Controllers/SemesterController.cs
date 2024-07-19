@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using StudentManagementSystem.Application.DTOs.Semesters.Requests;
 using StudentManagementSystem.Application.Filters;
 using StudentManagementSystem.Application.Interface.Services;
@@ -7,6 +8,7 @@ namespace StudentManagementSystem.WebApi.Controllers
 {
     [Route("api/v1/semesters")]
     [ApiController]
+    [Authorize(Roles = "Admin")]
     public class SemesterController : ControllerBase
     {
         private readonly ISemesterService _semesterService;
