@@ -35,7 +35,7 @@ namespace StudentManagementSystem.Infrastructure.Repositories
 
         public async Task<bool> CheckUserExsitingInEnrollment(Guid courseId, Guid studentId)
         {
-            var checkUser = _dbContext.Enrollments.FirstOrDefaultAsync(x => x.CourseId == courseId && x.StudentId == studentId);
+            var checkUser = await _dbContext.Enrollments.FirstOrDefaultAsync(x => x.CourseId == courseId && x.StudentId == studentId);
             if (checkUser != null)
             {
                 return true;
