@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using StudentManagementSystem.Application.Models;
 using StudentManagementSystem.Domain.Entities;
 using StudentManagementSystem.Domain.Enums;
 

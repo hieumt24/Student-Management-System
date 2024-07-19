@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.OData;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.OData.Edm;
 using Microsoft.OData.ModelBuilder;
 using Microsoft.OpenApi.Models;
@@ -22,7 +23,7 @@ namespace StudentManagementSystem.WebApi
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-
+            builder.Services.AddHttpContextAccessor();
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                          options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
                          b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)
@@ -76,6 +77,7 @@ namespace StudentManagementSystem.WebApi
 
             Application.Extensions.ServiceExtensions.ConfigureServices(builder.Services, builder.Configuration);
             Infrastructure.Extensions.InfrastructureExtension.Configure(builder.Services, builder.Configuration);
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -93,7 +95,12 @@ namespace StudentManagementSystem.WebApi
             app.UseAuthentication();
 
             app.UseAuthorization();
-
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "Images")),
+                RequestPath = "/Images"
+                // https://localhost:1234/Images
+            });
             app.MapControllers();
 
             app.Run();
