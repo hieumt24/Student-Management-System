@@ -41,7 +41,10 @@ namespace StudentManagementSystem.Infrastructure.Repositories
             {
                 var columnsSelector = new Dictionary<string, Expression<Func<Semester, object>>>
                 {
-                    {"semesterCode", x => x.SemesterCode }
+                    {"semesterCode", x => x.SemesterCode },
+                    {"academicYear", x => x.AcademicYear },
+                    { "semesterName", x => x.SemesterName }
+               
                 };
                 var selectedColumn = columnsSelector[orderBy];
 
