@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { MdDriveFileRenameOutline } from "react-icons/md";
-import { createSemester } from "../../services/semestersService";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { useAuth } from "../../hooks";
+import { createUser } from "../../services/usersServices";
 
 export const CreateUser = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +15,7 @@ export const CreateUser = () => {
     role: 2,
   });
   const [errors, setErrors] = useState({});
+  const {user} = useAuth();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -61,12 +65,13 @@ export const CreateUser = () => {
     return Object.keys(tempErrors).length === 0;
   };
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
       try {
-        const response = await createSemester(formData);
-        console.log("User created:", response);
+        const response = await createUser({...formData, location: user.location});
         setFormData({
           firstName: "",
           lastName: "",
@@ -75,6 +80,8 @@ export const CreateUser = () => {
           gender: 1,
           role: 2,
         });
+        toast.success("User created");
+        navigate("/users");
       } catch (error) {
         console.error("Error creating user:", error);
       }

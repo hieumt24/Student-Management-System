@@ -1,7 +1,7 @@
 import { jwtDecode } from "jwt-decode";
 import React, { createContext, useContext, useEffect, useState } from "react";
 
-const AuthContext = createContext({
+export const AuthContext = createContext({
   token: null,
   isAuthenticated: false,
   setIsAuthenticated: () => {},
@@ -39,7 +39,7 @@ export const AuthProvider = ({ children }) => {
         role: decodedToken[
           "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"
         ],
-        location: decodedToken.Location
+        location: parseInt(decodedToken.Location)
       });
     } else {
       setUser({
