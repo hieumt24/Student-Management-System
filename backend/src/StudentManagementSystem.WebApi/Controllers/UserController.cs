@@ -61,5 +61,28 @@ namespace StudentManagementSystem.WebApi.Controllers
             }
             return BadRequest(response);
         }
+
+        [HttpDelete("{userId}")]
+        public async Task<IActionResult> DeleteUserAsync(Guid userId)
+        {
+            var response = await _userService.DeleteUserAsync(userId);
+            if (response.Succeeded)
+            {
+                return Ok(response);
+            }
+            return BadRequest(response);
+        }
+
+        [HttpPost]
+        [Route("isValidDeletedUser/{userId}")]
+        public async Task<IActionResult> IsValidDeletedUser(Guid userId)
+        {
+            var response = await _userService.IsValidDeletedUser(userId);
+            if (response.Succeeded)
+            {
+                return Ok(response);
+            }
+            return BadRequest(response);
+        }
     }
 }
