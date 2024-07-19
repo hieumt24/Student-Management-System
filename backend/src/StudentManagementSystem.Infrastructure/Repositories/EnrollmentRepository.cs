@@ -114,6 +114,11 @@ namespace StudentManagementSystem.Infrastructure.Repositories
             return enrollment;
         }
 
+        public async Task<List<Enrollment>> GetReportStudentInEnrollment(Guid studentId)
+        {
+            return await _dbContext.Enrollments.Include(x => x.Course).Include(x => x.Semester).Include(x => x.Student).Where(x => x.StudentId == studentId && !x.IsDeleted).ToListAsync();
+        }
+
         public async Task<Enrollment> GetStudentInEnrollment(Guid studentId)
         {
             return await _dbContext.Enrollments.Where(x => x.StudentId == studentId && !x.IsDeleted).FirstOrDefaultAsync();

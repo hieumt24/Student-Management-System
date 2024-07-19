@@ -18,5 +18,7 @@ namespace StudentManagementSystem.Application.Interface.Repositories
         Task<bool> CheckUserExsitingInEnrollment(Guid courseId, Guid studentId);
 
         Task<Enrollment> GetStudentInEnrollment(Guid studentId);
+
+        Task<List<Enrollment>> GetReportStudentInEnrollment(Guid studentId);
     }
 }

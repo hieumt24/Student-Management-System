@@ -133,7 +133,8 @@ namespace StudentManagementSystem.Infrastructure.Repositories
                     { "lastName", x => x.LastName },
                     { "userName", x => x.UserName },
                     {"dateOfBirth", x => x.DateOfBirth},
-                    { "joineddate", x => x.JoinedDate },
+                    { "joinedDate", x => x.JoinedDate },
+                    {"gender", x => x.Gender },
                     { "role", x => x.Role },
                     {"createdon", x => x.CreatedOn },
                     { "lastmodifiedon", x => x.LastModifiedOn }

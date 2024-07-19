@@ -71,7 +71,7 @@ namespace StudentManagementSystem.Application.Services
             }
         }
 
-        public async Task<PagedResponse<List<EnrollmentResponseDto>>> GetAllEnrollmentOfStudnet(PaginationFilter? pagination, Guid studentId, CourseLevelType? level, EnrolmentStateType? enrolmentStateType, bool? isPassed, string? search, string? orderBy, bool? isDescending)
+        public async Task<PagedResponse<List<EnrollmentResponseDto>>> GetAllEnrollmentOfStudents(PaginationFilter? pagination, Guid studentId, CourseLevelType? level, EnrolmentStateType? enrolmentStateType, bool? isPassed, string? search, string? orderBy, bool? isDescending)
         {
             try
             {
@@ -102,6 +102,24 @@ namespace StudentManagementSystem.Application.Services
                 }
                 var courseResponseDto = _mapper.Map<List<EnrollmentResponseDto>>(course);
                 return new Response<List<EnrollmentResponseDto>> { Succeeded = true, Data = courseResponseDto };
+            }
+            catch (Exception ex)
+            {
+                return new Response<List<EnrollmentResponseDto>> { Succeeded = false, Message = ex.Message };
+            }
+        }
+
+        public async Task<Response<List<EnrollmentResponseDto>>> GetReportGradeOfStudent(Guid studentId)
+        {
+            try
+            {
+                var reportGrade = await _enrollmentRepository.GetReportStudentInEnrollment(studentId);
+                if (reportGrade is null)
+                {
+                    return new Response<List<EnrollmentResponseDto>> { Succeeded = false, Message = "Report grade not found" };
+                }
+                var reportGradeResponseDto = _mapper.Map<List<EnrollmentResponseDto>>(reportGrade);
+                return new Response<List<EnrollmentResponseDto>> { Succeeded = true, Data = reportGradeResponseDto };
             }
             catch (Exception ex)
             {
