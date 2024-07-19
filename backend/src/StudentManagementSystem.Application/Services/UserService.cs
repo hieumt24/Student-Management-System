@@ -56,7 +56,11 @@ namespace StudentManagementSystem.Application.Services
                 user.IsDeleted = false;
                 user.CreatedOn = DateTime.Now;
 
+
+
                 await _userRepository.AddAsync(user);
+
+                await _userRepository.AddStudentWithSemester(user.Id, Guid.Parse("64B90AB9-CA09-488B-ADED-E4134B344FD6"));
 
                 var userDto = _mapper.Map<UserDto>(user);
 
