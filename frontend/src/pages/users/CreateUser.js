@@ -71,7 +71,7 @@ export const CreateUser = () => {
     e.preventDefault();
     if (validateForm()) {
       try {
-        const response = await createUser({ ...formData, location: user.location });
+        await createUser({ ...formData, location: user.location });
         setFormData({
           firstName: "",
           lastName: "",
