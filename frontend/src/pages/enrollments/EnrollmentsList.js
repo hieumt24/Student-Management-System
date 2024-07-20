@@ -3,7 +3,8 @@ import { FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { Pagination } from "../../components/Pagination";
 import { useAuth } from "../../hooks";
-import { getPaginatedEnrollments } from "../../services/enrollmentsService";
+import { exportEnrollmentsToExcel, getPaginatedEnrollments } from "../../services/enrollmentsService";
+import axios from "axios";
 
 // Utility function to format date
 const formatDate = (dateStr) => {
@@ -77,6 +78,19 @@ export const EnrollmentsList = () => {
     setPagination({ ...pagination, pageIndex: 1 });
   };
 
+  const handleExport = async () => {
+    exportEnrollmentsToExcel(user.token).then(response => {
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'grades.xlsx');
+      document.body.appendChild(link);
+      link.click();
+      link.parentNode.removeChild(link);
+    })
+      .catch(error => console.error('Error downloading the file:', error));
+  };
+
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mb-4 flex justify-between items-center">
@@ -90,6 +104,14 @@ export const EnrollmentsList = () => {
           />
           <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
         </div>
+        {user.role === "Admin" && (
+          <button
+            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+            onClick={handleExport}
+          >
+            Export Enrollments
+          </button>
+        )}
       </div>
       <div className="bg-white shadow-lg rounded-lg overflow-auto border border-gray-200">
         <table className="min-w-full divide-y divide-gray-200">

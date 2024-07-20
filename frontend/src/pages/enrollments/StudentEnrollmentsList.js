@@ -39,7 +39,7 @@ export const StudentEnrollmentsList = () => {
             search: searchQuery,
             orderBy: sortConfig.key,
             isDescending: sortConfig.direction === "descending",
-            studentId: user.id, // Assuming the user object has an id field
+            studentId: user.id,
         })
             .then((response) => {
                 setEnrollments(response.data.data || []);

@@ -11,6 +11,6 @@ export const exportStudentEnrollmentsToExcel = (studentId, token) => {
             'Accept': 'application/json',
             'Authorization': `Bearer ${token}`
         },
-        responseType: 'blob' // Để nhận blob từ server
+        responseType: 'blob'
     });
 };
