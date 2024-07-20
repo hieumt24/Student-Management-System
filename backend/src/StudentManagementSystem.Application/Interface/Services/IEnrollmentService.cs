@@ -15,7 +15,7 @@ namespace StudentManagementSystem.Application.Interface.Services
 
         Task<Response<List<EnrollmentResponseDto>>> GetCourseById(Guid courseId);
 
-        Task<Response<EnrollmentDto>> InsertGradeForStudnet(EditEnrollmentRequestDto request);
+        Task<Response<EnrollmentDto>> InsertGradeForStudnet(EditEnrollmentRequestDto request, Guid enrollmentId);
 
         Task<Response<List<EnrollmentResponseDto>>> GetReportGradeOfStudent(Guid studentId);
 

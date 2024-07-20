@@ -32,10 +32,10 @@ export const CreateUser = () => {
     if (formData.firstName.trim() === "") {
       tempErrors.firstName = "First Name is required";
     } else if (
-      formData.firstName.trim().length < 4 ||
+      formData.firstName.trim().length < 2 ||
       formData.firstName.trim().length > 50
     ) {
-      tempErrors.firstName = "First Name must be between 4 and 50 characters";
+      tempErrors.firstName = "First Name must be between 2 and 50 characters";
     } else if (formData.firstName.trim().includes(" ")) {
       tempErrors.firstName = "First Name must be one word";
     }
@@ -111,8 +111,9 @@ export const CreateUser = () => {
                 <MdDriveFileRenameOutline className="text-gray-400" />
               </div>
               <input
-                className={`shadow appearance-none border rounded w-full py-2 px-3 pl-10 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${errors.firstName ? "border-red-500" : ""
-                  }`}
+                className={`shadow appearance-none border rounded w-full py-2 px-3 pl-10 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
+                  errors.firstName ? "border-red-500" : ""
+                }`}
                 id="firstName"
                 type="text"
                 placeholder="Enter user first name"
@@ -139,8 +140,9 @@ export const CreateUser = () => {
                 <MdDriveFileRenameOutline className="text-gray-400" />
               </div>
               <input
-                className={`shadow appearance-none border rounded w-full py-2 px-3 pl-10 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${errors.lastName ? "border-red-500" : ""
-                  }`}
+                className={`shadow appearance-none border rounded w-full py-2 px-3 pl-10 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
+                  errors.lastName ? "border-red-500" : ""
+                }`}
                 id="lastName"
                 type="text"
                 placeholder="Enter user last name"
@@ -167,8 +169,9 @@ export const CreateUser = () => {
                 <MdDriveFileRenameOutline className="text-gray-400" />
               </div>
               <input
-                className={`shadow appearance-none border rounded w-full py-2 px-3 pl-10 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${errors.dateOfBirth ? "border-red-500" : ""
-                  }`}
+                className={`shadow appearance-none border rounded w-full py-2 px-3 pl-10 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
+                  errors.dateOfBirth ? "border-red-500" : ""
+                }`}
                 id="dateOfBirth"
                 type="date"
                 placeholder="Enter user last name"
@@ -195,8 +198,9 @@ export const CreateUser = () => {
                 <MdDriveFileRenameOutline className="text-gray-400" />
               </div>
               <input
-                className={`shadow appearance-none border rounded w-full py-2 px-3 pl-10 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${errors.joinedDate ? "border-red-500" : ""
-                  }`}
+                className={`shadow appearance-none border rounded w-full py-2 px-3 pl-10 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
+                  errors.joinedDate ? "border-red-500" : ""
+                }`}
                 id="joinedDate"
                 type="date"
                 placeholder="Enter user last name"
@@ -228,7 +232,10 @@ export const CreateUser = () => {
                     value={1}
                     checked={formData.gender === 1}
                     onChange={(e) => {
-                      setFormData({ ...formData, gender: parseInt(e.target.value) });
+                      setFormData({
+                        ...formData,
+                        gender: parseInt(e.target.value),
+                      });
                     }}
                   />
                   <label htmlFor="gender-male">Male</label>
@@ -241,7 +248,10 @@ export const CreateUser = () => {
                     value={2}
                     checked={formData.gender === 2}
                     onChange={(e) => {
-                      setFormData({ ...formData, gender: parseInt(e.target.value) });
+                      setFormData({
+                        ...formData,
+                        gender: parseInt(e.target.value),
+                      });
                     }}
                   />
                   <label htmlFor="gender-female">Female</label>
@@ -271,7 +281,10 @@ export const CreateUser = () => {
                     value={1}
                     checked={formData.role === 1}
                     onChange={(e) => {
-                      setFormData({ ...formData, role: parseInt(e.target.value) });
+                      setFormData({
+                        ...formData,
+                        role: parseInt(e.target.value),
+                      });
                     }}
                   />
                   <label htmlFor="role-admin">Admin</label>
@@ -284,7 +297,10 @@ export const CreateUser = () => {
                     value={2}
                     checked={formData.role === 2}
                     onChange={(e) => {
-                      setFormData({ ...formData, role: parseInt(e.target.value) });
+                      setFormData({
+                        ...formData,
+                        role: parseInt(e.target.value),
+                      });
                     }}
                   />
                   <label htmlFor="role-student">Student</label>
@@ -292,9 +308,7 @@ export const CreateUser = () => {
               </div>
             </div>
             {errors.role && (
-              <p className="text-red-500 text-xs italic mt-1">
-                {errors.role}
-              </p>
+              <p className="text-red-500 text-xs italic mt-1">{errors.role}</p>
             )}
           </div>
           <div className="flex items-center justify-center">
