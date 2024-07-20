@@ -5,21 +5,21 @@ export function getPaginatedEnrollments(request) {
   return axiosInstance.get(`/enrollments?${queryParams}`);
 }
 export function createEnrollment(request) {
-  return axiosInstance.post("/users", request);
+  return axiosInstance.post("/enrollments", request);
 }
 
-export function getEnrollmentById(userId) {
-  return axiosInstance.get(`/users/${userId}`);
+export function getEnrollmentById(enrollmentId) {
+  return axiosInstance.get(`/enrollments/${enrollmentId}`);
 }
 
-export function updateEnrollment(userId, request) {
-  return axiosInstance.put(`/users/${userId}`, request);
+export function updateEnrollment(enrollmentId, request) {
+  return axiosInstance.put(`/enrollments/${enrollmentId}`, request);
 }
 
-export function checkEnrollmentValidForDelete(userId) {
-  return axiosInstance.post(`/users/isValidDeletedUser/${userId}`);
+export function checkEnrollmentValidForDelete(enrollmentId) {
+  return axiosInstance.post(`/enrollments/isValidDeletedUser/${enrollmentId}`);
 }
 
-export function deleteEnrollment(userId) {
-  return axiosInstance.delete(`/users/${userId}`);
+export function deleteEnrollment(enrollmentId) {
+  return axiosInstance.delete(`/enrollments/${enrollmentId}`);
 }

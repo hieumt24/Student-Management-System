@@ -22,8 +22,8 @@ const EnrollmentState = {
 
 const stateColors = {
   Enrolled: "bg-yellow-200",
-  Passed: "bg-green-400",
-  Failed: "bg-red-200",
+  Passed: "bg-green-600",
+  Failed: "bg-red-600",
 };
 
 export const EnrollmentsList = () => {
