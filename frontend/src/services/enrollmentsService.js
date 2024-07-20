@@ -23,3 +23,14 @@ export function checkEnrollmentValidForDelete(enrollmentId) {
 export function deleteEnrollment(enrollmentId) {
   return axiosInstance.delete(`/enrollments/${enrollmentId}`);
 }
+
+export const exportEnrollmentsToExcel = (token) => {
+  const url = `/enrollments/report`;
+  return axiosInstance.get(url, {
+    headers: {
+      'Accept': 'application/json',
+      'Authorization': `Bearer ${token}`
+    },
+    responseType: 'blob'
+  });
+};

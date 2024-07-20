@@ -10,7 +10,7 @@ import NotFound from "../pages/NotFound";
 import { CreateSemester, SemesterList } from "../pages/semester";
 import { CreateUser, EditUser, UsersList } from "../pages/users";
 import { EditCourse } from "../pages/courses/EditCourse";
-import { EnrollmentsList, EditEnrollment } from "../pages/enrollments";
+import { EnrollmentsList, EditEnrollment, StudentEnrollmentsList } from "../pages/enrollments";
 export const RouteProvider = () => {
   const { user, loading } = useAuth();
   if (loading)
@@ -97,7 +97,8 @@ export const RouteProvider = () => {
                 <LandingPage />
               </AuthRequired>
             }
-          />
+          >
+          </Route>
           <Route
             path="/courses"
             element={
@@ -107,6 +108,16 @@ export const RouteProvider = () => {
             }
           >
             <Route path="" element={<CourseList />} />
+          </Route>
+          <Route
+            path="/your-grade"
+            element={
+              <AuthRequired>
+                <Layout />
+              </AuthRequired>
+            }
+          >
+            <Route path="" element={<StudentEnrollmentsList />} />
           </Route>
         </>
       )}
