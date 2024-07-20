@@ -115,6 +115,24 @@ namespace StudentManagementSystem.Application.Services
             }
         }
 
+        public async Task<IQueryable<UserResponseDto>> GetAllOdataUserAsync()
+        {
+            try
+            {
+                var users = await _userRepository.GetAllAsync();
+                if (users is null)
+                {
+                    return null;
+                }
+                var userResponseDto = _mapper.Map<List<UserResponseDto>>(users);
+                return userResponseDto.AsQueryable();
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
         public async Task<PagedResponse<List<UserResponseDto>>> GetAllUserAsync(PaginationFilter? pagination, LocationType location, string? search, RoleType? role, string? orderBy, bool? isDescending)
         {
             try

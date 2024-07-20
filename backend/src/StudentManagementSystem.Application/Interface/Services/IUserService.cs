@@ -19,5 +19,7 @@ namespace StudentManagementSystem.Application.Interface.Services
         Task<Response<UserDto>> DeleteUserAsync(Guid userId);
 
         Task<Response<bool>> IsValidDeletedUser(Guid userId);
+
+        Task<IQueryable<UserResponseDto>> GetAllOdataUserAsync();
     }
 }

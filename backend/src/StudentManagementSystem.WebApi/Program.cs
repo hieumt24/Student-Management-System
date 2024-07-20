@@ -109,7 +109,7 @@ namespace StudentManagementSystem.WebApi
 
         private static IEdmModel GetEdmModel()
         {
-            ODataConventionModelBuilder builder = new();
+            ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
             builder.EntitySet<User>("Users");
             builder.EntitySet<Course>("Courses");
             builder.EntitySet<Semester>("Semesters");
