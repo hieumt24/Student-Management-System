@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.OData.Query;
 using StudentManagementSystem.Application.DTOs.Users.Requests;
 using StudentManagementSystem.Application.Filters;
 using StudentManagementSystem.Application.Interface.Services;
@@ -9,7 +10,6 @@ namespace StudentManagementSystem.WebApi.Controllers
 {
     [Route("api/v1/users")]
     [ApiController]
-    [Authorize]
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
@@ -62,6 +62,7 @@ namespace StudentManagementSystem.WebApi.Controllers
         }
 
         [HttpDelete("{userId}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteUserAsync(Guid userId)
         {
             var response = await _userService.DeleteUserAsync(userId);
@@ -74,9 +75,19 @@ namespace StudentManagementSystem.WebApi.Controllers
 
         [HttpPost]
         [Route("isValidDeletedUser/{userId}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> IsValidDeletedUser(Guid userId)
         {
             var response = await _userService.IsValidDeletedUser(userId);
+            return Ok(response);
+        }
+
+        [EnableQuery]
+        [HttpGet]
+        [Route("odata")]
+        public async Task<IActionResult> GetAllOdataUserAsync()
+        {
+            var response = await _userService.GetAllOdataUserAsync();
             return Ok(response);
         }
     }

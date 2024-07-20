@@ -22,5 +22,7 @@ namespace StudentManagementSystem.Application.Interface.Repositories
         Task<Enrollment> GetStudentInEnrollment(Guid studentId);
 
         Task<List<Enrollment>> GetReportStudentInEnrollment(Guid studentId);
+
+        Task<List<Enrollment>> GetReportStudentInEnrollmentForAdmin();
     }
 }

@@ -12,10 +12,12 @@ namespace StudentManagementSystem.WebApi.Controllers
     public class EnrollmentController : ControllerBase
     {
         private readonly IEnrollmentService _enrollmentService;
+        private readonly IEportDataService _eportDataService;
 
-        public EnrollmentController(IEnrollmentService enrollmentService)
+        public EnrollmentController(IEnrollmentService enrollmentService, IEportDataService eportDataService)
         {
             _enrollmentService = enrollmentService;
+            _eportDataService = eportDataService;
         }
 
         [HttpGet]
@@ -72,6 +74,14 @@ namespace StudentManagementSystem.WebApi.Controllers
                 return Ok(response);
             }
             return BadRequest(response);
+        }
+
+        [HttpGet]
+        [Route("report")]
+        public async Task<IActionResult> GetReportGradeOfStudentForAdmin()
+        {
+            var response = await _eportDataService.ExportGradeStudentToExcelAsyncForAdmin();
+            return File(response, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "ExportGradeStudent.xlsx");
         }
     }
 }

@@ -165,6 +165,24 @@ namespace StudentManagementSystem.Application.Services
             }
         }
 
+        public async Task<Response<List<EnrollmentResponseDto>>> GetReportGradeOfStudentForAdmin()
+        {
+            try
+            {
+                var reportGrade = await _enrollmentRepository.GetReportStudentInEnrollmentForAdmin();
+                if (reportGrade is null)
+                {
+                    return new Response<List<EnrollmentResponseDto>> { Succeeded = false, Message = "Report grade not found" };
+                }
+                var reportGradeResponseDto = _mapper.Map<List<EnrollmentResponseDto>>(reportGrade);
+                return new Response<List<EnrollmentResponseDto>> { Succeeded = true, Data = reportGradeResponseDto };
+            }
+            catch (Exception ex)
+            {
+                return new Response<List<EnrollmentResponseDto>> { Succeeded = false, Message = ex.Message };
+            }
+        }
+
         public async Task<Response<EnrollmentDto>> InsertGradeForStudnet(EditEnrollmentRequestDto request, Guid enrollmentId)
         {
             try
