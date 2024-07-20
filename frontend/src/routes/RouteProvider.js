@@ -10,7 +10,7 @@ import NotFound from "../pages/NotFound";
 import { CreateSemester, SemesterList } from "../pages/semester";
 import { CreateUser, EditUser, UsersList } from "../pages/users";
 import { EditCourse } from "../pages/courses/EditCourse";
-import { EnrollmentsList } from "../pages/enrollments";
+import { EnrollmentsList, EditEnrollment } from "../pages/enrollments";
 export const RouteProvider = () => {
   const { user, loading } = useAuth();
   if (loading)
@@ -81,8 +81,11 @@ export const RouteProvider = () => {
             }
           >
             <Route path="" element={<EnrollmentsList />}></Route>
-            {/* <Route path="create" element={<CreateEnrollment />}></Route>
-            <Route path="edit/:enrollmentId" element={<EditEnrollment />}></Route> */}
+            {/* <Route path="create" element={<CreateEnrollment />}></Route> */}
+            <Route
+              path="edit/:enrollmentId"
+              element={<EditEnrollment />}
+            ></Route>
           </Route>
         </>
       ) : (

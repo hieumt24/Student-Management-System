@@ -62,5 +62,16 @@ namespace StudentManagementSystem.WebApi.Controllers
             }
             return BadRequest(response);
         }
+
+        [HttpGet("{enrollmentId}")]
+        public async Task<IActionResult> GetEnrollmentById(Guid enrollmentId)
+        {
+            var response = await _enrollmentService.GetEnrollmentById(enrollmentId);
+            if (response.Succeeded)
+            {
+                return Ok(response);
+            }
+            return BadRequest(response);
+        }
     }
 }
