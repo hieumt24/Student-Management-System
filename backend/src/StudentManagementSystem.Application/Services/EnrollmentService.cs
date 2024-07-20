@@ -129,6 +129,24 @@ namespace StudentManagementSystem.Application.Services
             }
         }
 
+        public async Task<Response<EnrollmentDto>> GetEnrollmentById(Guid enrollmentId)
+        {
+            try
+            {
+                var enrollment = await _enrollmentRepository.GetByIdAsync(enrollmentId);
+                if (enrollment is null)
+                {
+                    return new Response<EnrollmentDto> { Succeeded = false, Message = "Enrollment not found" };
+                }
+                var enrollmentDto = _mapper.Map<EnrollmentDto>(enrollment);
+                return new Response<EnrollmentDto> { Succeeded = true, Data = enrollmentDto };
+            }
+            catch (Exception ex)
+            {
+                return new Response<EnrollmentDto> { Succeeded = false, Message = ex.Message };
+            }
+        }
+
         public async Task<Response<List<EnrollmentResponseDto>>> GetReportGradeOfStudent(Guid studentId)
         {
             try
