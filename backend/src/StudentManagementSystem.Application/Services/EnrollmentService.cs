@@ -147,13 +147,13 @@ namespace StudentManagementSystem.Application.Services
             }
         }
 
-        public async Task<Response<EnrollmentDto>> InsertGradeForStudnet(EditEnrollmentRequestDto request)
+        public async Task<Response<EnrollmentDto>> InsertGradeForStudnet(EditEnrollmentRequestDto request, Guid enrollmentId)
         {
             try
             {
                 var enrollment = _mapper.Map<Enrollment>(request);
 
-                var existingEnrollment = await _enrollmentRepository.GetByIdAsync(enrollment.Id);
+                var existingEnrollment = await _enrollmentRepository.GetByIdAsync(enrollmentId);
                 if (existingEnrollment is null)
                 {
                     return new Response<EnrollmentDto> { Succeeded = false, Message = "Enrollment not found" };

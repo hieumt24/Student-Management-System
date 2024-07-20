@@ -11,7 +11,7 @@ export default function Header() {
     localStorage.removeItem("token");
     setIsAuthenticated(false);
     navigate("/auth/login");
-  }
+  };
   return (
     <>
       <div className="min-h-full">
@@ -43,6 +43,12 @@ export default function Header() {
                           className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                         >
                           Semester
+                        </a>
+                        <a
+                          href="/enrollments"
+                          className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                        >
+                          Enrollments
                         </a>
                       </>
                     )}
@@ -87,7 +93,9 @@ export default function Header() {
                         id="user-menu-button"
                         aria-expanded="false"
                         aria-haspopup="true"
-                        onClick={()=>{setOpenUserMenu(!openUserMenu)}}
+                        onClick={() => {
+                          setOpenUserMenu(!openUserMenu);
+                        }}
                       >
                         <span className="absolute -inset-1.5"></span>
                         <span className="sr-only">Open user menu</span>
@@ -99,7 +107,9 @@ export default function Header() {
                       </button>
                     </div>
                     <div
-                      className={`${!openUserMenu && "hidden"} absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
+                      className={`${
+                        !openUserMenu && "hidden"
+                      } absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
                       role="menu"
                       aria-orientation="vertical"
                       aria-labelledby="user-menu-button"

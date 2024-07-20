@@ -52,10 +52,10 @@ namespace StudentManagementSystem.WebApi.Controllers
             return BadRequest(response);
         }
 
-        [HttpPut]
-        public async Task<IActionResult> InsertGradeForStudnet(EditEnrollmentRequestDto request)
+        [HttpPut("{enrollmentId}")]
+        public async Task<IActionResult> InsertGradeForStudnet(EditEnrollmentRequestDto request, Guid enrollmentId)
         {
-            var response = await _enrollmentService.InsertGradeForStudnet(request);
+            var response = await _enrollmentService.InsertGradeForStudnet(request, enrollmentId);
             if (response.Succeeded)
             {
                 return Ok(response);

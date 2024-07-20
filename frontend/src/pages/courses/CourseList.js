@@ -50,7 +50,7 @@ export const CourseList = () => {
     }
   };
 
-  const [enrolledCourses, setEnrolleCourses] = useState([]);
+  const [enrolledCourses, setEnrolledCourses] = useState([]);
   const fetchEnrolledCourses = () => {
     getStudentEnrollment({
       pageIndex: 1,
@@ -58,7 +58,7 @@ export const CourseList = () => {
       studentId: user.id,
     })
       .then((response) => {
-        setEnrolleCourses(response.data.data || []);
+        setEnrolledCourses(response.data.data || []);
       })
       .catch((err) => {
         console.error(err);
@@ -84,7 +84,14 @@ export const CourseList = () => {
   };
 
   const handleCourseClick = (courseId) => {
-    navigate(`/courses/edit/${courseId}`);
+    if (user.role === "Admin") {
+      navigate(`/courses/edit/${courseId}`);
+    }
+  };
+
+  const handleEnroll = (courseId) => {
+    setRefresh((prev) => prev + 1);
+    navigate(`/courses`);
   };
 
   return (
@@ -141,10 +148,7 @@ export const CourseList = () => {
                   (enrollment) => enrollment.courseId === course.id
                 )}
                 full={course.studentInCourse >= course.maxStudent}
-                onEnroll={(e) => {
-                  e.stopPropagation(); // Prevent navigation when enrolling
-                  setRefresh((prev) => prev + 1);
-                }}
+                onEnroll={() => handleEnroll(course.id)}
               />
             </div>
           ))
