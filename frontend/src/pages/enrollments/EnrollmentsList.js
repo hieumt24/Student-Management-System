@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import { Pagination } from "../../components/Pagination";
 import { useAuth } from "../../hooks";
 import { getPaginatedEnrollments } from "../../services/enrollmentsService";
@@ -183,9 +182,8 @@ export const EnrollmentsList = () => {
                     {enrollment.isPassed ? "Yes" : "No"}
                   </td>
                   <td
-                    className={`px-6 py-4 whitespace-nowrap text-sm text-gray-900 ${
-                      stateColors[EnrollmentState[enrollment.state]]
-                    }`}
+                    className={`px-6 py-4 whitespace-nowrap text-sm text-gray-900 ${stateColors[EnrollmentState[enrollment.state]]
+                      }`}
                   >
                     {EnrollmentState[enrollment.state]}
                   </td>
